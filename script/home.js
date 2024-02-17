@@ -16,4 +16,9 @@ document.addEventListener("click", function(event) {
         hamburger.classList.remove("active");
         navMenu.classList.remove("active");
     }
+
+    if (event.target.classList.contains("nav-link")) {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
 });
