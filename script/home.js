@@ -8,13 +8,12 @@ function mobileMenu() {
     navMenu.classList.toggle("active");
 }
 
-document.body.addEventListener("click", closeMenu);
-
-function closeMenu(event) {
-    if (!event.target.classList.contains("hamburger") && !event.target.classList.contains("nav-menu")) {
-        if (navMenu.classList.contains("active")) {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }
+document.addEventListener("click", function(event) {
+    const isClickInsideNav = navMenu.contains(event.target);
+    const isClickInsideHamburger = hamburger.contains(event.target);
+    
+    if (!isClickInsideNav && !isClickInsideHamburger) {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
     }
-}
+});
