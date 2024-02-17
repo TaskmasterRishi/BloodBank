@@ -1,10 +1,15 @@
 @media only screen and (max-width: 768px) {
+  .navbar{
+      border-radius: 0;
+      height: 6rem;
+  }
+
   .nav-menu {
     position: fixed;
     left: -100%;
-    top: 5rem;
+    top: 6rem;
     flex-direction: column;
-    background-color: #333333;
+    background-color: #333333d0;
     width: 100%;
     text-align: center;
     transition: 0.3s;
@@ -33,5 +38,15 @@
 
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .slider{
+    top : 5.9rem;
+    width: 100vw;
+    height: 25vh;
+  }
+
+  .navigation-manual{
+    display: none;
   }
 }
