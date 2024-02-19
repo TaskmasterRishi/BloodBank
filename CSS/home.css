@@ -26,6 +26,7 @@ a {
 
 body {
   height: 200vh;
+  background-color: rgb(243, 243, 243);
 }
 
 ::-webkit-scrollbar {
