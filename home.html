@@ -1,83 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="Icon/Icon.png">
-    <link rel="stylesheet" href="CSS/home.css">
-    <link rel="stylesheet" href="CSS/home_mediaQuery.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="Icon/Icon.png" />
+    <link rel="stylesheet" href="CSS/home.css" />
+    <link rel="stylesheet" href="CSS/home_mediaQuery.css" />
     <title>Red Bank</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <nav class="navbar">
-            <a href="#" class="nav-logo">
-                <img src="Icon/Icon.png" alt="Icon" height="40px" width="auto">
-                Red Bank
-            </a>
-            <ul class="nav-menu ">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Why Donate Blood</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Become a Donor</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Need Blood</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contect Us</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+      <nav class="navbar">
+        <a href="#" class="nav-logo">
+          <img src="Icon/Icon.png" alt="Icon" height="40px" width="auto" />
+          Red Bank
+        </a>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Why Donate Blood</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Become a Donor</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Need Blood</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Contect Us</a>
+          </li>
+        </ul>
+        <div class="hem-and-log">
+          <div class="dropdown">
+            <button class="login-button">
+              <svg
+                class="person-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M12 2C9.19 2 7 4.19 7 7c0 1.57.64 3.02 1.68 4.06C6.69 12.29 4 15.36 4 19h16c0-3.64-2.69-6.71-4.68-8.94C16.36 10.02 17 8.57 17 7c0-2.81-2.19-5-5-5zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"
+                />
+              </svg>
+              <p class="login">Login &#9660;</p>
+            </button>
+            <div class="dropdown-content">
+              <a href="hospital_login.html">Hospital Login</a>
+              <a href="donor_login.html">Donor Login</a>
             </div>
-        </nav>
+          </div>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
     </header>
 
+    <!-- Image slider Starts-->
     <div class="slider">
-        <div class="slides">
-          <!--radio buttons start-->
-          <input type="radio" name="radio-btn" id="radio1">
-          <input type="radio" name="radio-btn" id="radio2">
-          <input type="radio" name="radio-btn" id="radio3">
-          <input type="radio" name="radio-btn" id="radio4">
-          <!--radio buttons end-->
-          <!--slide images start-->
-          <div class="slide first">
-            <img src="Image/Blood-facts_10-illustration-graphics__canteen.png" alt="">
-            <div class="caption">Blood Bank</div>
-          </div>
-          <div class="slide">
-            <img src="Image/Blood Bank 1.jpg" alt="">
-          </div>
-          <div class="slide">
-            <img src="Image/Blood Bank 2.jpg" alt="">
-          </div>
-          <div class="slide">
-            <img src="Image/Blood Bank 3.jpg" alt="">
-          </div>
-          <!--slide images end-->
+      <div class="slides">
+        <!--radio buttons start-->
+        <input type="radio" name="radio-btn" id="radio1" />
+        <input type="radio" name="radio-btn" id="radio2" />
+        <input type="radio" name="radio-btn" id="radio3" />
+        <input type="radio" name="radio-btn" id="radio4" />
+        <!--radio buttons end-->
+        <!--slide images start-->
+        <div class="slide first">
+          <img
+            src="Image/Blood-facts_10-illustration-graphics__canteen.png"
+            alt=""
+          />
+          <div class="caption">Blood Bank</div>
         </div>
-        <!--manual navigation start-->
-        <div class="navigation-manual">
-          <label for="radio1" class="manual-btn"></label>
-          <label for="radio2" class="manual-btn"></label>
-          <label for="radio3" class="manual-btn"></label>
-          <label for="radio4" class="manual-btn"></label>
+        <div class="slide">
+          <img src="Image/Blood Bank 1.jpg" alt="" />
         </div>
-        <!--manual navigation end-->
+        <div class="slide">
+          <img src="Image/Blood Bank 2.jpg" alt="" />
+        </div>
+        <div class="slide">
+          <img src="Image/Blood Bank 3.jpg" alt="" />
+        </div>
+        <!--slide images end-->
       </div>
-      <!--image slider end-->
-  
-</body>
-<script src="script/home.js"></script>
-
+      <!--manual navigation start-->
+      <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+      </div>
+      <!--manual navigation end-->
+    </div>
+    <!--image slider end-->
+    <!-- Image slider Ends-->
+  </body>
+  <script src="script/home.js"></script>
 </html>

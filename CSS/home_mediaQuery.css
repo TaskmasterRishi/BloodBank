@@ -49,4 +49,34 @@
   .navigation-manual{
     display: none;
   }
+
+  .hem-and-log{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .person-icon{
+    margin: 0;
+  }
+
+  .dropdown-content{
+    left : -60px;
+    font-size: 1.3rem;
+  }
+
+  .dropdown {
+    display: block;
+    margin: 10px auto;
+  }
+  .login-button {
+    width: auto;
+    padding: 10px 10px;
+  }
+
+  .login{
+    display: none;
+  }
 }
