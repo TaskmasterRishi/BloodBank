@@ -9,29 +9,23 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
 }
 
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
+body {
+  display: grid;
+  grid-template-rows: auto 2fr auto; 
+  gap : 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(243, 243, 243);
 }
 
 .header {
   border-bottom: 1px solid #e2e8f0;
 }
 
-body {
-  height: 200vh;
-  background-color: rgb(243, 243, 243);
-}
-
-::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar{
+    display: none;
 }
 
 .navbar {
@@ -40,25 +34,11 @@ body {
   align-items: center;
   padding: 1rem 1.5rem;
   background-color: #333333;
-  height: 8rem;
-  z-index: 1000;
   position: fixed;
   width: 100vw;
+  z-index: 100;
 }
 
-.hamburger {
-  display: none;
-}
-
-.bar {
-  display: block;
-  width: 30px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background-color: whitesmoke;
-}
 .nav-menu {
   display: flex;
   justify-content: space-between;
@@ -67,19 +47,6 @@ body {
 
 .nav-item {
   margin-left: 5rem;
-}
-
-.nav-link:hover {
-  color: #e3440e;
-}
-
-.nav-logo {
-  font-size: 3rem;
-  color: #e3440e;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 1rem;
 }
 
 .nav-link {
@@ -105,11 +72,22 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
+
+.nav-logo{
+    display: flex;
+    align-content: center;
+    gap : 1rem;
+    font-size: 4rem;
+    color: #e3440e;
+    text-decoration: none;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
   margin-right: 10px;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -122,18 +100,22 @@ body {
   font-size: 1.5rem;
   left: -15px;
 }
+
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
+
 .dropdown-content a:hover {
   background-color: #ddd;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 .login-button {
   padding: 10px 20px;
   font-size: 18px;
@@ -141,14 +123,15 @@ body {
   background-color: whitesmoke;
   color: black;
   cursor: pointer;
-  border-radius: 25px; /* Make it round */
-  transition: background-color 0.3s ease;
-  display: flex; /* Make the icon align with text */
-  align-items: center; /* Make the icon align with text */
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
 }
+
 .login-button:hover {
   background-color: whitesmoke;
 }
+
 .person-icon {
   width: 20px;
   height: 20px;
@@ -163,14 +146,12 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 0;
-  top: 7rem;
 }
 
 .slides {
   width: 500vw;
   height: 90vh;
   display: flex;
-  top: -1rem;
 }
 
 .slides input {
@@ -179,7 +160,6 @@ body {
 
 .slide {
   width: 100vw;
-  top: -1rem;
   transition: 0.5s;
 }
 
@@ -187,15 +167,11 @@ body {
   width: 100vw;
   height: auto;
   position: relative;
-  top: -1rem;
 }
-
-/*css for manual slide navigation*/
 
 .navigation-manual {
   position: relative;
   width: 100vw;
-  margin-top: -40px;
   display: flex;
   justify-content: center;
 }
@@ -205,7 +181,6 @@ body {
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
-  transition: 1s;
 }
 
 .manual-btn:not(:last-child) {
@@ -230,26 +205,4 @@ body {
 
 #radio4:checked ~ .first {
   margin-left: -60%;
-}
-
-/*css for automatic navigation*/
-
-.navigation-auto div:not(:last-child) {
-  margin-right: 40px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1 {
-  background: #333333;
-}
-
-#radio2:checked ~ .navigation-auto .auto-btn2 {
-  background: #333333;
-}
-
-#radio3:checked ~ .navigation-auto .auto-btn3 {
-  background: #333333;
-}
-
-#radio4:checked ~ .navigation-auto .auto-btn4 {
-  background: #333333;
 }
