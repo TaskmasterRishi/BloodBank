@@ -14,18 +14,25 @@ html {
 
 body {
   display: grid;
-  grid-template-rows: auto 2fr auto; 
-  gap : 2rem;
+  grid-template-rows: auto 2fr auto;
+  gap: 2rem;
   font-family: "Roboto", sans-serif;
   background-color: rgb(243, 243, 243);
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .header {
   border-bottom: 1px solid #e2e8f0;
 }
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar {
@@ -57,7 +64,9 @@ body {
   font-size: 2.5rem;
   font-family: "Ubuntu Mono", monospace;
 }
-
+.nav-link:hover {
+  color: #e3440e;
+}
 .nav-link::after {
   content: "";
   position: absolute;
@@ -73,13 +82,13 @@ body {
   width: 100%;
 }
 
-.nav-logo{
-    display: flex;
-    align-content: center;
-    gap : 1rem;
-    font-size: 4rem;
-    color: #e3440e;
-    text-decoration: none;
+.nav-logo {
+  display: flex;
+  align-content: center;
+  gap: 1rem;
+  font-size: 4rem;
+  color: #e3440e;
+  text-decoration: none;
 }
 
 .dropdown {
@@ -205,4 +214,10 @@ body {
 
 #radio4:checked ~ .first {
   margin-left: -60%;
+}
+
+.donateBlood{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
