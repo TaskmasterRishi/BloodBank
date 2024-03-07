@@ -217,7 +217,14 @@ a {
 }
 
 .donateBlood{
+  scroll-margin: 8rem;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
+  align-content: center;
+  height: 100vh;
+}
+
+.donateBlood > .bloodGroupTable{
+  font-size: 2rem;
 }
