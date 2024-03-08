@@ -1,4 +1,7 @@
 @media only screen and (max-width: 768px) {
+  .main{
+    gap : 3rem;
+  }
   .navbar{
       border-radius: 0;
       height: 6rem;
