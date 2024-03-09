@@ -1,7 +1,13 @@
 @media only screen and (max-width: 768px) {
-  .navbar{
-      border-radius: 0;
-      height: 6rem;
+  .main {
+    gap:4rem;
+    top: 0;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .navbar {
+    border-radius: 0;
+    height: 6rem;
   }
 
   .nav-menu {
@@ -40,17 +46,17 @@
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .slider{
-    top : 5.9rem;
+  .slider {
+    top: 5.9rem;
     width: 100vw;
     height: 25vh;
   }
 
-  .navigation-manual{
+  .navigation-manual {
     display: none;
   }
 
-  .hem-and-log{
+  .hem-and-log {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -58,12 +64,12 @@
     gap: 2rem;
   }
 
-  .person-icon{
+  .person-icon {
     margin: 0;
   }
 
-  .dropdown-content{
-    left : -60px;
+  .dropdown-content {
+    left: -60px;
     font-size: 1.3rem;
   }
 
@@ -76,7 +82,68 @@
     padding: 10px 10px;
   }
 
-  .login{
+  .login {
     display: none;
+  }
+
+  .whyDonateBlood {
+    scroll-margin: 6rem;
+    position: relative;
+    top : 2rem;
+    left: -2rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap : 2rem;
+  }
+
+  .whyDonateBlood > img{
+    width: 50vw;
+  }
+
+  .Text > h1 {
+    font-size: 2.8rem;
+    width: 100vw;
+    text-wrap: wrap;
+  }
+
+  .Text > p {
+    width: max(85vw);
+    text-wrap: wrap;
+    font-size: 1.5rem;
+  }
+
+  .custom-bullet {
+    text-wrap: wrap;
+    width: max(85vw);
+    left:10px;
+    font-size: 1.5rem;
+  }
+  .donateBlood {
+    position: relative;
+    left : -4rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap : 2rem;
+  }
+
+  .donateBlood > img{
+    width: 80vw;
+  }
+
+  .bloodGroupTable{
+    margin: 0;
+  }
+
+  .bloodGroupTable th{
+    font-size: 2rem;
+  }
+
+  .bloodGroupTable td{
+    padding-right:20px;
+    font-size: 1.2rem;
   }
 }
