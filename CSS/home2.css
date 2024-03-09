@@ -275,23 +275,25 @@ table th {
 
 .whyDonateBlood {
   scroll-margin: 10rem;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* flex-direction: row-reverse; */
+  /* justify-content: center;
+  align-items: center; */
   margin: 0px 10vw;
   gap: 10rem;
 }
 
-.whyDonateBlood > img {
+.float-con > img {
   filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.2));
+  float: right;
+  margin-left: 8rem;
 }
 
 .Text{
   line-height: 1.4;
 }
 
-.Text > h1 {
+.whyDonateBlood > h1 {
   font-size: 5rem;
 }
 

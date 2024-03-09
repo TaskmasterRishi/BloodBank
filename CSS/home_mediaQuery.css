@@ -1,6 +1,6 @@
 @media only screen and (max-width: 768px) {
   .main {
-    gap:4rem;
+    gap:6rem;
     top: 0;
     width: 100vw;
     overflow: hidden;
@@ -88,21 +88,23 @@
 
   .whyDonateBlood {
     scroll-margin: 6rem;
+    width: 100vw;
     position: relative;
     top : 2rem;
-    left: -2rem;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap : 2rem;
+    margin:0 2rem;
   }
 
-  .whyDonateBlood > img{
-    width: 50vw;
+  .float-con > img{
+    width: 45vw;
+    margin: 0 3rem;
   }
 
-  .Text > h1 {
+  .whyDonateBlood > h1 {
     font-size: 2.8rem;
     width: 100vw;
     text-wrap: wrap;
@@ -120,14 +122,15 @@
     left:10px;
     font-size: 1.5rem;
   }
+  
   .donateBlood {
     position: relative;
-    left : -4rem;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     margin: 0;
     gap : 2rem;
+    width: 100vw;
   }
 
   .donateBlood > img{
