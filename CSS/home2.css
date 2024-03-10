@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 * {
   margin: 0;
@@ -14,12 +15,13 @@ html {
 
 .main {
   position: relative;
-  top : 4rem;
+  top: 4rem;
   display: grid;
   grid-template-rows: auto 2fr auto;
   gap: 6rem;
   font-family: "Roboto", sans-serif;
   background-color: rgb(243, 243, 243);
+  width: 100vw;
 }
 li {
   list-style: none;
@@ -225,10 +227,10 @@ a {
 
 .donateBlood {
   display: flex;
-  flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
-  gap : 5rem;
+  gap: 5rem;
+  width: 100vw;
 }
 
 .donateBlood > .bloodGroupTable {
@@ -275,12 +277,13 @@ table th {
 
 .whyDonateBlood {
   scroll-margin: 10rem;
+  padding: 0 5rem;
   /* display: flex; */
   /* flex-direction: row-reverse; */
   /* justify-content: center;
   align-items: center; */
-  margin: 0px 10vw;
   gap: 10rem;
+  width: 100vw;
 }
 
 .float-con > img {
@@ -289,7 +292,7 @@ table th {
   margin-left: 8rem;
 }
 
-.Text{
+.Text {
   line-height: 1.4;
 }
 
@@ -319,4 +322,48 @@ table th {
   height: 10px;
   background-color: black;
   border-radius: 50%;
+}
+
+.footer {
+  width: 100vw;
+  background-color: #333333;
+  height: 20vh;
+  padding: 2rem 5rem;
+}
+
+.footer >h1 {
+  font-size: 2rem;
+  color: white;
+  font-family: "Josefin Sans";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.5;
+  /* text-align: center; */
+}
+
+.footer > a {
+  font-size: 2.1rem;
+  font-family: "Josefin Sans";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  color: #e3440e;
+}
+
+.footer > a:visited {
+  color: white;
+}
+
+.footer > a:hover{
+  color: #e3440e;
+}
+.scroll {
+  transform: translateY(-30px);
+ opacity: 0;
+ transition: 0.5s;
+}
+.scroll--show {
+ transform: translateY(0px);
+ opacity: 1;
 }

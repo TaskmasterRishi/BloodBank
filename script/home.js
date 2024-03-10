@@ -31,3 +31,19 @@ setInterval(function () {
     counter = 1;
   }
 }, 5000);
+
+var elScroll = document.querySelectorAll(".scroll");
+
+document.onscroll = function () {
+  elScroll.forEach((elScroll) => {
+    var positionEl = elScroll.getBoundingClientRect();
+    var alturaEl = positionEl.top;
+
+    if (alturaEl < 700) {
+      //set value to start animation of scroll
+      elScroll.classList.add("scroll--show");
+    } else {
+      elScroll.classList.remove("scroll--show");
+    }
+  });
+};
