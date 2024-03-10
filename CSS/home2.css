@@ -160,8 +160,11 @@ table th {
   margin-left: 8rem;
 }
 
-.Text {
-  line-height: 1.4;
+
+.Text{
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .whyDonateBlood > h1 {
