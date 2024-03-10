@@ -1,0 +1,86 @@
+.footer {
+    width: 100vw;
+    background-color: #333333;
+    height: 20vh;
+    padding: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .footer > h1 {
+    font-size: 2rem;
+    color: white;
+    font-family: "Josefin Sans";
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    /* text-align: center; */
+  }
+  
+  .footer > a {
+    font-size: 2.1rem;
+    font-family: "Josefin Sans";
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: #e3440e;
+    width: max-content;
+  }
+  
+  .footer > a:visited {
+    color: white;
+  }
+  
+  .footer > a:hover {
+    color: #e3440e;
+  }
+  
+  .logoAndImg {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .logoAndImg > h1,
+  .columns > h1 .lookingForBlood > h1 {
+    font-size: 2.5rem;
+    color: white;
+    font-family: "Josefin Sans";
+    break-inside: avoid;
+    position: relative;
+    top: 5px;
+    color: #e3440e;
+    text-wrap: nowrap;
+  }
+  
+  .columns {
+    columns: 2 10vw;
+    column-rule: 2px solid white;
+  }
+  
+  .lookingForBlood {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    break-inside: avoid;
+    break-before: column;
+  }
+  
+  .lookingForBlood > a {
+    color: white;
+    font-family: "Josefin Sans";
+    font-size: 2rem;
+    width:fit-content;
+  }
+  .lookingForBlood > a:visited {
+    color: white;
+  }
+  
+  .lookingForBlood > a:hover,
+  .lookingForBlood > a:active {
+    color: red;
+  }
+  
