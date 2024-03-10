@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+.dummy{
+
+    height: 8rem;
+    width: 100%;
+    position: relative;
+    z-index: -10;
+}
+.aboutUs-section{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(255, 179, 179);
+    width: 100%;
+    gap: 1em;
+    
+    
+}
+.aboutUs-h1{
+
+    font-size: clamp(3.4rem,5vw,5rem);
+    padding: 1em;
+    font-family: "Roboto", sans-serif;
+}
+.aboutUs-p{
+    font-size: 2rem;
+    font-family: "Roboto", sans-serif;
+    text-align:left;
+    padding: 1.5em;
+    padding-top: 0px;
+}
+.main-content{
+
+    background-color: black;
+    width: 100%;
+}
+.container__cards{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    align-items: center;
+    gap:30px;
+    padding: 3em 30px;
+}
+.card{
+
+    
+    height: 400px;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px -10px rgb(0, 0, 0);
+}
+.image-holder{
+
+    background-color: rgb(52, 2, 248);
+    height: 45%;
+    width: 100%;
+}
+.image-holder > img{
+
+    height: 100%;
+    width: 100%;
+}
+.card-content{
+
+   
+    height: auto;
+    width: auto;
+}
+.name{
+
+    text-align: center;
+}
+.description{
+    padding:0.5em;
+}
+.description > p{
+  
+    font-size: 2rem;
+    margin: 0.5em 0px;
+}
