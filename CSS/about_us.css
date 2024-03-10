@@ -1,88 +1,93 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.dummy{
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    height: 8rem;
-    width: 100%;
-    position: relative;
-    z-index: -10;
+html {
+  font-size: 62.5%;
+  background-color: rgb(243, 243, 243);
+  scroll-behavior: smooth;
 }
-.aboutUs-section{
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: rgb(255, 179, 179);
-    width: 100%;
-    gap: 1em;
-    
-    
+.main {
+  position: relative;
+  top: 10rem;
+  font-family: poppins;
+  display: grid;
+  grid-template-rows: auto 2fr auto;
+  justify-content: center;
+  gap: 2rem;
+  width: 100vw;
 }
-.aboutUs-h1{
 
-    font-size: clamp(3.4rem,5vw,5rem);
-    padding: 1em;
-    font-family: "Roboto", sans-serif;
+.aboutUs-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: white;
+  width: 60vw;
+  gap: 1em;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
 }
-.aboutUs-p{
-    font-size: 2rem;
-    font-family: "Roboto", sans-serif;
-    text-align:left;
-    padding: 1.5em;
-    padding-top: 0px;
+.aboutUs-h1 {
+  font-size: clamp(3.4rem, 5vw, 5rem);
+  padding: 1em;
+  font-family: "Poppins", sans-serif;
 }
-.main-content{
-
-    background-color: black;
-    width: 100%;
+.aboutUs-p {
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
+  padding: 1.5em;
+  padding-top: 0px;
 }
-.container__cards{
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
-    align-items: center;
-    gap:30px;
-    padding: 3em 30px;
+.main-content {
+  background-color: black;
+  width: 100%;
 }
-.card{
-
-    
-    height: 400px;
-    width: 250px;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0px 0px 30px -10px rgb(0, 0, 0);
+.container__cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
+  padding: 3em 30px;
 }
-.image-holder{
-
-    background-color: rgb(52, 2, 248);
-    height: 45%;
-    width: 100%;
+.card {
+  height: 400px;
+  width: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 0px 30px -10px rgb(0, 0, 0);
 }
-.image-holder > img{
-
-    height: 100%;
-    width: 100%;
+.image-holder {
+  background-color: rgb(52, 2, 248);
+  height: 45%;
+  width: 100%;
 }
-.card-content{
-
-   
-    height: auto;
-    width: auto;
+.image-holder > img {
+  height: 100%;
+  width: 100%;
 }
-.name{
-
-    text-align: center;
+.card-content {
+  height: auto;
+  width: auto;
 }
-.description{
-    padding:0.5em;
+.name {
+  text-align: center;
 }
-.description > p{
-  
-    font-size: 2rem;
-    margin: 0.5em 0px;
+.description {
+  padding: 0.5em;
+}
+.description > p {
+  font-size: 2rem;
+  margin: 0.5em 0px;
 }

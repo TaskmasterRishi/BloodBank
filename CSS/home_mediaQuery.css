@@ -1,52 +1,9 @@
 @media only screen and (max-width: 768px) {
   .main {
-    gap:6rem;
+    gap: 6rem;
     top: 0;
     width: 100vw;
     overflow: hidden;
-  }
-  .navbar {
-    border-radius: 0;
-    height: 6rem;
-  }
-  .dummy{
-    height:6rem;
-  }
-
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 6rem;
-    flex-direction: column;
-    background-color: #333333d0;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .nav-item {
-    margin: 2.5rem 0;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-  }
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
   }
 
   .slider {
@@ -55,54 +12,20 @@
     height: 25vh;
   }
 
-  .navigation-manual {
-    display: none;
-  }
-
-  .hem-and-log {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .person-icon {
-    margin: 0;
-  }
-
-  .dropdown-content {
-    left: -60px;
-    font-size: 1.3rem;
-  }
-
-  .dropdown {
-    display: block;
-    margin: 10px auto;
-  }
-  .login-button {
-    width: auto;
-    padding: 10px 10px;
-  }
-
-  .login {
-    display: none;
-  }
-
   .whyDonateBlood {
     scroll-margin: 6rem;
     width: 100vw;
     position: relative;
-    top : 2rem;
+    top: 2rem;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap : 2rem;
+    gap: 2rem;
     padding: 0 2rem;
   }
 
-  .float-con > img{
+  .float-con > img {
     padding: 1rem 0;
     width: 45vw;
     margin-left: 2rem;
@@ -123,34 +46,34 @@
   .custom-bullet {
     text-wrap: wrap;
     width: max(85vw);
-    left:10px;
+    left: 10px;
     font-size: 1.5rem;
   }
-  
+
   .donateBlood {
     position: relative;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     margin: 0;
-    gap : 2rem;
+    gap: 2rem;
     width: 100vw;
   }
 
-  .donateBlood > img{
+  .donateBlood > img {
     width: 80vw;
   }
 
-  .bloodGroupTable{
+  .bloodGroupTable {
     margin: 0;
   }
 
-  .bloodGroupTable th{
+  .bloodGroupTable th {
     font-size: 2rem;
   }
 
-  .bloodGroupTable td{
-    padding-right:20px;
+  .bloodGroupTable td {
+    padding-right: 20px;
     font-size: 1.2rem;
   }
 }
