@@ -102,6 +102,7 @@
   .float-con > img{
     padding: 1rem 0;
     width: 45vw;
+    margin-left: 2rem;
   }
 
   .whyDonateBlood > h1 {

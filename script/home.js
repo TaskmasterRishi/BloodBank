@@ -39,7 +39,7 @@ document.onscroll = function () {
     var positionEl = elScroll.getBoundingClientRect();
     var alturaEl = positionEl.top;
 
-    if (alturaEl < 700) {
+    if (alturaEl < 750 && alturaEl > -200) {
       //set value to start animation of scroll
       elScroll.classList.add("scroll--show");
     } else {
