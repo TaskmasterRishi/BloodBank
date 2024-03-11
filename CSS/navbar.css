@@ -20,7 +20,7 @@ li {
     height: 8rem;
     z-index: 1000;
     position: fixed;
-    width: 100vw;
+    width: 100%;
   }
   
   .hamburger {
