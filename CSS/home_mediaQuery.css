@@ -32,22 +32,22 @@
   }
 
   .whyDonateBlood > h1 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     width: 100vw;
     text-wrap: wrap;
   }
 
-  .Text > p {
+  .float-con > p {
     width: max(85vw);
     text-wrap: wrap;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .custom-bullet {
     text-wrap: wrap;
     width: max(85vw);
     left: 10px;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .donateBlood {
