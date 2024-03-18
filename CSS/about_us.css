@@ -13,6 +13,7 @@ html {
   font-size: 62.5%;
   background-color: rgb(243, 243, 243);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .main {
@@ -25,7 +26,6 @@ html {
   gap: 2rem;
   width: 100vw;
 }
-
 .aboutUs-section {
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ html {
   font-family: "Poppins", sans-serif;
 }
 .aboutUs-p {
-  font-size: 2rem;
+  font-size: clamp(0.5rem,3vw,2rem);
   font-family: "Poppins", sans-serif;
   text-align: justify;
   padding: 1.5em;
@@ -89,4 +89,10 @@ html {
 .description > p {
   font-size: 1.5rem;
   margin: 0.5em 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .aboutUs-section{
+    width: 90vw;
+  }
 }

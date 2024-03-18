@@ -11,6 +11,7 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .main {
@@ -95,6 +96,7 @@ html {
 
 .donateBlood {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   gap: 5rem;

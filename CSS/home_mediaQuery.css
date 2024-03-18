@@ -40,14 +40,14 @@
   .float-con > p {
     width: max(85vw);
     text-wrap: wrap;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .custom-bullet {
     text-wrap: wrap;
     width: max(85vw);
     left: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .donateBlood {
