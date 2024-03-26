@@ -7,10 +7,10 @@ li {
     text-decoration: none;
   }
   
-  /* ::-webkit-scrollbar {
-    display: block;
+  ::-webkit-scrollbar {
+    display: none;
   }
-   */
+  
   .navbar {
     display: flex;
     justify-content: space-between;
