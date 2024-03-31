@@ -1,221 +1,227 @@
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 li {
-    list-style: none;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #333333;
+  height: 8rem;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: whitesmoke;
+}
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 5rem;
+}
+
+.nav-link:hover {
+  color: #e3440e;
+}
+
+.nav-logo {
+  color: #e3440e;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.nav-logo > h1 {
+  font-size: 3rem;
+  position: relative;
+  top: 5px;
+}
+
+.nav-link {
+  position: relative;
+  color: whitesmoke;
+  text-decoration: none;
+  overflow: hidden;
+  font-size: 2.5rem;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #e3440e;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  padding: 5px 0;
+  font-size: 1.5rem;
+  left: -15px;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.login-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: whitesmoke;
+  color: black;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+.login-button:hover {
+  background-color: whitesmoke;
+}
+.person-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+@media only screen and (max-width: 768px) {
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background-color: #333333;
-    height: 8rem;
-    z-index: 1000;
-    position: fixed;
-    width: 100%;
+    border-radius: 0;
+    height: 6rem;
   }
-  
-  .hamburger {
-    display: none;
+  .dummy {
+    height: 6rem;
   }
-  
-  .bar {
-    display: block;
-    width: 30px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: whitesmoke;
-  }
+
   .nav-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .nav-item {
-    margin-left: 5rem;
-  }
-  
-  .nav-link:hover {
-    color: #e3440e;
-  }
-  
-  .nav-logo {
-    color: #e3440e;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 1rem;
-    font-family: "Josefin Sans", sans-serif;
-  }
-  
-  .nav-logo > h1 {
-    font-size: 3rem;
-    position: relative;
-    top: 5px;
-  }
-  
-  .nav-link {
-    position: relative;
-    color: whitesmoke;
-    text-decoration: none;
-    overflow: hidden;
-    font-size: 2.5rem;
-    font-family: "Ubuntu Mono", monospace;
-    
-  }
-  
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #e3440e;
-    transition: width 0.3s ease-in-out;
-  }
-  
-  .nav-link:hover::after {
+    position: fixed;
+    left: -100%;
+    top: 6rem;
+    flex-direction: column;
+    background-color: #333333d0;
     width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
   }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    margin-right: 10px;
+
+  .nav-menu.active {
+    left: 0;
   }
-  .dropdown-content {
+
+  .nav-item {
+    margin: 2.5rem 0;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navigation-manual {
     display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 10px;
-    padding: 5px 0;
-    font-size: 1.5rem;
-    left: -15px;
   }
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
+
+  .hem-and-log {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .person-icon {
+    margin: 0;
+  }
+
+  .dropdown-content {
+    left: -60px;
+    font-size: 1.3rem;
+  }
+
+  .dropdown {
     display: block;
-  }
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
+    margin: 10px auto;
   }
   .login-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    background-color: whitesmoke;
-    color: black;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-  }
-  .login-button:hover {
-    background-color: whitesmoke;
-  }
-  .person-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-  }
-  @media only screen and (max-width: 768px) {
-    .navbar {
-      border-radius: 0;
-      height: 6rem;
-    }
-    .dummy {
-      height: 6rem;
-    }
-  
-    .nav-menu {
-      position: fixed;
-      left: -100%;
-      top: 6rem;
-      flex-direction: column;
-      background-color: #333333d0;
-      width: 100%;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-    }
-  
-    .nav-menu.active {
-      left: 0;
-    }
-  
-    .nav-item {
-      margin: 2.5rem 0;
-    }
-  
-    .hamburger {
-      display: block;
-      cursor: pointer;
-    }
-    .hamburger.active .bar:nth-child(2) {
-      opacity: 0;
-    }
-  
-    .hamburger.active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-  
-    .hamburger.active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-  
-    .navigation-manual {
-      display: none;
-    }
-  
-    .hem-and-log {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-    }
-  
-    .person-icon {
-      margin: 0;
-    }
-  
-    .dropdown-content {
-      left: -60px;
-      font-size: 1.3rem;
-    }
-  
-    .dropdown {
-      display: block;
-      margin: 10px auto;
-    }
-    .login-button {
-      width: auto;
-      padding: 10px 10px;
-    }
-  
-    .login {
-      display: none;
-    }
+    width: auto;
+    padding: 10px 10px;
   }
 
-  
+  .login {
+    display: none;
+  }
+}
