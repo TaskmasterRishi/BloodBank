@@ -207,6 +207,7 @@ form .btn input[type="submit"] {
   cursor: pointer;
 }
 
+
 @media only screen and (max-width: 768px){
   body{
     gap : 2rem;

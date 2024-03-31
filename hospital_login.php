@@ -26,15 +26,15 @@
         <div class="form-inner">
           <form action="#" class="login">
             <div class="field">
-              <input type="text" placeholder="Email Address" required />
+              <input type="text" placeholder="Email Address" required name="email"/>
             </div>
             <div class="field">
-              <input type="password" placeholder="Password" required />
+              <input type="password" placeholder="Password" required name="password"/>
             </div>
             <!-- <div class="pass-link"><a href="#">Forgot password?</a></div> -->
             <div class="field btn">
               <div class="btn-layer"></div>
-              <input type="submit" value="Login" />
+              <input type="submit" value="Login" name="hospital-login-submit"/>
             </div>
             <div class="signup-link">
               Not a member? <a href="">Signup now</a>
