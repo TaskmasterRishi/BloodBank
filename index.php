@@ -22,16 +22,16 @@
       </a>
       <ul class="nav-menu">
         <li class="nav-item">
-          <a href="index.html#whyDonateBlood" class="nav-link">Why Donate Blood</a>
+          <a href="index.php#whyDonateBlood" class="nav-link">Why Donate Blood</a>
         </li>
         <li class="nav-item">
-          <a href="donateBlood.html" class="nav-link">Become a Donor</a>
+          <a href="donateBlood.php" class="nav-link">Become a Donor</a>
         </li>
         <li class="nav-item">
           <a href="#need_blood" class="nav-link">Need Blood</a>
         </li>
         <li class="nav-item">
-          <a href="about_us.html" class="nav-link">About Us</a>
+          <a href="about_us.php" class="nav-link">About Us</a>
         </li>
       </ul>
       <div class="hem-and-log">
