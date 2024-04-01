@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 01, 2024 at 10:35 AM
+-- Generation Time: Apr 01, 2024 at 06:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `donorLogIn` (
   `ID` int(100) NOT NULL,
   `userEmail` varchar(200) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `otp` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -40,7 +40,7 @@ CREATE TABLE `donorLogIn` (
 --
 
 INSERT INTO `donorLogIn` (`ID`, `userEmail`, `password`, `date`, `otp`) VALUES
-(1, 'rishipatodiya12@gmail.com', 'Rishi@tk12', '2024-04-01 10:12:45', NULL);
+(2, 'rishipatodiya12@gmail.com', '$2y$10$mhJMl4a7tDKEJs13M/27fu1LNqYIfMXhz7Kq9to4rNJQ6n3LRTgIy', '2024-04-01 21:37:24', NULL);
 
 --
 -- Indexes for dumped tables
@@ -60,7 +60,7 @@ ALTER TABLE `donorLogIn`
 -- AUTO_INCREMENT for table `donorLogIn`
 --
 ALTER TABLE `donorLogIn`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

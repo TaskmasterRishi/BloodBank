@@ -34,8 +34,10 @@ if (isset($_POST["donor-signin-submit"])) {
                 header("location: ../donor_login.php?error=*User with this email already exists");
                 exit();
             } else {
-                // Insert new user
+                // Hash the password
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+                // Insert new user with hashed password
                 $sql = "INSERT INTO donorLogIn (userEmail, password) VALUES ('$userMail', '$hashedPassword')";
 
                 if (mysqli_query($con, $sql)) {
