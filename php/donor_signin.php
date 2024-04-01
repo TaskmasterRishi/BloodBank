@@ -1,52 +1,53 @@
 <?php
-
-if(isset($_POST["donor-signin-submit"])){
-
-    if(empty($_POST["email"]) || empty($_POST["password"] || empty($_POST["cpass"]))){
-
+if (isset($_POST["donor-signin-submit"])) {
+    // Check if any required field is empty
+    if (empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["cpass"])) {
         header("location: ../donor_login.php?error=*Enter correct email or password");
-    }
-    else{
-        $a=$_POST["email"];
-        $b=$_POST["password"];
-        $c=$_POST["cpass"];
+        exit();
+    } else {
+        $userMail = $_POST["email"];
+        $password = $_POST["password"];
+        $cPass = $_POST["cpass"];
 
-        if(!preg_match('/@gmail.com$/i',$a)){
+        // Validate email format
+        if (!preg_match('/@gmail.com$/i', $userMail)) {
             header("location: ../donor_login.php?error=*Enter correct email");
-            die();
+            exit();
         }
-        else if(!preg_match('/[@$#%&*!]/',$b) || strlen($b)<7){
-
-          header("location: ../donor_login.php?error=*Password should have minimum 7 characters and atleast 1 special characater");
-          die();
+        // Validate password format
+        else if (!preg_match('/[@$#%&*!]/', $password) || strlen($password) < 7) {
+            header("location: ../donor_login.php?error=*Password should have minimum 7 characters and atleast 1 special characater");
+            exit();
         }
-        else if($b!=$c){
-         
+        // Check if passwords match
+        else if ($password != $cPass) {
             header("location: ../donor_login.php?error=*Enter same password in both fields");
-            die();
-        }
-        else{
+            exit();
+        } else {
+            require_once ("connection.php");
 
-            global $a,$b;
-            require_once("connection.php");
-            $insert="INSERT INTO signin (email,password) VALUES ('$a','$b')";
-            if(mysqli_query($con,$insert)){
+            // Check if user already exists
+            $checkUserQuery = "SELECT * FROM donorLogIn WHERE userEmail='$userMail'";
+            $result = mysqli_query($con, $checkUserQuery);
 
-                header("location: ../donor_login.php");
-                
+            if (mysqli_num_rows($result) > 0) {
+                header("location: ../donor_login.php?error=*User with this email already exists");
+                exit();
+            } else {
+                // Insert new user
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO donorLogIn (userEmail, password) VALUES ('$userMail', '$hashedPassword')";
+
+                if (mysqli_query($con, $sql)) {
+                    header("location: ../index.html");
+                    exit();
+                } else {
+                    echo "ERROR: Something went wrong. Please try again.";
+                }
             }
-            else{
-
-                echo "ERROR: Something went wrong please close the tab and try again.";
-            }
-
-
         }
     }
-}
-else{
-
+} else {
     die();
 }
-
 ?>

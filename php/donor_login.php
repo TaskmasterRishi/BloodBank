@@ -1,79 +1,65 @@
 <?php
-
 if(isset($_POST["donor-login-submit"])){
-
+    // Check if email and password are provided
     if(empty($_POST["email"]) || empty($_POST["password"])){
-
-        header("location: ../donor_login.php?error=*Enter correct email or password");
+        header("location: ../donor_login.php?error=*Enter both email and password");
+        exit(); // Stop further execution
     }
     else{
-        $a=$_POST["email"];
-        $b=$_POST["password"];
+        // Retrieve email and password from the form
+        $emailInput = $_POST["email"];
+        $passwordInput = $_POST["password"];
 
-        if(!preg_match('/@gmail.com$/i',$a)){
-            header("location: ../donor_login.php?error=*Enter correct email");
-            die();
+        // Validate email format
+        if(!filter_var($emailInput, FILTER_VALIDATE_EMAIL)){
+            header("location: ../donor_login.php?error=*Enter a valid email");
+            exit(); // Stop further execution
         }
-        else if(!preg_match('/[@$#%&*!]/',$b) || strlen($b)<7){
-
-          header("location: ../donor_login.php?error=*Password should have minimum 7 characters and atleast 1 special characater");
-          die();
+        // Validate password format
+        else if(!preg_match('/[@$#%&*!]/', $passwordInput) || strlen($passwordInput) < 7){
+            header("location: ../donor_login.php?error=*Password should have minimum 7 characters and at least 1 special character");
+            exit(); // Stop further execution
         }
 
-session_start();
+        session_start();
 
+        // Store email and password in session variables
+        $_SESSION["email"] = $emailInput;
+        $_SESSION["password"] = $passwordInput;
+        $_SESSION["login"] = false; // Initialize login status
 
-        $a=$_POST["email"];
-        $b=$_POST["password"];
+        // Include database connection file
+        require_once("connection.php");
 
-        $_SESSION["email"]= $_POST["email"];
-        $_SESSION["password"]=$_POST["password"];
-        $_SESSION["match"]=false; 
-        $_SESSION["login"]=false;      
+        // Fetch user data from the database
+        $query = "SELECT * FROM donorLogIn WHERE userEmail = ?";
+        $stmt = mysqli_prepare($con, $query);
+        mysqli_stmt_bind_param($stmt, "s", $emailInput);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-            require_once("connection.php");
-        
-            $query='SELECT * from signin';
-            
-            if(empty($result=mysqli_query($con,$query))){echo "Table is empty";}
+        if(mysqli_num_rows($result) == 1){
+            // User found, verify password
+            $row = mysqli_fetch_assoc($result);
+            if(password_verify($passwordInput, $row['password'])){
+                $_SESSION["login"] = true; // Set login status to true
+            }
+        }
 
-                else{
-
-                    while($row= mysqli_fetch_array($result)){
-
-                        global $a,$b;
-
-                        if($a==$row["email"] && $b==$row["password"]){
-
-                            $_SESSION["match"]=true;
-
-                        }
-                    }
-                }
-
-                if($_SESSION["match"]==true){
-
-                    $_SESSION["login"]=true;
-                }
-                
-                    if($_SESSION["login"]==false){
-                     
-                        header("location: ../donor_login.php?error=*Email does not exist or password is incorrect");
-                        session_destroy();
-                    }
-                    else{
-
-                        header("location: ../index.html");
-                    }
-
-            
-
+        if($_SESSION["login"]){
+            // Login successful, redirect to index.html
+            header("location: ../index.html");
+            exit(); // Stop further execution
+        } else {
+            // Login failed, redirect to login page with error message
+            header("location: ../donor_login.php?error=*Email or password is incorrect");
+            session_destroy(); // Destroy session
+            exit(); // Stop further execution
+        }
     }
-    
+} else {
+    // If form submission is not set, redirect to login page
+    header("location: ../donor_login.php");
+    exit(); // Stop further execution
 }
-else{
-
-    die();
-}
-
 ?>
