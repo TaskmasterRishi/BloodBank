@@ -225,3 +225,83 @@ a {
     display: none;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .main {
+    gap: 6rem;
+    top: 0;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .slider {
+    top: 5.9rem;
+    width: 100vw;
+    height: 25vh;
+  }
+
+  .whyDonateBlood {
+    scroll-margin: 6rem;
+    width: 100vw;
+    position: relative;
+    top: 2rem;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+
+  .float-con > img {
+    padding: 1rem 0;
+    width: 45vw;
+    margin-left: 2rem;
+  }
+
+  .whyDonateBlood > h1 {
+    font-size: 2.2rem;
+    width: 100vw;
+    text-wrap: wrap;
+  }
+
+  .float-con > p {
+    width: max(85vw);
+    text-wrap: wrap;
+    font-size: 1.1rem;
+  }
+
+  .custom-bullet {
+    text-wrap: wrap;
+    width: max(85vw);
+    left: 10px;
+    font-size: 1.1rem;
+  }
+
+  .donateBlood {
+    position: relative;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 2rem;
+    width: 100vw;
+  }
+
+  .donateBlood > img {
+    width: 80vw;
+  }
+
+  .bloodGroupTable {
+    margin: 0;
+  }
+
+  .bloodGroupTable th {
+    font-size: 2rem;
+  }
+
+  .bloodGroupTable td {
+    padding-right: 20px;
+    font-size: 1.2rem;
+  }
+}

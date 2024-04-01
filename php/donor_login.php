@@ -39,10 +39,10 @@ if (isset($_POST["donor-login-submit"])) {
         if (password_verify($passwordInput, $row['password'])) {
             // Set login status and store user ID in session
             $_SESSION["login"] = true;
-            $_SESSION["user_id"] = $row["user_id"];
+            $_SESSION["user_id"] = $row["ID"];
             
             // Redirect to index.html
-            header("location: ../index.html");
+            header("location: ../index.php");
             exit(); // Stop further execution
         }
     }
