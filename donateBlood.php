@@ -69,8 +69,8 @@ require_once ("php/connection.php");
             <p class="login">Login &#9660;</p>
           </button>
           <div class="dropdown-content">
-            <a href="hospital_login.html">Hospital Login</a>
-            <a href="donor_login.html">Donor Login</a>
+            <a href="hospital_login.php">Hospital Login</a>
+            <a href="donor_login.php">Donor Login</a>
           </div>
         </div>
         <div class="hamburger">
