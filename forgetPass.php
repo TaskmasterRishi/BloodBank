@@ -20,7 +20,12 @@
             <input type="email" name="email" id="email" placeholder="Email Address">
             <button type="submit">Submit</button>
         </form>
-      <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];} ?></div>
+        <div class="custom_validate">
+            <?php if (isset($_GET["error"])) {
+                echo $_GET["error"];
+            } ?>
+        </div>
     </div>
 </body>
+
 </html>

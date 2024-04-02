@@ -54,6 +54,13 @@ if (isset($_POST["email"])) {
         $mail->Body = "Your OTP for password reset is: $otp";
 
         $mail->send();
+
+        // Set the OTP in a cookie
+        setcookie('otp', $otp, time() + (60 * 5)); // Expiry time: 5 minutes
+        
+        // Store email in session
+        $_SESSION['email'] = $email;
+
         echo "
             <script>
             alert('Message was sent successfully. Thank you for reaching us!');
