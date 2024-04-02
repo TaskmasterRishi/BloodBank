@@ -47,7 +47,7 @@ text-align:center;
             <div class="field">
               <input type="password" placeholder="Password" name="password" required />
             </div>
-            <!-- <div class="pass-link"><a href="#">Forgot password?</a></div> -->
+            <div class="pass-link"><a href="forgetPass.php">Forgot password?</a></div>
             <div class="field btn">
               <div class="btn-layer"></div>
               <input type="submit" value="donor-Login" name="donor-login-submit" />
