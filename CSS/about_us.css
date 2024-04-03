@@ -94,5 +94,8 @@ html {
 @media only screen and (max-width: 768px) {
   .aboutUs-section{
     width: 90vw;
+    position: relative;
+    top:10rem;
   }
+
 }

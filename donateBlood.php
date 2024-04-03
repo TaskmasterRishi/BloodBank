@@ -38,7 +38,7 @@ require_once ("php/connection.php");
 <body>
   <?php include'navbar.php';?>
 
-  <section class="main">
+  <div class="main">
     <div class="container">
       <h2>Blood Donation Form</h2>
       <form action="#" method="post" id="bloodDonationForm">
@@ -90,7 +90,7 @@ require_once ("php/connection.php");
     </div>
     <?php include 'footer.php'; ?>
 
-  </section>
+  </div>
 
 </body>
 <script src="script/donateBlood.js"></script>

@@ -12,7 +12,7 @@
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="index.html" class="nav-logo">
+            <a href="index.php" class="nav-logo">
                 <img src="Icon/Icon.png" alt="Icon" height="40px" width="auto" />
                 <h1>Red Bank</h1>
             </a>
