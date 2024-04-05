@@ -4,7 +4,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once '../vendor/autoload.php';
 require 'connection.php';
-
+session_start();
 function generateOTP()
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';

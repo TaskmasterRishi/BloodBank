@@ -54,5 +54,5 @@
         </nav>
     </header>
 </body>
-
+<script src="script/navbar.js"></script>
 </html>
