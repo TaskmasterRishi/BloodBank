@@ -6,6 +6,7 @@
     <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <title>Need Blood</title>
     <link rel="stylesheet" href="CSS/needBlood.css">
+    <link rel="stylesheet" href="CSS/needBloodMedia.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -32,7 +33,7 @@
                             <option value="" selected disabled>Select City</option>
                         </select>
                         <select id="bloodgroup" name="bloodgroup">
-                            <option value="" disabled selected>Select</option>
+                            <option value="" disabled selected>Select Blood Group</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
                             <option value="B+">B+</option>
@@ -48,15 +49,16 @@
             <center>
                 <button type="submit" name="submit" class="submit">Serch</button>
             </center>
+            <div class="container">
+                <div class="icon-container">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div class="text-container">
+                    <p>Select State and/or District for stock availability.</p>
+                </div>
+            </div>
         </form>
-        <div class="container">
-            <div class="icon-container">
-                <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div class="text-container">
-                <p>Select State and/or District for stock availability.</p>
-            </div>
-        </div>
+
     </div>
 </body>
 <script src="script/stateData.js"></script>
