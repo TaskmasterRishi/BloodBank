@@ -59,7 +59,13 @@
             </div>
         </form>
 
+        <div class="head">
+            <h1>Results</h1>
+        </div>
+        <?php include 'footer.php'; ?>
+
     </div>
+
 </body>
 <script src="script/stateData.js"></script>
 

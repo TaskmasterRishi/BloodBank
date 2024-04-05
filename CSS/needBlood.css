@@ -23,6 +23,7 @@ html {
   grid-template-rows: auto 2fr auto;
   gap: 4rem;
   width: 100vw;
+  min-height: 91.2vh;
 }
 
 .head {

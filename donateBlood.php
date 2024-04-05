@@ -88,9 +88,9 @@ require_once ("php/connection.php");
         <input type="submit" value="Submit">
       </form>
     </div>
-    <?php include 'footer.php'; ?>
 
   </div>
+  <?php include 'footer.php'; ?>
 
 </body>
 <script src="script/donateBlood.js"></script>
