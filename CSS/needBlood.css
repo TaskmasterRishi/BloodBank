@@ -21,8 +21,9 @@ html {
   font-family: poppins;
   display: grid;
   grid-template-rows: auto 2fr auto;
-  gap: 6rem;
+  gap: 4rem;
   width: 100vw;
+  min-height: 91.2vh;
 }
 
 .head {
@@ -39,7 +40,7 @@ html {
   border-collapse: collapse;
   margin: 0 auto;
   background-color: white;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .serchBox td {
@@ -65,6 +66,10 @@ html {
   padding: 10px 20px;
   border-radius: 5px;
   width: 20%;
+  border: 1px solid rgba(0, 0, 0, 0.277);
+  background-color: rgb(250, 250, 250);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  
 }
 
 .submit {
@@ -83,19 +88,21 @@ html {
 .submit:hover {
   background-color: #a94442;
   transform: translate(0, -3px);
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .container {
+    position: relative;
+    left: 18rem;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 20px;
     border-radius: 10px;
-    width: 80vw;
-    position: relative;
-    left: 10vw;
-  }
+    width: 100vw;
+    margin: 0 auto; /* Center horizontally */
+}
+
   
   .icon-container {
     width: 50px;
