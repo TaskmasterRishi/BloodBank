@@ -59,7 +59,7 @@ if (isset($_POST["email"])) {
         setcookie('otp', $otp, time() + (60 * 5)); // Expiry time: 5 minutes
         
         // Store email in session
-        $_SESSION['email'] = $email;
+        $_SESSION['email'] = $_POST["email"];
 
         echo "
             <script>
