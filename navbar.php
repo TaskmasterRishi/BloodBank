@@ -24,7 +24,7 @@
                     <a href="donateBlood.php" class="nav-link">Become a Donor</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#need_blood" class="nav-link">Need Blood</a>
+                    <a href="needBlood.php" class="nav-link">Need Blood</a>
                 </li>
                 <li class="nav-item">
                     <a href="about_us.php" class="nav-link">About Us</a>

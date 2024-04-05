@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: rgb(243, 243, 243);
+}
+
+.main {
+  position: relative;
+  top: 8rem;
+  font-family: poppins;
+  display: grid;
+  grid-template-rows: auto 2fr auto;
+  gap: 6rem;
+  width: 100vw;
+}
+
+.head {
+  color: #a94442;
+  font-size: 1.5rem;
+  padding: 2rem 5rem 0rem;
+  border-bottom: 1px solid #a94442;
+}
+
+/* Default table styles */
+.serchBox {
+  width: 80%;
+  /* border: 1px solid #c4a1a1; */
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.serchBox td {
+  padding: 8px;
+}
+
+.serchHead td {
+  font-size: 2rem;
+  color: white;
+  background-color: #c03929;
+  padding: 1.5rem 5rem;
+}
+
+.inputField td {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem 0rem;
+  width: 100%;
+}
+
+.inputField td select {
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 20%;
+}
+
+.submit {
+  display: inline;
+  padding: 10px 20px;
+  background-color: #c4584c;
+  font-size: 1.5rem;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.submit:hover {
+  background-color: #a94442;
+  transform: translate(0, -3px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80vw;
+    position: relative;
+    left: 10vw;
+  }
+  
+  .icon-container {
+    width: 50px;
+    height: 50px;
+    background-color: #C03929;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+
+  .fa-solid{
+    font-size: 3rem;
+    color: white;
+  }
+  
+  .icon-container img {
+    width: 30px; /* Adjust size of the icon */
+    height: auto;
+  }
+  
+  .text-container {
+    flex-grow: 1;
+  }
+  
+  .text-container p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: 'Roboto';
+  }
+  
