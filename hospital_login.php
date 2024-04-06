@@ -41,9 +41,7 @@ text-align:center;
               <div class="btn-layer"></div>
               <input type="submit" value="Login" name="hospital-login-submit"/>
             </div>
-            <div class="signup-link">
-              Not a member? <a href="">Signup now</a>
-            </div>
+           
           </form>
           
         </div>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php include 'navbar.php'; ?>
+  <?php session_start(); include 'navbar.php';?>
   <div class="main">
     <!-- Image slider Starts-->
     <div class="slider">
