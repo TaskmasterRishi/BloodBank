@@ -41,7 +41,7 @@ if (isset($_POST["donor-signin-submit"])) {
                 $sql = "INSERT INTO donorLogIn (userEmail, password) VALUES ('$userMail', '$hashedPassword')";
 
                 if (mysqli_query($con, $sql)) {
-                    header("location: ../index.html");
+                    header("location: ../index.php");
                     exit();
                 } else {
                     echo "ERROR: Something went wrong. Please try again.";
