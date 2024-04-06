@@ -16,7 +16,7 @@ require_once("auth.php");
 
 <body>
 
-<?php include 'navbar.php';?>
+<?php  include 'navbar.php';?>
 
   <div class="main">
     <section class="aboutUs-section">
