@@ -1,7 +1,3 @@
-<?php
-// Include auth.php to check login status
-require_once("auth.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 
