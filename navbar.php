@@ -95,7 +95,7 @@ border-radius: 50%;
                         <a href="hospital_profile.php" class="p_link">
 
                         <div class="profile"><img src="Image/empty_profile.jpg"></div>
-                        <span>Hospital Profile</span>
+                        <span>Hospital Panel</span>
 
                         </a>
                         
