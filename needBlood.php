@@ -29,6 +29,9 @@
                         <select name="state" id="state">
                             <option value="" selected disabled>Select State</option>
                         </select>
+                        <select name="district" id="district">
+                            <option value="" selected disabled>Select District</option>
+                        </select>
                         <select name="city" id="city">
                             <option value="" selected disabled>Select City</option>
                         </select>
