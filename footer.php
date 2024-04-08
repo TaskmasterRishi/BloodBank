@@ -19,11 +19,11 @@
 
             <div class="lookingForBlood">
                 <h1>Looking For Blood?</h1>
-                <a href="">Need Blood</a>
+                <a href="needBlood.php">Need Blood</a>
             </div>
             <div class="footer_donate">
                 <h1>Are You Donating?</h1>
-                <a href="">Become a Donner</a>
+                <a href="become_donor.php">Become a Donner</a>
             </div>
         </div><br><br>
         <h1>&copy 2024 Red Bank Blood Bank. All rights reserved. Join us in our mission to save lives.</h1>

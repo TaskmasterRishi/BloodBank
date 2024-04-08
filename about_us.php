@@ -12,7 +12,7 @@
 
 <body>
 
-<?php  include 'navbar.php';?>
+<?php session_start(); include 'navbar.php';?>
 
   <div class="main">
     <section class="aboutUs-section">

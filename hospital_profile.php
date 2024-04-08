@@ -31,7 +31,7 @@
                 
                 <td><input type="date" name="date" ></td>
                 <td><input type="text" name="name" ></td>
-                <td><textarea type="textarea" name="address"></textarea></td>
+                <td><textarea type="textarea" name="address" rows="5"></textarea></td>
                 <td><input type="text" name="state" ></td>
                 <td><input type="text" name="district" ></td>
                 <td><input type="number" name="contact" ></td>
@@ -73,15 +73,15 @@
                     
                 <tr>
 
-                    <td style='width:150px'>".$row["date"]."</td>
-                    <td style='width:150px'>".$row["name"]."</td>
-                    <td style='width:200px'>".$row["address"]."</td>
-                    <td style='width:150px'>".$row["state"]."</td>
-                    <td style='width:150px'>".$row["district"]."</td>
-                    <td style='width:150px'>".$row["contact"]."</td>
-                    <td style='width:150px'>".$row["organizedBy"]."</td>
-                    <td style='width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
-                    <td style='width:60px'>
+                    <td style='max-width:130px'>".$row["date"]."</td>
+                    <td style='max-width:100px'>".$row["name"]."</td>
+                    <td class='address' style='max-width:200px'>".$row["address"]."</td>
+                    <td style='max-width:150px'>".$row["state"]."</td>
+                    <td style='max-width:150px'>".$row["district"]."</td>
+                    <td style='max-width:150px'>".$row["contact"]."</td>
+                    <td style='max-width:150px'>".$row["organizedBy"]."</td>
+                    <td style='max-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
+                    <td style='max-width:60px'>
                         <form action='php/delete_camp.php' method='post'>
                             <input type='hidden'  name='id' value='".$row["id"]."'>
                             <input type='submit' class='button' name='delete' value='Delete'>

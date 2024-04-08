@@ -47,7 +47,7 @@ border-radius: 50%;
                     <a href="index.php#whyDonateBlood" class="nav-link">Why Donate Blood</a>
                 </li>
                 <li class="nav-item">
-                    <a href="donateBlood.php" class="nav-link">Become a Donor</a>
+                    <a href="become_donor.php" class="nav-link">Become a Donor</a>
                 </li>
                 <li class="nav-item">
                     <a href="needBlood.php" class="nav-link">Need Blood</a>
