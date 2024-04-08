@@ -47,7 +47,7 @@
                 </tr>
             </table><br><br>
             <center>
-                <button type="submit" name="submit" class="submit">Serch</button>
+                <button type="submit" name="submit" class="submit">Search</button>
             </center>
             <div class="container">
                 <div class="icon-container">

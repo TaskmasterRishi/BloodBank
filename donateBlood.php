@@ -3,7 +3,6 @@
 require_once ("auth.php");
 require_once ("php/connection.php");
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,27 +14,21 @@ require_once ("php/connection.php");
   <link rel="stylesheet" href="CSS/donateBlood.css">
   <link rel="stylesheet" href="CSS/footer.css">
   <title>Red Bank</title>
+  <style>
+
+.custom_validate{
+
+color: red;
+font-size: 12px;
+width: auto;
+height: 12px;
+text-align:center;
+
+}
+
+    </style>
 </head>
 
-<?php
-  // Prepare the SQL statement
-  $sql = "SELECT * FROM donorLogIn WHERE ID = ?";
-  $stmt = mysqli_prepare($con, $sql);
-  
-  // Bind the parameter
-  mysqli_stmt_bind_param($stmt, "s", $_SESSION["user_id"]);
-  
-  // Execute the statement
-  mysqli_stmt_execute($stmt);
-  
-  // Get the result
-  $result = mysqli_stmt_get_result($stmt);
-  
-  // Fetch the data
-  $row = mysqli_fetch_assoc($result);
-  
-  // Use $row to access the retrieved data
-  ?>
 
 <body>
   <?php include'navbar.php';?>
@@ -43,22 +36,18 @@ require_once ("php/connection.php");
   <div class="main">
     <div class="container">
       <h2>Blood Donation Form</h2>
-      <form action="#" method="post" id="bloodDonationForm">
+      <form action="php/donor_register.php" method="post" id="bloodDonationForm">
         <div class="form-group">
           <label for="fullname">Full Name:</label>
-          <input type="text" id="fullname" name="fullname" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required value="<?php echo isset($row['userEmail']) ? $row['userEmail'] : ''; ?>">
+          <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
           <label for="age">Age:</label>
           <input type="number" id="age" name="age" required>
         </div>
         <div class="form-group">
-          <label for="mobile">Mobile Number:</label>
-          <input type="text" id="mobile" name="mobile" required>
+          <label for="contact">Mobile Number:</label>
+          <input type="number" id="mobile" name="contact" required>
         </div>
         <div class="form-group">
           <label for="gender">Gender:</label>
@@ -71,7 +60,7 @@ require_once ("php/connection.php");
         </div>
         <div class="form-group">
           <label for="bloodgroup">Blood Group:</label>
-          <select id="bloodgroup" name="bloodgroup" required>
+          <select id="bloodgroup" name="blood" required>
             <option value="" disabled selected>Select</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -87,10 +76,11 @@ require_once ("php/connection.php");
           <label for="address">Address:</label>
           <textarea id="address" name="address" rows="4" required></textarea>
         </div>
-        <input type="submit" value="Submit">
+        <input type="hidden" name="id" value="<?php if(isset($_POST["camp_id"])){echo $_POST["camp_id"];} ?>">
+        <input type="submit" name="donor_register" value="Submit">
       </form>
+      <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];} ?></div>
     </div>
-
   </div>
   <?php include 'footer.php'; ?>
 

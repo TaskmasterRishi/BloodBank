@@ -41,6 +41,7 @@ if (isset($_POST["donor-login-submit"])) {
             // Set login status and store user ID in session
             $_SESSION["login"] = true;
             $_SESSION["user_id"] = $row["ID"];
+            $_SESSION["user_email"]=$row["userEmail"];
             
             // Redirect to index.html
             header("location: ../index.php");
