@@ -118,14 +118,16 @@ require_once ("php/connection.php");
                 </ul>
               </div>
               <div class="formField">
-                <label for="dieases">Are you taking or have you taken any of these in the past 72 hours?<span>*</span></label>
+                <label for="dieases">Are you taking or have you taken any of these in the past 72
+                  hours?<span>*</span></label>
                 <ul>
                   <li><input type="checkbox" name="medication[]" value="Antibiotics">Antibiotics</li>
                   <li> <input type="checkbox" name="medication[]" value="Aspirin">Aspirin</li>
                   <li><input type="checkbox" name="medication[]" value="Alcohol">Alcohol</li>
                   <li><input type="checkbox" name="medication[]" value="Steroids">Steroids</li>
                   <li> <input type="checkbox" name="medication[]" value="Vaccinations">Vaccinations</li>
-                  <li><input type="checkbox" name="medication[]" value="Dog bite Rabies vaccine (1 year)">Dog bite Rabies vaccine (1 year)</li>
+                  <li><input type="checkbox" name="medication[]" value="Dog bite Rabies vaccine (1 year)">Dog bite
+                    Rabies vaccine (1 year)</li>
                 </ul>
               </div>
             </div>
@@ -134,15 +136,41 @@ require_once ("php/connection.php");
           <h1>Address Imformation</h1>
           <div class="row">
             <div class="formField">
-              <label for="height">Height(in cms.)<span>*</span></label>
-              <input type="number" name="height" id="height">
+              <label for="state">State<span>*</span></label>
+              <select name="state" id="state">
+                <option value="" selected disabled>Select State</option>
+              </select>
             </div>
             <div class="formField">
-              <label for="weight">Weight(in kgs.)<span>*</span></label>
-              <input type="number" name="weight" id="weight">
+              <label for="district">District<span>*</span></label>
+              <select name="district" id="district">
+                <option value="" selected disabled>Select District</option>
+              </select>
             </div>
           </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="city">City<span>*</span></label>
+              <input type="text" name="city" id="city" required>
+            </div>
+            <div class="formField">
+              <label for="landmark">Landmark<span>*</span></label>
+              <input type="text" name="landmark" id="landmark">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="pincode">Pin/Postal Code<span>*</span></label>
+              <input type="number" name="pincode" id="pincode" required>
+            </div>
+          </div>
+
         </div>
+        <br><br>
+        <hr>
+        <br>
         <input type="submit" name="donor_register" value="Submit">
       </form>
       <div class="custom_validate"><?php if (isset($_GET["error"])) {

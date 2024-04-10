@@ -47,7 +47,7 @@ body {
 
 .container {
   position: relative;
-  top: 0rem;
+  top: 5rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -59,6 +59,7 @@ body {
   margin: 0 auto;
   padding: 5rem 5rem;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rem;
 }
 
 span {
@@ -78,7 +79,7 @@ span {
   font-size: 2rem;
   display: block;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   text-align: center;
 }
 
@@ -108,7 +109,8 @@ span {
 .formField > input[type="text"],
 .formField > input[type="date"],
 .formField > input[type="email"],
-.formField > input[type="number"] {
+.formField > input[type="number"],
+select {
   width: 20vw;
   height: 2rem;
   border-radius: 5px;
@@ -116,6 +118,31 @@ span {
   background-color: rgb(250, 250, 250);
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
   padding: 15px 30px;
+}
+
+hr{
+  border: 0.5px solid black;
+  
+}
+
+input[type="submit"] {
+  width: auto; 
+  padding: 10px 20px; 
+  margin: 0 auto; 
+  display: block; 
+  background-color: #a94442; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 1.5rem; 
+  transition: 0.5s ease; 
+}
+
+input[type="submit"]:hover {
+  background-color: #ca4745; 
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .radio {
@@ -129,8 +156,8 @@ span {
 .formField > ul > li {
   list-style: none;
   display: flex;
-  align-items:center;
-  gap:1rem;
+  align-items: center;
+  gap: 1rem;
   font-size: 1.4rem;
 }
 
@@ -143,6 +170,7 @@ span {
   .container {
     padding: 2rem 2rem;
     top: 0;
+    margin-bottom: 0rem;
   }
 
   .row {
@@ -154,7 +182,8 @@ span {
   .formField > input[type="text"],
   .formField > input[type="date"],
   .formField > input[type="email"],
-  .formField > input[type="number"] {
+  .formField > input[type="number"],
+  select {
     width: 80vw;
   }
 
