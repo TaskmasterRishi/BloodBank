@@ -46,8 +46,8 @@ if(isset($_POST["hospital-login-submit"])){
             
             $_SESSION["hospital_id"] = $row2["id"];
             // Redirect to index.html
-            echo $_SESSION["hospital_id"];
-            // header("location: ../index.php");
+           
+            header("location: ../index.php");
             exit(); // Stop further execution
         }
 
