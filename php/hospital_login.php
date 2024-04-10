@@ -25,7 +25,7 @@ if(isset($_POST["hospital-login-submit"])){
     require_once("connection.php");
 
     // Fetch user data from the database
-    $query = "SELECT * FROM hospitalLogin WHERE email = ?";
+    $query = "SELECT * FROM hospitallogin WHERE email = ?";
     $stmt = mysqli_prepare($con, $query);
     mysqli_stmt_bind_param($stmt, "s", $emailInput);
     mysqli_stmt_execute($stmt);
