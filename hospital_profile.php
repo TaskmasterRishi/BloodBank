@@ -6,10 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="CSS/hospital_profile.css">
 </head>
-<?php session_start(); include 'navbar.php';?>
+<?php session_start(); include 'navbar.php';
+
+?>
 <body>
     
     <div class="dummy"></div>
+
+    <div class="available" style="margin-top:10px">Add Camp</div>
     <div class="addCamp">
         
         <table>
@@ -47,6 +51,8 @@
     <div class="available">Available Camps</div>
     <div class="showcamp">
 
+        
+
         <Table class="table">
 
         <tr>
@@ -63,13 +69,58 @@
         </tr>
 
         <?php
+
             require_once("php/connection.php");
-                $showcamp="SELECT * FROM campdetail";
-                $result=mysqli_query($con,$showcamp);
+            $showcompletedcamp="SELECT * FROM campdetail where time2 < ";
+            
+        
+            
+            
+            $showcamp="SELECT * FROM campdetail";
+            $result=mysqli_query($con,$showcamp);
 
-        while($row= mysqli_fetch_array($result)){
+            $currentdate=getdate(time());
 
-            echo "
+            while($row= mysqli_fetch_array($result)){
+
+               $date=explode("-",$row["date"]);
+
+               $year=(int)$date[0];
+               $month=(int)$date[1];
+               $day=(int)$date[2];
+
+               if((int)$currentdate["mon"]>=$month && (int)$currentdate["year"]>=$year && (int)$currentdate["mday"]>=$day){
+
+                echo "
+                    
+                <tr>
+
+                    <td style='max-width:130px'>".$row["date"]."</td>
+                    <td style='max-width:100px'>".$row["name"]."</td>
+                    <td class='address' style='max-width:200px'>".$row["address"]."</td>
+                    <td style='max-width:150px'>".$row["state"]."</td>
+                    <td style='max-width:150px'>".$row["district"]."</td>
+                    <td style='max-width:150px'>".$row["contact"]."</td>
+                    <td style='max-width:150px'>".$row["organizedBy"]."</td>
+                    <td style='max-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
+                    <td style='max-width:60px'>
+                        <form action='add_blood.php' method='post'>
+                            <input type='hidden'  name='id' value='".$row["id"]."'>
+                            <input type='submit' class='button' name='delete' value='Add Blood'>
+                        </form>
+                    </td>
+    
+                </tr>
+                
+                ";
+    
+            }
+
+               
+        
+            if((int)$currentdate["mon"]<=$month && (int)$currentdate["year"]<=$year && (int)$currentdate["mday"]<$day){
+
+                echo "
                     
                 <tr>
 
@@ -89,11 +140,12 @@
                     </td>
     
                 </tr>
-                    
-            ";
+                
+                ";
+    
+            }
+        
         }
-
-
             ?>
 
         </Table>    
@@ -101,7 +153,7 @@
         <button class="goback">Go back</button>
         <form action="php/signout.php" method="post">
          
-         <input type="submit" value="Sign Out" name="signout-submit" class="signout">
+            <input type="submit" value="Sign Out" name="signout-submit" class="signout">
         
         </form>
     </div>

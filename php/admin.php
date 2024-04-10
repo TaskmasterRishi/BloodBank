@@ -29,7 +29,7 @@ if(isset($_POST["admin-submit"])){
             $result = mysqli_query($con, $checkUserQuery);
 
             if (mysqli_num_rows($result) > 0) {
-                header("location: ../admin.php?error=*User with this email already exists");
+                header("location: ../admin.php?error=*Center  with this email already exists");
                 exit();
             } else {
                 // Hash the password
