@@ -1,15 +1,10 @@
-// Get references to the radio buttons and the disease info section
-const diseaseYes = document.getElementById('disease_yes');
-const diseaseInfo = document.getElementById('disease_info');
-
-// Add event listener to the radio buttons
-diseaseYes.addEventListener('change', function() {
-  // Check if 'Yes' option is selected
-  if (this.checked) {
-    // Show the disease info section
-    diseaseInfo.style.display = 'block';
-  } else {
-    // Hide the disease info section
-    diseaseInfo.style.display = 'none';
+// Function to show the disease info section
+function showDiseaseInfo() {
+    document.getElementById('disease_info').style.display = 'block';
   }
-});
+  
+  // Function to hide the disease info section
+  function hideDiseaseInfo() {
+    document.getElementById('disease_info').style.display = 'none';
+  }
+  

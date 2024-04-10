@@ -67,7 +67,7 @@ require_once ("php/connection.php");
               <input type="text" name="phone" id="phone" required>
             </div>
             <div class="formField">
-              <label for="gender">Gender <span>*</span></label>
+              <label for="gender">Gender<span>*</span></label>
               <div class="radio">
                 <input type="radio" name="gender" id="gender" value="male" required> Male
                 <input type="radio" name="gender" id="gender" value="female" required>Female
@@ -77,36 +77,71 @@ require_once ("php/connection.php");
 
           <div class="row">
             <div class="formField">
-              <label for="occupation">Occupation</label>
-              <input type="text" name="occupation" id="occupation">
+              <label for="height">Height(in cms.)<span>*</span></label>
+              <input type="number" name="height" id="height">
             </div>
             <div class="formField">
-              <label for="weight">Weight</label>
+              <label for="weight">Weight(in kgs.)<span>*</span></label>
               <input type="number" name="weight" id="weight">
             </div>
           </div>
 
           <div class="row">
             <div class="formField">
-              <label for="height">Height</label>
-              <input type="number" name="height" id="height">
-            </div>
-            <div class="formField">
-              <label for="diseas">Do you have any diseas?<span>*</span></label>
+              <label for="">Do you have any diseas?<span>*</span></label>
               <div class="radio">
-                <input type="radio" name="disease" id="disease_yes" value="yes" required> Yes
-                <input type="radio" name="disease" id="disease_no" value="no" required> No
+                <div class="radio">
+                  <div class="radio">
+                    <input type="radio" name="disease" id="disease_yes" value="yes" required
+                      onclick="showDiseaseInfo()"> Yes
+                    <input type="radio" name="disease" id="disease_no" value="no" required onclick="hideDiseaseInfo()">
+                    No
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div id="disease_info" style="display: none;">
-            Hi
+            <div class="row">
+              <div class="formField">
+                <label for="dieases">Do you suffer form any of the following dieases?<span>*</span></label>
+                <ul>
+                  <li><input type="checkbox" name="dieases[]" value="HeartDisease"> Heart Disease</li>
+                  <li><input type="checkbox" name="disease[]" value="Diabetes">Diabetes</li>
+                  <li><input type="checkbox" name="disease[]" value="Sexually Transmitted Diseases">Sexually Transmitted
+                    Diseases</li>
+                  <li><input type="checkbox" name="disease[]" value="Lung Disease">Lung Disease</li>
+                  <li> <input type="checkbox" name="disease[]" value="Allergic Disease">Allergic Disease</li>
+                  <li><input type="checkbox" name="disease[]" value="Epilepsy (Charay rog)">Epilepsy (Charay rog)</li>
+                  <li><input type="checkbox" name="disease[]" value="Kidney Disease">Kidney Disease</li>
+                </ul>
+              </div>
+              <div class="formField">
+                <label for="dieases">Are you taking or have you taken any of these in the past 72 hours?<span>*</span></label>
+                <ul>
+                  <li><input type="checkbox" name="medication[]" value="Antibiotics">Antibiotics</li>
+                  <li> <input type="checkbox" name="medication[]" value="Aspirin">Aspirin</li>
+                  <li><input type="checkbox" name="medication[]" value="Alcohol">Alcohol</li>
+                  <li><input type="checkbox" name="medication[]" value="Steroids">Steroids</li>
+                  <li> <input type="checkbox" name="medication[]" value="Vaccinations">Vaccinations</li>
+                  <li><input type="checkbox" name="medication[]" value="Dog bite Rabies vaccine (1 year)">Dog bite Rabies vaccine (1 year)</li>
+                </ul>
+              </div>
+            </div>
           </div>
-
           <br>
           <h1>Address Imformation</h1>
-
+          <div class="row">
+            <div class="formField">
+              <label for="height">Height(in cms.)<span>*</span></label>
+              <input type="number" name="height" id="height">
+            </div>
+            <div class="formField">
+              <label for="weight">Weight(in kgs.)<span>*</span></label>
+              <input type="number" name="weight" id="weight">
+            </div>
+          </div>
         </div>
         <input type="submit" name="donor_register" value="Submit">
       </form>

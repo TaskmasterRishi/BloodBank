@@ -16,7 +16,7 @@ html {
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -47,7 +47,7 @@ body {
 
 .container {
   position: relative;
-  top : -10rem;
+  top: 0rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -61,10 +61,9 @@ body {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-span{
+span {
   color: red;
 }
-
 
 .form {
   display: flex;
@@ -75,7 +74,7 @@ span{
   gap: 1rem;
 }
 
-.form > h1{
+.form > h1 {
   font-size: 2rem;
   display: block;
   width: 100%;
@@ -102,13 +101,15 @@ span{
 
 .formField > label {
   font-size: 1.5rem;
+  text-wrap: wrap;
+  width: 20vw;
 }
 
 .formField > input[type="text"],
 .formField > input[type="date"],
 .formField > input[type="email"],
-.formField > input[type="number"]{
-  width: 30rem;
+.formField > input[type="number"] {
+  width: 20vw;
   height: 2rem;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.277);
@@ -125,22 +126,39 @@ span{
   font-size: 1.5rem;
 }
 
+.formField > ul > li {
+  list-style: none;
+  display: flex;
+  align-items:center;
+  gap:1rem;
+  font-size: 1.4rem;
+}
 
 @media only screen and (max-width: 768px) {
-.main{
-  position: relative;
-  padding-top: 10rem;
-}
+  .main {
+    position: relative;
+    padding-top: 10rem;
+  }
 
-.container{
-  padding: 2rem 2rem;
-  top:0;
-}
+  .container {
+    padding: 2rem 2rem;
+    top: 0;
+  }
 
-.row{
-  flex-direction: column;
-  gap :1rem;
-  align-items: baseline;
-}
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: baseline;
+  }
 
+  .formField > input[type="text"],
+  .formField > input[type="date"],
+  .formField > input[type="email"],
+  .formField > input[type="number"] {
+    width: 80vw;
+  }
+
+  .formField > label {
+    width: 80vw;
+  }
 }
