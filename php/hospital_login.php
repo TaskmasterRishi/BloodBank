@@ -35,14 +35,22 @@ if(isset($_POST["hospital-login-submit"])){
         // User found, verify password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($passwordInput, $row['pass'])) {
+            global $emailInput;
             // Set login status and store user ID in session
             $_SESSION["hospital_login"] = true;
-            $_SESSION["hospital_id"] = $row["id"];
             
+            $query2="SELECT * FROM bloodcenterdetail where email= '$emailInput'";
+            
+            $result=mysqli_query($con,$query2);
+            $row2=mysqli_fetch_assoc($result);
+            
+            $_SESSION["hospital_id"] = $row2["id"];
             // Redirect to index.html
-            header("location: ../index.php");
+            echo $_SESSION["hospital_id"];
+            // header("location: ../index.php");
             exit(); // Stop further execution
         }
+
     }
 
     // Login failed, redirect to login page with error message

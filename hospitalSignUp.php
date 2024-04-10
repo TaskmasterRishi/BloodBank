@@ -10,11 +10,15 @@
 
 <body>
     <div class="main">
-        <form action="" method="post">
+        <form action="php/admin.php" method="post">
             <div class="card">
-                <h1>Blood Bank Address</h1>
+                <h1>Blood Bank Details</h1>
 
                 <div class=inputs>
+                    <div class="inputField">
+                        <p><label for="address2">Email</label></p>
+                        <input type="text" name="email" id="address2" cols="30" rows="2"></input>
+                    </div>
                     <div class="inputField">
                         <p><label for="state">State</label></p>
                         <select name="state" id="state">
@@ -27,19 +31,20 @@
                             <option value="" selected disabled>Select District</option>
                         </select>
                     </div>
-                    <div class="inputField">
-                        <p><label for="state">City</label></p>
-                        <input type="text" name="city" id="city">
-                    </div>
+                    
                 </div>
                 <div class="address">
                     <div class="inputField">
-                        <p><label for="address1">Address1 </label></p>
-                        <input type="text" name="address1" id="address1" cols="30" rows="2"></input>
+                        <p><label for="address1">Address</label></p>
+                        <textarea type="text" name="address1" id="address1" cols="30" rows="2"></textarea>
                     </div>
                     <div class="inputField">
-                        <p><label for="address2">Address2</label></p>
-                        <input type="text" name="address2" id="address2" cols="30" rows="2"></input>
+                        <p><label for="address2">Password</label></p>
+                        <input type="text" name="pass" id="address2" cols="30" rows="2"></input>
+                    </div>
+                    <div class="inputField">
+                        <p><label for="address2">confirm Password</label></p>
+                        <input type="text" name="cpass" id="address2" cols="30" rows="2"></input>
                     </div>
                 </div>
             </div>
