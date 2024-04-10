@@ -15,71 +15,104 @@ require_once ("php/connection.php");
   <link rel="stylesheet" href="CSS/footer.css">
   <title>Red Bank</title>
   <style>
+    .custom_validate {
 
-.custom_validate{
+      color: red;
+      font-size: 12px;
+      width: auto;
+      height: 12px;
+      text-align: center;
 
-color: red;
-font-size: 12px;
-width: auto;
-height: 12px;
-text-align:center;
-
-}
-
-    </style>
+    }
+  </style>
 </head>
 
 
 <body>
-  <?php include'navbar.php';?>
+  <?php include 'navbar.php'; ?>
 
   <div class="main">
-    <div class="container">
+    <div class="heading">
       <h2>Blood Donation Form</h2>
+    </div>
+    <div class="container">
       <form action="php/donor_register.php" method="post" id="bloodDonationForm">
-        <div class="form-group">
-          <label for="fullname">Full Name:</label>
-          <input type="text" id="name" name="name" required>
+        <div class="form">
+          <h1>Donor Information</h1>
+          <div class="row">
+            <div class="formField">
+              <label for="fname">First Name<span>*</span></label>
+              <input type="text" name="fname" id="fname" required>
+            </div>
+            <div class="formField">
+              <label for="lname">Last Name<span>*</span></label>
+              <input type="text" name="lname" id="lname" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="dob">Date of Birth<span>*</span></label>
+              <input type="date" name="dob" id="dob" required>
+            </div>
+            <div class="formField">
+              <label for="mail">E-mail<span>*</span></label>
+              <input type="email" name="mail" id="mail">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="phone">Phone Number<span>*</span></label>
+              <input type="text" name="phone" id="phone" required>
+            </div>
+            <div class="formField">
+              <label for="gender">Gender <span>*</span></label>
+              <div class="radio">
+                <input type="radio" name="gender" id="gender" value="male" required> Male
+                <input type="radio" name="gender" id="gender" value="female" required>Female
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="occupation">Occupation</label>
+              <input type="text" name="occupation" id="occupation">
+            </div>
+            <div class="formField">
+              <label for="weight">Weight</label>
+              <input type="number" name="weight" id="weight">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="formField">
+              <label for="height">Height</label>
+              <input type="number" name="height" id="height">
+            </div>
+            <div class="formField">
+              <label for="diseas">Do you have any diseas?<span>*</span></label>
+              <div class="radio">
+                <input type="radio" name="disease" id="disease_yes" value="yes" required> Yes
+                <input type="radio" name="disease" id="disease_no" value="no" required> No
+              </div>
+            </div>
+          </div>
+
+          <div id="disease_info" style="display: none;">
+            Hi
+          </div>
+
+          <br>
+          <h1>Address Imformation</h1>
+
         </div>
-        <div class="form-group">
-          <label for="age">Age:</label>
-          <input type="number" id="age" name="age" required>
-        </div>
-        <div class="form-group">
-          <label for="contact">Mobile Number:</label>
-          <input type="number" id="mobile" name="contact" required>
-        </div>
-        <div class="form-group">
-          <label for="gender">Gender:</label>
-          <select id="gender" name="gender" required>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="bloodgroup">Blood Group:</label>
-          <select id="bloodgroup" name="blood" required>
-            <option value="" disabled selected>Select</option>
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="address">Address:</label>
-          <textarea id="address" name="address" rows="4" required></textarea>
-        </div>
-        <input type="hidden" name="id" value="<?php if(isset($_POST["camp_id"])){echo $_POST["camp_id"];} ?>">
         <input type="submit" name="donor_register" value="Submit">
       </form>
-      <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];} ?></div>
+      <div class="custom_validate"><?php if (isset($_GET["error"])) {
+        echo $_GET["error"];
+      } ?></div>
     </div>
   </div>
   <?php include 'footer.php'; ?>
@@ -87,4 +120,5 @@ text-align:center;
 </body>
 <script src="script/donateBlood.js"></script>
 <script src="script/navbar.js"></script>
+
 </html>
