@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 11, 2024 at 01:55 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 11, 2024 at 02:50 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodBank`
+-- Database: `bloodbank`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,6 @@ CREATE TABLE `bloodcenterdetail` (
 
 INSERT INTO `bloodcenterdetail` (`id`, `name`, `address`, `email`, `state`, `district`) VALUES
 (1, 'blood center', 'dummy address', 'bloodbank@gmail.com', 'gujarat', 'vadodara'),
-(2, 'hospital', 'powe,efwrgvv,ef', 'wndf@gmail.com', 'gujarat', 'vadodara'),
 (3, 'hospital1', 'wfnwewnf,3ferf,f', 'hospital1@gmail.com', 'gujarat', 'vadodara');
 
 -- --------------------------------------------------------
@@ -55,9 +54,16 @@ CREATE TABLE `blooddetail` (
   `id` int(10) NOT NULL,
   `email` varchar(50) NOT NULL,
   `type` varchar(5) NOT NULL,
-  `amount` int(10) NOT NULL,
+  `amount` float NOT NULL,
   `bloodcenterid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `blooddetail`
+--
+
+INSERT INTO `blooddetail` (`id`, `email`, `type`, `amount`, `bloodcenterid`) VALUES
+(2, 'shlok.goswami2002@gmail.com', 'O+', 0.44, 3);
 
 -- --------------------------------------------------------
 
@@ -83,8 +89,7 @@ CREATE TABLE `campdetail` (
 --
 
 INSERT INTO `campdetail` (`id`, `date`, `name`, `address`, `state`, `district`, `contact`, `organizedBy`, `time1`, `time2`) VALUES
-(5, '2024-04-08', 'name', 'address', 'state', 'district', '0123456789', 'blood center', '08:00:00.000000', '20:30:00.000000'),
-(10, '2024-04-08', 'blood center', 'RC Dutt Rd, Near to Indian Oil Petrol pump, Aradhana Society, Vishwas Colony, Alkapuri, Vadodara, Gujarat 390007', 'gujarat', 'vadodara', '9999999999', 'hospital', '07:00:00.000000', '22:30:00.000000');
+(10, '2024-04-08', 'blood center', 'RC Dutt Rd, Near to Indian Oil Petrol pump, Aradhana Society, Vishwas Colony, Alkapuri, Vadodara, Gujarat 390007', 'gujarat', 'vadodara', '9999999999', 'hospital1', '07:00:00.000000', '22:30:00.000000');
 
 -- --------------------------------------------------------
 
@@ -112,9 +117,7 @@ CREATE TABLE `donordetail` (
 --
 
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`) VALUES
-(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10),
-(3, 'shlok', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'B+', 0, 0, 'emkclermkcflermnfl\r\nerfverf\r\nrefv', 0, 5),
-(4, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'A+', 185, 85, 'A - 10, Decora City, Gundala, Gondal , Rajkot, Gujrat', 360311, 5);
+(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10);
 
 -- --------------------------------------------------------
 
@@ -136,7 +139,8 @@ CREATE TABLE `donorlogin` (
 
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `date`, `otp`) VALUES
 (2, 'rishipatodiya12@gmail.com', '$2y$10$mhJMl4a7tDKEJs13M/27fu1LNqYIfMXhz7Kq9to4rNJQ6n3LRTgIy', '2024-04-01 21:37:24', NULL),
-(3, 'shlok.goswami2002@gmail.com', '$2y$10$qgNyTjXPELH/rN66ahKuVe3CYl7EZ.LTub0bBy3/aIE4bmaq8m.Na', '2024-04-02 10:17:02', NULL);
+(3, 'shlok.goswami2002@gmail.com', '$2y$10$qgNyTjXPELH/rN66ahKuVe3CYl7EZ.LTub0bBy3/aIE4bmaq8m.Na', '2024-04-02 10:17:02', NULL),
+(4, 'abc@gmail.com', '$2y$10$.4QiypJQhzfa2zBEHvHr1umMhnscLsBnxKwegTG696SI7yGoZTL5.', '2024-04-11 18:15:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -155,8 +159,7 @@ CREATE TABLE `hospitallogin` (
 --
 
 INSERT INTO `hospitallogin` (`id`, `pass`, `email`) VALUES
-(3, '$2y$10$MOZuwAtZG5Lyf12AKijHWerApIc5ExNNgVo7hPDpPrMOVbk7iwEwa', 'hospital1@gmail.com'),
-(4, '$2y$10$cDsnEWGzo1C1ss5LVV7tNeHZiWb4Hw6b0Rkx0IFZ7Yu4lIWE7YTjS', 'hospital2@gmail.com');
+(3, '$2y$10$MOZuwAtZG5Lyf12AKijHWerApIc5ExNNgVo7hPDpPrMOVbk7iwEwa', 'hospital1@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -212,7 +215,7 @@ ALTER TABLE `bloodcenterdetail`
 -- AUTO_INCREMENT for table `blooddetail`
 --
 ALTER TABLE `blooddetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
@@ -230,7 +233,7 @@ ALTER TABLE `donordetail`
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`

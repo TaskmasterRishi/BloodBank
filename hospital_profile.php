@@ -104,9 +104,9 @@
                     <td style='max-width:150px'>".$row["organizedBy"]."</td>
                     <td style='max-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
                     <td style='max-width:60px'>
-                        <form action='add_blood.php' method='post'>
-                            <input type='hidden'  name='id' value='".$row["id"]."'>
-                            <input type='submit' class='button' name='delete' value='Add Blood'>
+                        <form action='select_donor.php' method='post'>
+                            <input type='hidden'  name='id' value=".$row["id"].">
+                            <input type='submit' class='button' name='add_blood' value='Add Blood'>
                         </form>
                     </td>
     

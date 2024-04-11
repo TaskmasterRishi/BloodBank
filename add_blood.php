@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(isset($_POST["id"])){
+$_SESSION["camp_id"]=$_POST["id"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +31,12 @@
 
                 <td><input type="text" name="email"></td>
                 <td><input type="text" name="type"></td>
-                <td><input type="number" name="amount"></td>
+                <td><input type="number" step="0.01" name="amount"></td>
 
             </tr>
 
         </table>
-        <input type="hidden" name="camp_id" value=<?php echo $_POST["id"] ?>>
+        
         <input type="submit" class="add" name="add_blood_submit" value="add+">
 </form>
 
