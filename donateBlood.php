@@ -2,7 +2,7 @@
 // Include auth.php to check login status
 require_once ("auth.php");
 require_once ("php/connection.php");
-
+$camp_id = $_POST["camp_id"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@ require_once ("php/connection.php");
       <h2>Blood Donation Form</h2>
     </div>
     <div class="container">
-      <form action="php/donor_register.php" method="post" id="bloodDonationForm">
+      <form action="php/donor_register.php" method="post" id="bloodDonationForm" return validateForm(event)>
         <div class="form">
           <h1>Donor Information</h1>
           <div class="row">
@@ -57,14 +57,14 @@ require_once ("php/connection.php");
             </div>
             <div class="formField">
               <label for="mail">E-mail<span>*</span></label>
-              <input type="email" name="mail" id="mail">
+              <input type="email" name="mail" id="mail" required>
             </div>
           </div>
 
           <div class="row">
             <div class="formField">
               <label for="phone">Phone Number<span>*</span></label>
-              <input type="text" name="phone" id="phone" required>
+              <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" required>
             </div>
             <div class="formField">
               <label for="gender">Gender<span>*</span></label>
@@ -78,15 +78,29 @@ require_once ("php/connection.php");
           <div class="row">
             <div class="formField">
               <label for="height">Height(in cms.)<span>*</span></label>
-              <input type="number" name="height" id="height">
+              <input type="number" name="height" id="height" require_once>
             </div>
             <div class="formField">
               <label for="weight">Weight(in kgs.)<span>*</span></label>
-              <input type="number" name="weight" id="weight">
+              <input type="number" name="weight" id="weight" required>
             </div>
           </div>
 
           <div class="row">
+            <div class="formField">
+              <label for="weight">Select Blood Group<span>*</span></label>
+              <select id="bloodgroup" name="bloodgroup">
+                <option value="" disabled selected>Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
             <div class="formField">
               <label for="">Do you have any diseas?<span>*</span></label>
               <div class="radio">
@@ -137,15 +151,11 @@ require_once ("php/connection.php");
           <div class="row">
             <div class="formField">
               <label for="state">State<span>*</span></label>
-              <select name="state" id="state">
-                <option value="" selected disabled>Select State</option>
-              </select>
+              <input type="text" name="state" class="state" id="state" required>
             </div>
             <div class="formField">
               <label for="district">District<span>*</span></label>
-              <select name="district" id="district">
-                <option value="" selected disabled>Select District</option>
-              </select>
+              <input type="text" name="district" class="district" id="district" required>
             </div>
           </div>
 
@@ -156,21 +166,23 @@ require_once ("php/connection.php");
             </div>
             <div class="formField">
               <label for="landmark">Landmark<span>*</span></label>
-              <input type="text" name="landmark" id="landmark">
+              <input type="text" name="landmark" id="landmark" required>
             </div>
           </div>
 
           <div class="row">
             <div class="formField">
               <label for="pincode">Pin/Postal Code<span>*</span></label>
-              <input type="number" name="pincode" id="pincode" required>
+              <input type="number" name="pincode" id="pincode" pattern="[0-9]{6}" required>
             </div>
           </div>
 
         </div>
         <br><br>
         <hr>
-        <br>
+        <br><?php
+        echo "<input type='hidden'  name='camp_id' value='$camp_id'>";
+        ?>
         <input type="submit" name="donor_register" value="Submit">
       </form>
       <div class="custom_validate"><?php if (isset($_GET["error"])) {
@@ -181,7 +193,8 @@ require_once ("php/connection.php");
   <?php include 'footer.php'; ?>
 
 </body>
-<script src="script/donateBlood.js"></script>
+<!-- <script src="script/donateBlood.js"></script> -->
 <script src="script/navbar.js"></script>
+<script src="script/stateAPI.js"></script>
 
 </html>

@@ -110,6 +110,7 @@ span {
 .formField > input[type="date"],
 .formField > input[type="email"],
 .formField > input[type="number"],
+.formField > input[type="tel"],
 select {
   width: 20vw;
   height: 2rem;
@@ -120,27 +121,26 @@ select {
   padding: 15px 30px;
 }
 
-hr{
+hr {
   border: 0.5px solid black;
-  
 }
 
 input[type="submit"] {
-  width: auto; 
-  padding: 10px 20px; 
-  margin: 0 auto; 
-  display: block; 
-  background-color: #a94442; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 1.5rem; 
-  transition: 0.5s ease; 
+  width: auto;
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
+  background-color: #a94442;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.5s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #ca4745; 
+  background-color: #ca4745;
   transform: translateY(-3px);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
@@ -182,6 +182,7 @@ input[type="submit"]:hover {
   .formField > input[type="text"],
   .formField > input[type="date"],
   .formField > input[type="email"],
+  .formField > input[type="tel"],
   .formField > input[type="number"],
   select {
     width: 80vw;

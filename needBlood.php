@@ -26,10 +26,14 @@
                 </tr>
                 <tr class="inputField">
                     <td>
-                        <select name="state" id="state">
+
+                    <select name="country" class="country" id="country" style="display:none">
+                            <option value="" selected disabled>Select Country</option>
+                        </select>
+                        <select name="state" class="state" id="state">
                             <option value="" selected disabled>Select State</option>
                         </select>
-                        <select name="district" id="district">
+                        <select name="district" class="city" id="district">
                             <option value="" selected disabled>Select District</option>
                         </select>
                         <select name="city" id="city">
@@ -71,5 +75,6 @@
 
 </body>
 <script src="script/stateData.js"></script>
+<script src="script/stateAPI.js"></script>
 
 </html>
