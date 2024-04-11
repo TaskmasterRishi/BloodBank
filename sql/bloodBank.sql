@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 07:40 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Apr 11, 2024 at 01:55 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodbank`
+-- Database: `bloodBank`
 --
 
 -- --------------------------------------------------------
@@ -96,11 +96,14 @@ CREATE TABLE `donordetail` (
   `id` int(10) NOT NULL,
   `name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `age` varchar(10) NOT NULL,
   `contact` varchar(10) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `blood` varchar(5) NOT NULL,
-  `address` varchar(200) NOT NULL,
+  `dob` date NOT NULL,
+  `bloodGroup` varchar(5) NOT NULL,
+  `height` int(10) NOT NULL,
+  `weight` int(10) NOT NULL,
+  `address` varchar(225) NOT NULL,
+  `pincode` int(6) NOT NULL,
   `campid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -108,9 +111,10 @@ CREATE TABLE `donordetail` (
 -- Dumping data for table `donordetail`
 --
 
-INSERT INTO `donordetail` (`id`, `name`, `email`, `age`, `contact`, `gender`, `blood`, `address`, `campid`) VALUES
-(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '19', '', 'male', 'O+', 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 10),
-(3, 'shlok', 'shlok.goswami2002@gmail.com', '22', '', 'male', 'B+', 'emkclermkcflermnfl\r\nerfverf\r\nrefv', 5);
+INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`) VALUES
+(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10),
+(3, 'shlok', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'B+', 0, 0, 'emkclermkcflermnfl\r\nerfverf\r\nrefv', 0, 5),
+(4, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'A+', 185, 85, 'A - 10, Decora City, Gundala, Gondal , Rajkot, Gujrat', 360311, 5);
 
 -- --------------------------------------------------------
 
@@ -220,7 +224,7 @@ ALTER TABLE `campdetail`
 -- AUTO_INCREMENT for table `donordetail`
 --
 ALTER TABLE `donordetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `donorlogin`
