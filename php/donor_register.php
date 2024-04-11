@@ -14,7 +14,7 @@ if (isset($_POST["donor_register"])) {
 
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
-    $email = $_POST["mail"];
+    $email = $_SESSION["user_email"];
     $mobile = $_POST["phone"];
     $gender = $_POST["gender"];
     $height = $_POST["height"];
@@ -55,7 +55,7 @@ if (isset($_POST["donor_register"])) {
     $name = $fname . " " . $lname;
 
     // Check for duplicate registration
-    $checkDuplicateQuery = "SELECT COUNT(*) as count FROM donordetail WHERE email = '$email' OR contact = '$mobile' OR campid='$camp_id'";
+    $checkDuplicateQuery = "SELECT COUNT(*) as count FROM donordetail WHERE email = '$email'  AND campid='$camp_id'";
     $result = mysqli_query($con, $checkDuplicateQuery);
     $row = mysqli_fetch_assoc($result);
     $count = $row['count'];

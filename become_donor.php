@@ -55,7 +55,7 @@ while($row= mysqli_fetch_array($result)){
             <td style='max-width:100px;min-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
             <td style='max-width:150px'>
                 <form action='donateBlood.php' method='post'>
-                    <input type='hidden'  name='camp_id' value='".$row["id"]."'>
+                    <input type='hidden'  name='camp_id' value='".$row["id"]."'/>
                     <input type='submit' class='button' name='register' value='Register'>
                 </form>
             </td>

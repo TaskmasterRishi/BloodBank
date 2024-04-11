@@ -2,6 +2,8 @@
 session_start();
 if(isset($_POST["id"])){
 $_SESSION["camp_id"]=$_POST["id"];
+
+
 }
 
 ?>
@@ -38,6 +40,12 @@ $_SESSION["camp_id"]=$_POST["id"];
         </table>
         
         <input type="submit" class="add" name="add_blood_submit" value="add+">
+
+        <?php
+        
+
+        
+        ?>
 </form>
 
     </div>

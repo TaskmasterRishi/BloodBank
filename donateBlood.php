@@ -2,7 +2,10 @@
 // Include auth.php to check login status
 require_once ("auth.php");
 require_once ("php/connection.php");
+if(isset($_POST["camp_id"])){
 $camp_id = $_POST["camp_id"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +40,7 @@ $camp_id = $_POST["camp_id"];
     </div>
     <div class="container">
       <form action="php/donor_register.php" method="post" id="bloodDonationForm" return validateForm(event)>
+       
         <div class="form">
           <h1>Donor Information</h1>
           <div class="row">
@@ -56,8 +60,18 @@ $camp_id = $_POST["camp_id"];
               <input type="date" name="dob" id="dob" required>
             </div>
             <div class="formField">
-              <label for="mail">E-mail<span>*</span></label>
-              <input type="email" name="mail" id="mail" required>
+            <label for="weight">Select Blood Group<span>*</span></label>
+              <select id="bloodgroup" name="bloodgroup">
+                <option value="" disabled selected>Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
             </div>
           </div>
 
@@ -87,20 +101,7 @@ $camp_id = $_POST["camp_id"];
           </div>
 
           <div class="row">
-            <div class="formField">
-              <label for="weight">Select Blood Group<span>*</span></label>
-              <select id="bloodgroup" name="bloodgroup">
-                <option value="" disabled selected>Select Blood Group</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-              </select>
-            </div>
+           
             <div class="formField">
               <label for="">Do you have any diseases?<span>*</span></label>
               <div class="radio">
