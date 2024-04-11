@@ -102,7 +102,7 @@ $camp_id = $_POST["camp_id"];
               </select>
             </div>
             <div class="formField">
-              <label for="">Do you have any diseas?<span>*</span></label>
+              <label for="">Do you have any diseases?<span>*</span></label>
               <div class="radio">
                 <div class="radio">
                   <div class="radio">
@@ -147,7 +147,7 @@ $camp_id = $_POST["camp_id"];
             </div>
           </div>
           <br>
-          <h1>Address Imformation</h1>
+          <h1>Address Information</h1>
           <div class="row">
             <div class="formField">
               <label for="state">State<span>*</span></label>
