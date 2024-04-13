@@ -45,15 +45,15 @@ tr{
 
     all:unset;
     cursor: pointer;
-    position:relative;
-    left:100%;
-    transform: translate(-100%,0px);
     background-color:  rgb(1, 181, 1);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
     font-size: 20px;
     margin-top: 10px;
+    position:relative;
+    left:100%;
+    transform: translate(-100%,0px);
    
 }
 .signout{

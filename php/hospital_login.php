@@ -45,6 +45,7 @@ if(isset($_POST["hospital-login-submit"])){
             $row2=mysqli_fetch_assoc($result);
             
             $_SESSION["hospital_id"] = $row2["id"];
+            $_SESSION["hospital_name"]=$row2["name"];
             // Redirect to index.html
            
             header("location: ../index.php");

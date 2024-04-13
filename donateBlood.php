@@ -184,6 +184,7 @@ $camp_id = $_POST["camp_id"];
         <br><?php
         echo "<input type='hidden'  name='camp_id' value='$camp_id'>";
         ?>
+        <input type="hidden" name="present" value="no">
         <input type="submit" name="donor_register" value="Submit">
       </form>
       <div class="custom_validate"><?php if (isset($_GET["error"])) {
