@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: rgb(240, 240, 240);
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+  font-family: poppins;
+  display: grid;
+  grid-template-rows: auto 2fr auto;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap:0rem;
+    min-height: 100vh;
+    position: relative;
+    top:2rem;
+    margin: 2rem 0;
+}
+
+.left , .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left{
+    gap : 1rem;
+    background-color: white;
+    /* color: white; */
+    padding: 3rem 4rem;
+    border-radius: 25px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.info{
+    h1{
+        font-size: 3rem;
+        font-family: ubuntu;
+    }
+    span{
+        font-size: 2rem;
+        font-family: ubuntu;
+    }
+}
+
+.photo{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: top;
+    border-radius: 500px;
+    position: relative;
+}
+
+.photo i{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 2rem;
+    transition: 0.5s ease;
+}
+
+.photo i:hover{
+    transform: scale(110%);
+    cursor: pointer;
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+    background-color: white;
+    /* color: white; */
+    position: relative;
+    top:-8rem;
+    padding: 10rem 5rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+    table tr td{
+        padding: 1rem 10rem;
+        font-size: 2rem;
+        text-align: left;
+        font-family: poppins;
+        font-weight: 500;
+    }
+}

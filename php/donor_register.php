@@ -67,7 +67,7 @@ if (isset($_POST["donor_register"])) {
 
 
     // Insert the new donor record
-    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode,campid) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode','$camp_id')";
+    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode')";
 
     if (mysqli_query($con, $donorDetailInsert)) {
         echo "<script>alert('Registered Successfully');</script>";
