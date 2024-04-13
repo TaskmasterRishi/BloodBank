@@ -33,9 +33,9 @@ text-align:center;
 .back{
 
 position: absolute;
-left:1rem;
-bottom:1rem;
-/* transform: translate(-100%,0); */
+left:1.5rem;
+bottom:0.5rem;
+
 font-weight:500;
 width:max-content;
 }
@@ -43,15 +43,16 @@ width:max-content;
 
 position:absolute;
 left:50%;
-bottom:1rem;
+bottom:0.5rem;
 transform: translate(-50%,0);
 width:max-content;
+
 }
 .bloodadd{
 
 position: absolute;
-right:1rem;
-bottom:1rem;
+right:1.5rem;
+bottom:0.5rem;
 width:max-content;
 }
 .norecords{
