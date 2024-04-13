@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if(isset($_POST["id"])){
+if(isset($_POST["id"]) && !isset($_SESSION["camp_id"])){
     $_SESSION["camp_id"]=$_POST["id"];
     
 }
@@ -9,6 +9,7 @@ if(!isset($_SESSION["camp_id"])){
 
     header("location: index.php");
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -18,6 +19,53 @@ if(!isset($_SESSION["camp_id"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="CSS/select_blood.css">
+    <style>
+  
+.custom_validate{
+
+color: red;
+font-size: 12px;
+width: auto;
+height: 12px;
+text-align:center;
+
+}
+.back{
+
+position: absolute;
+left:1rem;
+bottom:1rem;
+/* transform: translate(-100%,0); */
+font-weight:500;
+width:max-content;
+}
+.delete{
+
+position:absolute;
+left:50%;
+bottom:1rem;
+transform: translate(-50%,0);
+width:max-content;
+}
+.bloodadd{
+
+position: absolute;
+right:1rem;
+bottom:1rem;
+width:max-content;
+}
+.norecords{
+
+    
+    color:red;
+    font-size:30px;
+    font-weight:900;
+}
+.button{
+
+    font-weight:500;
+}
+    </style>
 </head>
 <body>
     <div class="donortext">All Registered Donors</div>
@@ -35,8 +83,10 @@ if(!isset($_SESSION["camp_id"])){
                 
                 require_once("php/connection.php");
 
-                $query="SELECT * FROM donordetail";
+                $query="SELECT * FROM donordetail where campid='".$_SESSION["camp_id"]."'";
                 $result=mysqli_query($con,$query);
+
+               
 
             while($row=mysqli_fetch_array($result)){
                 if($row["present"]=="no"){
@@ -59,12 +109,26 @@ if(!isset($_SESSION["camp_id"])){
                     ";
                 }
             }
-
             ?>
         </table>
-        <form action="add_blood.php" method="post">
-            <input type="submit" class="button" name="addblood" value="add Blood">
-        </form>
+        <?php
+         $query="SELECT * FROM donordetail where present='no' AND campid='".$_SESSION["camp_id"]."'";
+         $result=mysqli_query($con,$query);
+        
+        if(mysqli_num_rows($result)==0){echo "<div class='norecords'>No Records Found<div>";}
+
+                
+                ?>
+            <form action='hospital_profile.php' method='post'>
+                <input type='submit' class='button back' name='addblood' value='Go Back'>
+            </form>
+            <form action='add_blood.php' method='post'>
+                <input type='submit' class='button bloodadd' name='addblood' value='add Blood'>
+            </form>
+            <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
+            <form action="php/delete_camp.php" method="post">
+                <input type='submit' class='button delete' name='delete' value='Delete Camp'>
+            </form>
     </div>
 
 </body>

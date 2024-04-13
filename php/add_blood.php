@@ -13,9 +13,9 @@ session_start();
     $type=$_POST["type"];
     $amount=$_POST["amount"];
 
-  echo $_SESSION["hospital_id"]."   ".$_SESSION["camp_id"];
 
-    $query="SELECT * FROM donordetail where campid=".$_SESSION["camp_id"];
+
+    $query="SELECT * FROM donordetail where  email='$email' AND present='yes' AND campid=".$_SESSION["camp_id"];
     $result=mysqli_query($con,$query);
 
 $userexist=false;
@@ -28,19 +28,19 @@ $userexist=false;
         }
         else{continue;}
     }
-
-     if($userexist){
+     if($userexist ){
 
             $query="INSERT INTO blooddetail (email,type,amount,bloodcenterid) VALUES ('$email','$type',$amount,
                                                                                     '".$_SESSION["hospital_id"]."')";
             
             mysqli_query($con,$query);
-
+            $updatequery="UPDATE donordetail SET present='done' WHERE email='$email' AND present='yes' AND campid=".$_SESSION["camp_id"];
+            mysqli_query($con,$updatequery);
             header("location: ../add_blood.php");
      }
      else{
 
-        header("location: ../add_blood.php?error=user doesnot exist");die();
+        header("location: ../add_blood.php?error=user does not exist");die();
      } 
     
     

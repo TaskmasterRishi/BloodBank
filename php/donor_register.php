@@ -26,7 +26,7 @@ if (isset($_POST["donor_register"])) {
     $landmark = $_POST["landmark"];
     $pincode = $_POST["pincode"];
     $camp_id = $_POST["camp_id"];
-    $present= $_POST["present"];
+    
 
     // Check if age is below 18
     $dob = date_create($_POST["dob"]);
@@ -68,7 +68,7 @@ if (isset($_POST["donor_register"])) {
 
 
     // Insert the new donor record
-    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode,campid,present) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode','$camp_id','$present')";
+    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode,campid,present) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode','$camp_id','no')";
 
     if (mysqli_query($con, $donorDetailInsert)) {
         echo "<script>alert('Registered Successfully');</script>";

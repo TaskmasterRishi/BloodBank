@@ -19,6 +19,9 @@ text-align:center;
     </style>
 </head>
 <?php session_start(); include 'navbar.php';
+
+if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
+
 ?>
 <body>
     
@@ -188,8 +191,6 @@ while($row= mysqli_fetch_array($result)){
 
     });
 
-
-    
 </script>
 </body>
 </html>
