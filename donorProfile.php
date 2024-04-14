@@ -26,7 +26,7 @@ $fetch = "SELECT * FROM donordetails where logID = '$id'";
 <body>
   <div class="card">
     <div class="left">
-      <div class="photo" style="background-image: url('profilePhots/rishi.jpg')">
+      <div class="photo" style="background-image: url('profilePhotos/rishi.jpg')">
         <i class="fa-regular fa-pen-to-square" id="penIcon" onclick="uploadFile()"></i>
         <input type="file" id="fileInput" style="display:none;">
       </div>

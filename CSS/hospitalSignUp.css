@@ -25,6 +25,17 @@ html {
   width: 100vw;
   justify-content: center;
 }
+#button{
+
+  all:unset;
+  cursor: pointer;
+  background-color: rgb(1, 181, 1);
+  padding:0.2em 0.4em;
+  color: white;
+  border-radius: 0.35em;
+  font-size: 20px;
+  margin-top:10px;
+}
 
 .card {
   display: flex;

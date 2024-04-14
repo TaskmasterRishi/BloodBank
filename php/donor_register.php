@@ -14,7 +14,7 @@ if (isset($_POST["donor_register"])) {
 
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
-    $email = $_POST["mail"];
+    $email = $_SESSION["user_email"];
     $mobile = $_POST["phone"];
     $gender = $_POST["gender"];
     $height = $_POST["height"];
@@ -26,6 +26,7 @@ if (isset($_POST["donor_register"])) {
     $landmark = $_POST["landmark"];
     $pincode = $_POST["pincode"];
     $camp_id = $_POST["camp_id"];
+    
 
     // Check if age is below 18
     $dob = date_create($_POST["dob"]);
@@ -55,7 +56,7 @@ if (isset($_POST["donor_register"])) {
     $name = $fname . " " . $lname;
 
     // Check for duplicate registration
-    $checkDuplicateQuery = "SELECT COUNT(*) as count FROM donordetail WHERE email = '$email' OR contact = '$mobile' OR campid='$camp_id'";
+    $checkDuplicateQuery = "SELECT COUNT(*) as count FROM donordetail WHERE email = '$email'  AND campid='$camp_id'";
     $result = mysqli_query($con, $checkDuplicateQuery);
     $row = mysqli_fetch_assoc($result);
     $count = $row['count'];
@@ -67,7 +68,7 @@ if (isset($_POST["donor_register"])) {
 
 
     // Insert the new donor record
-    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode')";
+    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode,campid,present) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode','$camp_id','no')";
 
     if (mysqli_query($con, $donorDetailInsert)) {
         echo "<script>alert('Registered Successfully');</script>";

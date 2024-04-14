@@ -79,7 +79,7 @@ border-radius: 50%;
 
                          echo'
                         
-                         <a href="donor_profile.php" class="p_link">
+                         <a href="donorProfile.php" class="p_link">
 
                          <div class="profile"><img src="Image/empty_profile.jpg"></div>
                          <span>Donor Profile</span>
@@ -94,8 +94,8 @@ border-radius: 50%;
                         
                         <a href="hospital_profile.php" class="p_link">
 
-                        <div class="profile"><img src="Image/empty_profile.jpg"></div>
-                        <span>Hospital Panel</span>
+                        <div class="profile" ><img style="height:5rem;" src="profilePhotos/bloodbank.png"></div>
+                        <span>'.$_SESSION["hospital_name"].'</span>
 
                         </a>
                         
