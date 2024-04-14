@@ -68,11 +68,11 @@ tr{
 
     all:unset;
     cursor: pointer;
-   
+   font-weight: 500;
     background-color:  var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
 }

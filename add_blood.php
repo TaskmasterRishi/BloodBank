@@ -31,7 +31,7 @@ if(time()<$time){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         
-        <link rel="stylesheet" href="CSS/add_blood.css">
+        <link rel="stylesheet" href="CSS/add_blood.css?h=00">
     <style>
 
 .custom_validate{
@@ -44,12 +44,6 @@ text-align:center;
 
 }
 
-.button{
-
-font-size: 15px;
-margin-top: 10px;
-font-weight:500;
-}
 .norecords{
 
     color: #a94442;
