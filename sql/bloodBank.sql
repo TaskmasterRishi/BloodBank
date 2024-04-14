@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2024 at 02:50 PM
+-- Generation Time: Apr 14, 2024 at 07:34 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,8 +41,8 @@ CREATE TABLE `bloodcenterdetail` (
 --
 
 INSERT INTO `bloodcenterdetail` (`id`, `name`, `address`, `email`, `state`, `district`) VALUES
-(1, 'blood center', 'dummy address', 'bloodbank@gmail.com', 'gujarat', 'vadodara'),
-(3, 'hospital1', 'wfnwewnf,3ferf,f', 'hospital1@gmail.com', 'gujarat', 'vadodara');
+(1, 'Blood Bank', 'dummy address', 'bloodbank@gmail.com', 'gujarat', 'vadodara'),
+(6, 'hospital', 'dummy address', 'hospital1@gmail.com', 'gujarat', 'vadodara');
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,9 @@ CREATE TABLE `blooddetail` (
 --
 
 INSERT INTO `blooddetail` (`id`, `email`, `type`, `amount`, `bloodcenterid`) VALUES
-(2, 'shlok.goswami2002@gmail.com', 'O+', 0.44, 3);
+(12, 'shlok.goswami2002@gmail.com', 'O+', 300, 6),
+(13, 'abc@gmail.com', 'A-', 100, 6),
+(14, 'dummy@gmail.com', 'B+', 150, 6);
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,9 @@ CREATE TABLE `campdetail` (
 --
 
 INSERT INTO `campdetail` (`id`, `date`, `name`, `address`, `state`, `district`, `contact`, `organizedBy`, `time1`, `time2`) VALUES
-(10, '2024-04-08', 'blood center', 'RC Dutt Rd, Near to Indian Oil Petrol pump, Aradhana Society, Vishwas Colony, Alkapuri, Vadodara, Gujarat 390007', 'gujarat', 'vadodara', '9999999999', 'hospital1', '07:00:00.000000', '22:30:00.000000');
+(10, '2024-04-08', 'blood center', 'RC Dutt Rd, Near to Indian Oil Petrol pump, Aradhana Society, Vishwas Colony, Alkapuri, Vadodara, Gujarat 390007', 'gujarat', 'vadodara', '9999999999', 'hospital', '07:00:00.000000', '22:30:00.000000'),
+(18, '2024-04-26', 'camp blood', 'envnee\r\nevvewrvwrvwv\r\neverv,32323', 'state', 'district', '1234567890', 'hospital', '08:00:00.000000', '21:00:00.000000'),
+(20, '2024-04-24', 'dummy', 'dummy address', 'dummy', 'dummy', '0987654321', 'Blood Bank', '22:26:00.000000', '23:26:00.000000');
 
 -- --------------------------------------------------------
 
@@ -109,15 +113,18 @@ CREATE TABLE `donordetail` (
   `weight` int(10) NOT NULL,
   `address` varchar(225) NOT NULL,
   `pincode` int(6) NOT NULL,
-  `campid` int(10) NOT NULL
+  `campid` int(10) NOT NULL,
+  `present` varchar(5) DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donordetail`
 --
 
-INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`) VALUES
-(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10);
+INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`, `present`) VALUES
+(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10, 'done'),
+(5, 'abc def def', 'abc@gmail.com', '7016562277', 'male', '2000-02-11', 'A-', 170, 70, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456, 10, 'done'),
+(6, 'dummy  dumb', 'dummy@gmail.com', '1234567890', 'male', '1999-04-02', 'B+', 177, 80, 'landmark, city, district, state', 123456, 10, 'done');
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,8 @@ CREATE TABLE `donorlogin` (
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `date`, `otp`) VALUES
 (2, 'rishipatodiya12@gmail.com', '$2y$10$mhJMl4a7tDKEJs13M/27fu1LNqYIfMXhz7Kq9to4rNJQ6n3LRTgIy', '2024-04-01 21:37:24', NULL),
 (3, 'shlok.goswami2002@gmail.com', '$2y$10$qgNyTjXPELH/rN66ahKuVe3CYl7EZ.LTub0bBy3/aIE4bmaq8m.Na', '2024-04-02 10:17:02', NULL),
-(4, 'abc@gmail.com', '$2y$10$.4QiypJQhzfa2zBEHvHr1umMhnscLsBnxKwegTG696SI7yGoZTL5.', '2024-04-11 18:15:41', NULL);
+(4, 'abc@gmail.com', '$2y$10$.4QiypJQhzfa2zBEHvHr1umMhnscLsBnxKwegTG696SI7yGoZTL5.', '2024-04-11 18:15:41', NULL),
+(5, 'dummy@gmail.com', '$2y$10$UcwpBbh7ynpxawI/BG6Td.odA9GV/D3p6p6ucvmK2K1V71f07Cqq2', '2024-04-14 02:09:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -159,7 +167,8 @@ CREATE TABLE `hospitallogin` (
 --
 
 INSERT INTO `hospitallogin` (`id`, `pass`, `email`) VALUES
-(3, '$2y$10$MOZuwAtZG5Lyf12AKijHWerApIc5ExNNgVo7hPDpPrMOVbk7iwEwa', 'hospital1@gmail.com');
+(3, '$2y$10$MOZuwAtZG5Lyf12AKijHWerApIc5ExNNgVo7hPDpPrMOVbk7iwEwa', 'hospital1@gmail.com'),
+(6, '$2y$10$zuaYbs/Jg7cKfUIVk2zHtOtAG/jlGt517AqcPfO8/kwunWnLwsIUm', 'bloodbank@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -209,37 +218,37 @@ ALTER TABLE `hospitallogin`
 -- AUTO_INCREMENT for table `bloodcenterdetail`
 --
 ALTER TABLE `bloodcenterdetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `blooddetail`
 --
 ALTER TABLE `blooddetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
 --
 ALTER TABLE `campdetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `donordetail`
 --
 ALTER TABLE `donordetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
 --
 ALTER TABLE `hospitallogin`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

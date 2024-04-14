@@ -35,7 +35,7 @@ if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
             <tr>
                 
                 <th>Date</th>
-                <th>Name</th>
+                <th>Camp Name</th>
                 <th>Address</th>
                 <th>State</th>
                 <th>District</th>
