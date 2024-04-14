@@ -18,7 +18,7 @@ if(!isset($_SESSION["camp_id"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/select_blood.css">
+    <link rel="stylesheet" href="CSS/select_blood.css?f=11">
     <style>
   
 .custom_validate{
@@ -58,7 +58,7 @@ width:max-content;
 .norecords{
 
     
-    color:red;
+    color: #a94442;
     font-size:30px;
     font-weight:900;
 }
@@ -112,19 +112,19 @@ width:max-content;
             }
             ?>
         </table>
+        
         <?php
          $query="SELECT * FROM donordetail where present='no' AND campid='".$_SESSION["camp_id"]."'";
          $result=mysqli_query($con,$query);
         
         if(mysqli_num_rows($result)==0){echo "<div class='norecords'>No Records Found<div>";}
-
-                
-                ?>
+        ?>
+        <hr>
             <form action='hospital_profile.php' method='post'>
                 <input type='submit' class='button back' name='addblood' value='Go Back'>
             </form>
             <form action='add_blood.php' method='post'>
-                <input type='submit' class='button bloodadd' name='addblood' value='add Blood'>
+                <input type='submit' class='button bloodadd' name='addblood' value='Add Blood'>
             </form>
             <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
             <form action="php/delete_camp.php" method="post">

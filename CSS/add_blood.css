@@ -1,3 +1,7 @@
+:root{
+
+    --button_color:#c4584c;
+}
 html,body{
 
     margin:0px;
@@ -31,7 +35,8 @@ td{
 th{
     
     font-size: 20px;
-    background-color:rgb(255, 64, 0);
+    background-color:#c03929;
+    color: white;
 }
 tr{
     margin-top:5px;
@@ -42,7 +47,7 @@ tr{
     all:unset;
     cursor: pointer;
    
-    background-color:  rgb(1, 181, 1);
+    background-color:  var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
@@ -52,21 +57,22 @@ tr{
 }
 .amounttext{
 
-    font-size: 25px;
-    color: rgb(255, 30, 0);
-    width:fit-content;
-    margin:30px auto 20px auto;
-    font-weight: 1000;
+    margin:10px auto 30px auto;
+    color: #a94442;
+    font-weight:750;
+    font-size:30px;
+    padding: 2rem 5rem 0rem;
+    border-bottom: 1px solid #a94442 ;
 }
 .button{
 
     all:unset;
     cursor: pointer;
-   
-    background-color:  rgb(1, 181, 1);
+   font-weight: 500;
+    background-color:  var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
 }

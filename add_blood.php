@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+
 $camp_id=$_SESSION["camp_id"];
 require_once("php/connection.php");
 $query="SELECT * FROM campdetail where id=$camp_id";
@@ -30,7 +31,7 @@ if(time()<$time){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         
-        <link rel="stylesheet" href="CSS/add_blood.css">
+        <link rel="stylesheet" href="CSS/add_blood.css?h=00">
     <style>
 
 .custom_validate{
@@ -42,38 +43,19 @@ height: 12px;
 text-align:center;
 
 }
-.amounttext{
 
-font-size: 25px;
-color: rgb(255, 30, 0);
-width:fit-content;
-margin:30px auto 20px auto;
-font-weight: 1000;
-}
-.button{
-
-all:unset;
-cursor: pointer;
-
-background-color:  rgb(1, 181, 1);
-padding:0.2em 0.4em;
-color: white;
-border-radius: 0.35em;
-font-size: 15px;
-margin-top: 10px;
-font-weight:500;
-}
 .norecords{
 
-    color:red;
+    color: #a94442;
     font-size:25px;
     font-weight:900;
+    
 }
     </style>
 </head>
 <body>
     
-<!-- <div class="amounttext">Add Blood Amount</div> -->
+<div class="amounttext">Add Blood Amount</div>
     <div class="addblood">
         <table>
             <tr>
@@ -104,7 +86,7 @@ font-weight:500;
                         <td>".$row["bloodGroup"]."</td>
                         <form action='php/add_blood.php' method='post'>
                         <td><input type='number' step='0.02' name='amount'></td>
-                        <td>
+                        <td style='border:none;'>
                                 <input type='hidden' name='email' value='".$row["email"]."'>
                                 <input type='hidden' name='type' value='".$row["bloodGroup"]."'>
                                 
@@ -126,7 +108,7 @@ font-weight:500;
         if(mysqli_num_rows($result)==0){echo "<div class='norecords'>No Records Found<div>";}
   
         ?>
-
+<hr>
         <form action='hospital_profile.php' method='post'>
             <input type='submit' class='button' name='addblood' value='Go Back'>
         </form>
