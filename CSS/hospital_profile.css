@@ -1,3 +1,7 @@
+:root{
+
+    --button_color:#c4584c;
+}
 html,body{
 
     margin:0px;
@@ -26,13 +30,15 @@ table{
 th,td{
 
     padding: 0.3rem;
-    border:3px solid rgba(255, 255, 255, 0.753);
+   
     
 }
 th{
 
     font-size: 20px;
-    background-color:rgb(255, 64, 0);
+    background-color:#c03929;
+    color:white;
+    padding:0.5rem auto 0.5rem 1rem;
 }
 tr{
     margin-top:5px;
@@ -45,7 +51,7 @@ tr{
 
     all:unset;
     cursor: pointer;
-    background-color:  rgb(1, 181, 1);
+    background-color: var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
@@ -60,7 +66,7 @@ tr{
  
     all:unset;
     cursor: pointer;
-    background-color: rgb(1, 181, 1);
+    background-color: var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
@@ -73,11 +79,12 @@ tr{
 }
 .available{
 
-    font-size: 25px;
-    color: rgb(255, 30, 0);
-    width:fit-content;
-    margin:60px auto 20px auto;
-    font-weight: 1000;
+    margin:10px auto 30px auto;
+    color: #a94442;
+    font-weight:750;
+    font-size:30px;
+    padding: 2rem 5rem 0rem;
+    border-bottom: 1px solid #a94442 ;
 
 }
 .table tr td{
@@ -90,7 +97,7 @@ tr{
 
     all:unset;
     cursor: pointer;
-    background-color: rgb(1, 181, 1);
+    background-color: var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;
@@ -102,7 +109,7 @@ tr{
 
     all:unset;
     cursor: pointer;
-    background-color: rgb(1, 181, 1);
+    background-color: var(--button_color);
     padding:0.2em 0.4em;
     color: white;
     border-radius: 0.35em;

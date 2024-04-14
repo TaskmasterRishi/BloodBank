@@ -27,7 +27,8 @@ if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
     
     <div class="dummy"></div>
     
-    <div class="available" style="margin-top:10px">Add Camp</div>
+    <div class="available">Add Camp</div>
+
     <div class="addCamp">
         
         <table>
