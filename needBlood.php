@@ -38,7 +38,7 @@ if(isset($_POST["search-submit"])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="CSS/needBlood.css?v=0">
+    <link rel="stylesheet" href="CSS/needBlood.css">
     <link rel="stylesheet" href="CSS/needBloodMedia.css">
     <style>
 
@@ -51,7 +51,10 @@ height: 12px;
 text-align:center;
 
 }
+.submit{
 
+    margin:auto 3rem;
+}
     </style>
 </head>
 
@@ -123,6 +126,9 @@ text-align:center;
             <center>
                     <button type="submit" name="search-submit" value="submit" class="submit">Search</button>
                 </form>
+
+
+                <div  name="search-all" value="search-all" class="submit search-all">Search All</div>
                 <br>
                 <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];} ?></div>
             </center>
@@ -160,26 +166,16 @@ text-align:center;
 
             $state=$_POST["state"];
             $district=$_POST["district"];
-            $type=$_POST["bloodgroup"];
+            $_GLOBAL["type"]=$_POST["bloodgroup"];
                                     
-        $joinquery="SELECT bloodcenterdetail.name,bloodcenterdetail.email,bloodcenterdetail.district,bloodcenterdetail.state,blooddetail.type
-        FROM 
-        bloodcenterdetail INNER JOIN blooddetail ON bloodcenterdetail.id=blooddetail.bloodcenterid
-        where 
-        bloodcenterdetail.state='$state' AND bloodcenterdetail.district='$district' AND blooddetail.type='$type'   
-        ";
+            $joinquery="SELECT * FROM bloodcenterdetail where state='$state' AND district='$district'";
         }
         else if(isset($_POST["state"]) && isset($_POST["bloodgroup"])){
 
             $state=$_POST["state"];
           
-            $type=$_POST["bloodgroup"];
-            $joinquery="SELECT bloodcenterdetail.name,bloodcenterdetail.email,bloodcenterdetail.district,bloodcenterdetail.state,blooddetail.type
-        FROM 
-        bloodcenterdetail INNER JOIN blooddetail ON bloodcenterdetail.id=blooddetail.bloodcenterid
-        where 
-        bloodcenterdetail.state='$state' AND blooddetail.type='$type'   
-        ";
+           $_GLOBAL["type"]=$_POST["bloodgroup"];
+            $joinquery="SELECT * FROM bloodcenterdetail where state='$state'";
         }
         else if(isset($_POST["state"])){
     
@@ -194,7 +190,12 @@ text-align:center;
 
             $available="Available<br>";
             $temp=$available;
-            $bloodquery="SELECT type FROM blooddetail where bloodcenterid = ".$row["id"];
+            $bloodquery="SELECT DISTINCT type FROM blooddetail where bloodcenterid = ".$row["id"];
+
+            if(isset($_GLOBAL["type"])){
+                $bloodquery=$bloodquery." AND type='".$_GLOBAL["type"]."'";
+            }
+
             $result2=mysqli_query($con,$bloodquery);
 
                 while($row2=mysqli_fetch_array($result2)){
@@ -238,7 +239,7 @@ text-align:center;
 
                                         $available="Available<br>";
                                         $temp=$available;
-                                        $bloodquery="SELECT type FROM blooddetail where bloodcenterid = ".$row["id"];
+                                        $bloodquery="SELECT DISTINCT type FROM blooddetail where bloodcenterid = ".$row["id"];
                                         $result2=mysqli_query($con,$bloodquery);
 
                                         while($row2=mysqli_fetch_array($result2)){
@@ -279,7 +280,13 @@ text-align:center;
         <?php include 'footer.php'; ?>
 
     </div>
+<script>
+     document.querySelector(".search-all").addEventListener("click",() => {
 
+location.href="needBlood.php?";
+
+});
+</script>
 </body>
 <script src="script/stateData.js"></script>
 <script src="script/stateAPI.js"></script>
