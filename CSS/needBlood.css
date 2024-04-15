@@ -145,3 +145,9 @@ html {
   td{
     font-size:15px;
   }
+  .detail_container{
+    width:90%;
+    margin:0px auto;
+    overflow-x:scroll;
+    background-color: blue;
+  }
