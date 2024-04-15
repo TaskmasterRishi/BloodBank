@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/hospital_profile.css"><style>
+    <link rel="stylesheet" href="CSS/hospital_profile.css?r=99"><style>
 
 .custom_validate{
 
@@ -118,7 +118,7 @@ while($row= mysqli_fetch_array($result)){
                     <td style='max-width:150px'>".$row["contact"]."</td>
                     <td style='max-width:150px'>".$row["organizedBy"]."</td>
                     <td style='max-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
-                    <td style='max-width:60px'>";
+                    <td style='max-width:60px;border:none;'>";
 
                 if($row["organizedBy"]==$_SESSION["hospital_name"]){
                     echo"
@@ -152,7 +152,7 @@ while($row= mysqli_fetch_array($result)){
                     <td style='max-width:150px'>".$row["contact"]."</td>
                     <td style='max-width:150px'>".$row["organizedBy"]."</td>
                     <td style='max-width:100px'>".substr($row["time1"],0,8)."-".substr($row["time2"],0,8)."</td>
-                    <td style='max-width:60px'>";
+                    <td style='max-width:60px;border:none;'>";
 
                     if($row["organizedBy"]==$_SESSION["hospital_name"]){
                         echo "
@@ -176,6 +176,7 @@ while($row= mysqli_fetch_array($result)){
         </Table>    
 <hr>
         <button class="goback">Go back</button>
+        <!-- <button class="donordetail">Donor Details</button> -->
         <form action="php/signout.php" method="post">
          
             <input type="submit" value="Sign Out" name="signout-submit" class="signout">
@@ -191,6 +192,11 @@ while($row= mysqli_fetch_array($result)){
         location.href="index.php";
 
     });
+    document.querySelector(".donordetail").addEventListener("click",() => {
+
+    location.href="donor_detail.php";
+
+});
 
 </script>
 </body>

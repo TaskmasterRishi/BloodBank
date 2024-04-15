@@ -80,7 +80,7 @@ html {
   border: 0;
   color: white;
   border-radius: 5px;
-  font-weight: 900;
+  font-weight: 800;
   cursor: pointer;
   transition: 0.5s ease;
 }
@@ -134,4 +134,20 @@ html {
     font-size: 1.5rem;
     font-family: 'Roboto';
   }
-  
+  .donordetail{
+
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+  table{
+
+    text-align: center;
+  }
+  td{
+    font-size:15px;
+  }
+  .detail_container{
+    width:90%;
+    margin:0px auto;
+    overflow-x:scroll;
+    background-color: blue;
+  }
