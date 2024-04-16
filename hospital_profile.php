@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/hospital_profile.css"><style>
+    <link rel="stylesheet" href="CSS/hospital_profile.css?rr=00"><style>
 
 .custom_validate{
 
@@ -33,9 +33,11 @@ text-align:center;
     <div class="dummy"></div>
     
     <div class="available">Add Camp</div>
-    <div class="addCamp">
+<div class="addCamp">
+    
+    <div class="table-container">
         
-        <div class="table-container">
+        <form action="php/camp_entry.php" method="post">
         <table>
             
             <tr>
@@ -49,7 +51,6 @@ text-align:center;
                 <th>Time</th>
                 
             </tr>
-            <form action="php/camp_entry.php" method="post">
                 <tr>
                     
                     <td><input type="date" name="date" ></td>
@@ -62,6 +63,7 @@ text-align:center;
 
             </tr>
         </table>
+
     </div>
      <input type="submit" name="submit" value="add +" class="add">
     <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
@@ -72,7 +74,7 @@ text-align:center;
         
         
 <div class="table-container">
-        
+        <div class="table-control">
         <Table class="table">
             
             <tr>
@@ -180,7 +182,8 @@ while($row= mysqli_fetch_array($result)){
             ?>
 
         </Table>    
-<hr>
+
+    </div>
 </div>
         <button class="goback">Go back</button>
         <!-- <button class="donordetail">Donor Details</button> -->
@@ -189,7 +192,7 @@ while($row= mysqli_fetch_array($result)){
             <input type="submit" value="Sign Out" name="signout-submit" class="signout">
         
         </form>
-    </div>
+</div>
 <?php include 'footer.php'; ?>
 <script>
 

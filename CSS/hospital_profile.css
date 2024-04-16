@@ -9,8 +9,8 @@ html,body{
 }
 .addCamp,.showcamp{
 
-    width:max-content;
-    height: max-content;
+    
+ 
     padding:2rem;
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.286);
@@ -20,14 +20,14 @@ html,body{
     
     margin-top: 20px;
     margin-bottom: 10px;
-    width: 79%;
+    width: 68%;
     margin-left:auto;
     margin-right: auto;
 }
 .addCamp{
 
     margin:0px auto;
-    width:80%;
+    width:70%;
 }
 table{
 
@@ -152,8 +152,18 @@ tr{
 }
 .table-container{
 
-    overflow-x: scroll;
     width:100%;
-    height: fit-content;
-
+    overflow-x: scroll;
+    margin:0px auto;
+    padding: 40px;
 }  
+.table{
+
+    margin:0px auto;    
+}
+.table-control{
+
+    width:max-content;
+}
+
+
