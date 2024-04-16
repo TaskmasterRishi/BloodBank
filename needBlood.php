@@ -287,6 +287,9 @@ text-align:center;
 location.href="needBlood.php?";
 
 });
+
+
+
 </script>
 </body>
 <script src="script/stateData.js"></script>
