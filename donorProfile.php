@@ -11,6 +11,12 @@ $result = mysqli_query($con, $fetch);
 if ($result && mysqli_num_rows($result) > 0) {
   $data = mysqli_fetch_assoc($result);
 }
+
+$fetch = "SELECT * FROM donorlogin where id = '$id'";
+$result = mysqli_query($con, $fetch);
+if ($result && mysqli_num_rows($result) > 0) {
+  $data2 = mysqli_fetch_assoc($result);
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +35,16 @@ if ($result && mysqli_num_rows($result) > 0) {
 <body>
   <div class="card">
     <div class="left">
-      <div class="photo" style="background-image: url('profilePhotos/rishi.jpg')">
-        <i class="fa-regular fa-pen-to-square" id="penIcon" onclick="uploadFile()"></i>
-        <form action="php/profileUpload.php" method="post" enctype="multipart/form-data">
-          <input type="file" id="fileInput" style="display:none;">
+      <div class="photo"
+        style="background-image: url('<?php if (isset($data2["imagename"])) {
+          echo 'profilePhotos/' . $data2["imagename"];
+        } ?>')">
+        <form id="uploadForm" action="php/profileUpload.php" method="post" enctype="multipart/form-data">
+          <input type="file" id="fileInput" name="profile" style="display: none;" onchange="handleFileChange(event)">
         </form>
+
+        <i class="fa-regular fa-pen-to-square" id="penIcon" onclick="uploadFile()"></i>
+
       </div>
       <div class="info">
         <h1><?php echo $data["name"] ?></h1>
@@ -43,14 +54,6 @@ if ($result && mysqli_num_rows($result) > 0) {
 
     <div class="right">
       <table>
-        <tr>
-          <td>Name</td>
-          <td><?php echo $data["name"] ?></td>
-        </tr>
-        <tr>
-          <td>Email Address</td>
-          <td><?php echo $data["email"] ?></td>
-        </tr>
         <tr>
           <td>Mobile Number</td>
           <td><?php echo $data["contact"] ?></td>
@@ -87,6 +90,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </div>
 </body>
-<script src="script/donorProfile.js"></script>
+<script src="script/donorPro.js"></script>
 
 </html>

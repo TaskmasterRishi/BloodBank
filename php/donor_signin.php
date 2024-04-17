@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST["donor-signin-submit"])) {
     // Check if any required field is empty
     if (empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["cpass"]) || empty($_POST["userName"])) {
@@ -25,7 +26,7 @@ if (isset($_POST["donor-signin-submit"])) {
             header("location: ../donor_login.php?error=*Enter the same password in both fields");
             exit();
         } else {
-            require_once("connection.php");
+            require_once ("connection.php");
 
             // Check if user already exists
             $checkUserQuery = "SELECT * FROM donorlogin WHERE userEmail='$userMail'";
@@ -49,6 +50,9 @@ if (isset($_POST["donor-signin-submit"])) {
                     $sql = "INSERT INTO donordetail (id, name, email) VALUES ('$donorLoginID', '$userName', '$userMail')";
 
                     if (mysqli_query($con, $sql)) {
+                        $_SESSION["login"] = true;
+                        $_SESSION["user_id"] = $row["ID"];
+                        $_SESSION["user_email"] = $row["userEmail"];
                         header("location: ../index.php");
                         exit();
                     } else {
