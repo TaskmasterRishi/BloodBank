@@ -6,8 +6,11 @@ if (isset($_SESSION["user_id"])) {
 } else {
   echo "session destroyed";
 }
-
-$fetch = "SELECT * FROM donordetails where logID = '$id'";
+$fetch = "SELECT * FROM donordetail where id = '$id'";
+$result = mysqli_query($con, $fetch);
+if ($result && mysqli_num_rows($result) > 0) {
+  $data = mysqli_fetch_assoc($result);
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +31,13 @@ $fetch = "SELECT * FROM donordetails where logID = '$id'";
     <div class="left">
       <div class="photo" style="background-image: url('profilePhotos/rishi.jpg')">
         <i class="fa-regular fa-pen-to-square" id="penIcon" onclick="uploadFile()"></i>
-        <input type="file" id="fileInput" style="display:none;">
+        <form action="php/profileUpload.php" method="post" enctype="multipart/form-data">
+          <input type="file" id="fileInput" style="display:none;">
+        </form>
       </div>
       <div class="info">
-        <h1>Rishi Patodiya</h1>
-        <span>rishipatodiya12@gmail.com</span>
+        <h1><?php echo $data["name"] ?></h1>
+        <span><?php echo $data["email"] ?></span>
       </div>
     </div>
 
@@ -40,43 +45,43 @@ $fetch = "SELECT * FROM donordetails where logID = '$id'";
       <table>
         <tr>
           <td>Name</td>
-          <td>Rishi Patodiya</td>
+          <td><?php echo $data["name"] ?></td>
         </tr>
         <tr>
           <td>Email Address</td>
-          <td>rishipatodiya12@gmail.com</td>
+          <td><?php echo $data["email"] ?></td>
         </tr>
         <tr>
           <td>Mobile Number</td>
-          <td>8980402010</td>
+          <td><?php echo $data["contact"] ?></td>
         </tr>
         <tr>
           <td>Gender</td>
-          <td>Male</td>
+          <td><?php echo $data["gender"] ?></td>
         </tr>
         <tr>
           <td>Date of birth</td>
-          <td>18 - 09 - 2004</td>
+          <td><?php echo $data["dob"] ?></td>
         </tr>
         <tr>
           <td>Blood Group</td>
-          <td>B+</td>
+          <td><?php echo $data["bloodGroup"] ?></td>
         </tr>
         <tr>
           <td>Height</td>
-          <td>185 cm</td>
+          <td><?php echo $data["height"] ?></td>
         </tr>
         <tr>
           <td>Weight</td>
-          <td>85 kg</td>
+          <td><?php echo $data["weight"] ?></td>
         </tr>
         <tr>
           <td>Address</td>
-          <td>ABC</td>
+          <td><?php echo $data["address"] ?></td>
         </tr>
         <tr>
           <td>Pincode</td>
-          <td>360311</td>
+          <td><?php echo $data["pincode"] ?></td>
         </tr>
       </table>
     </div>

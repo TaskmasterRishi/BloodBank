@@ -19,7 +19,7 @@ function generateOTP()
 if (isset($_POST["email"])) {
     // Check if the email exists in the database
     $email = $_POST["email"];
-    $stmt = $con->prepare("SELECT * FROM donorLogIn WHERE userEmail=?");
+    $stmt = $con->prepare("SELECT * FROM donorlogin WHERE userEmail=?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
