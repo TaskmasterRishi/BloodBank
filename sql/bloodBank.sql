@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 14, 2024 at 07:34 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Apr 17, 2024 at 01:26 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodbank`
+-- Database: `bloodBank`
 --
 
 -- --------------------------------------------------------
@@ -105,15 +105,15 @@ CREATE TABLE `donordetail` (
   `id` int(10) NOT NULL,
   `name` varchar(20) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `contact` varchar(10) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `dob` date NOT NULL,
-  `bloodGroup` varchar(5) NOT NULL,
-  `height` int(10) NOT NULL,
-  `weight` int(10) NOT NULL,
-  `address` varchar(225) NOT NULL,
-  `pincode` int(6) NOT NULL,
-  `campid` int(10) NOT NULL,
+  `contact` varchar(10) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `bloodGroup` varchar(5) DEFAULT NULL,
+  `height` int(10) DEFAULT NULL,
+  `weight` int(10) DEFAULT NULL,
+  `address` varchar(225) DEFAULT NULL,
+  `pincode` int(6) DEFAULT NULL,
+  `campid` int(10) DEFAULT NULL,
   `present` varchar(5) DEFAULT 'no'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -122,9 +122,7 @@ CREATE TABLE `donordetail` (
 --
 
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`, `present`) VALUES
-(1, 'shlok goswami', 'shlok.goswami2002@gmail.com', '', 'male', '0000-00-00', 'O+', 0, 0, 'erfverve,etvevetrtv,\r\nerverver,\r\nerrv,79879e', 0, 10, 'done'),
-(5, 'abc def def', 'abc@gmail.com', '7016562277', 'male', '2000-02-11', 'A-', 170, 70, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456, 10, 'done'),
-(6, 'dummy  dumb', 'dummy@gmail.com', '1234567890', 'male', '1999-04-02', 'B+', 177, 80, 'landmark, city, district, state', 123456, 10, 'done');
+(1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no');
 
 -- --------------------------------------------------------
 
@@ -136,19 +134,15 @@ CREATE TABLE `donorlogin` (
   `ID` int(100) NOT NULL,
   `userEmail` varchar(200) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `otp` int(10) DEFAULT NULL
+  `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donorlogin`
 --
 
-INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `date`, `otp`) VALUES
-(2, 'rishipatodiya12@gmail.com', '$2y$10$mhJMl4a7tDKEJs13M/27fu1LNqYIfMXhz7Kq9to4rNJQ6n3LRTgIy', '2024-04-01 21:37:24', NULL),
-(3, 'shlok.goswami2002@gmail.com', '$2y$10$qgNyTjXPELH/rN66ahKuVe3CYl7EZ.LTub0bBy3/aIE4bmaq8m.Na', '2024-04-02 10:17:02', NULL),
-(4, 'abc@gmail.com', '$2y$10$.4QiypJQhzfa2zBEHvHr1umMhnscLsBnxKwegTG696SI7yGoZTL5.', '2024-04-11 18:15:41', NULL),
-(5, 'dummy@gmail.com', '$2y$10$UcwpBbh7ynpxawI/BG6Td.odA9GV/D3p6p6ucvmK2K1V71f07Cqq2', '2024-04-14 02:09:21', NULL);
+INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `date`) VALUES
+(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '2024-04-17 16:38:56');
 
 -- --------------------------------------------------------
 
@@ -233,16 +227,10 @@ ALTER TABLE `campdetail`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `donordetail`
---
-ALTER TABLE `donordetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
