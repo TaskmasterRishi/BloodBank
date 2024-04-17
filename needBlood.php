@@ -78,7 +78,7 @@ text-align:center;
                     <!-- <select name="country" class="country" id="country" style="display:none">
                             <option value="" selected disabled>Select Country</option>
                         </select> -->
-                        <select name="state" class="state" id="state">
+                        <select name="state" class="state" id="state" onchange="select(this.value)">
                             <option value="" selected disabled>Select State</option>
                         <?php
                   
@@ -94,21 +94,10 @@ text-align:center;
 
                         ?>
                         </select>
-                        <select name="district" class="city" id="district">
+                        <select name="district" class="city district_option" id="district">
                             <option value="" selected disabled>Select District</option>
-                            <?php
-                  
-                            $districtquery="SELECT DISTINCT district FROM bloodcenterdetail";
-                            $districtresult=mysqli_query($con,$districtquery);
 
-                            while($district=mysqli_fetch_array($districtresult)){
-
-                                echo "
-                                    <option value='".$district["district"]."'>".$district["district"]."</option>
-                                ";
-                            }
-
-                        ?>
+                          
                         </select>
                         <select id="bloodgroup" name="bloodgroup">
                             <option value="" disabled selected>Select Blood Group</option>
@@ -288,11 +277,21 @@ location.href="needBlood.php?";
 
 });
 
-
-
+function select(str) {
+    let start="<option value='' select disable>Select District</option>";
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    document.querySelector(".district_option").innerHTML = start+this.responseText;
+    }
+  };
+  xhttp.open("GET", "php/ajax_district.php?state="+str, true);
+  xhttp.send();
+}
 </script>
 </body>
-<script src="script/stateData.js"></script>
-<script src="script/stateAPI.js"></script>
+<!-- <script src="script/stateData.js"></script>
+<script src="script/stateAPI.js"></script> -->
 
 </html>
