@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/hospital_profile.css?r=99"><style>
+    <link rel="stylesheet" href="CSS/hospital_profile.css?rr=00"><style>
 
 .custom_validate{
 
@@ -18,19 +18,26 @@ text-align:center;
 
     </style>
 </head>
-<?php session_start(); include 'navbar.php';
-
-if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
-
-?>
+    <?php session_start();
+    
+    if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
+    
+    ?>
 <body>
+    <div class="nav-container">
+        <?php include 'navbar.php';?>
+</div>
+
+
     
     <div class="dummy"></div>
     
     <div class="available">Add Camp</div>
-
-    <div class="addCamp">
+<div class="addCamp">
+    
+    <div class="table-container">
         
+        <form action="php/camp_entry.php" method="post">
         <table>
             
             <tr>
@@ -44,7 +51,6 @@ if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
                 <th>Time</th>
                 
             </tr>
-            <form action="php/camp_entry.php" method="post">
                 <tr>
                     
                     <td><input type="date" name="date" ></td>
@@ -57,16 +63,18 @@ if(isset($_SESSION["camp_id"])){unset($_SESSION["camp_id"]);}
 
             </tr>
         </table>
-        
-        <input type="submit" name="submit" value="add +" class="add">
-        <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
+
     </div>
+     <input type="submit" name="submit" value="add +" class="add">
+    <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
     </form>
+</div>
     <div class="available">Available Camps</div>
     <div class="showcamp">
         
         
-        
+<div class="table-container">
+        <div class="table-control">
         <Table class="table">
             
             <tr>
@@ -174,7 +182,9 @@ while($row= mysqli_fetch_array($result)){
             ?>
 
         </Table>    
-<hr>
+
+    </div>
+</div>
         <button class="goback">Go back</button>
         <!-- <button class="donordetail">Donor Details</button> -->
         <form action="php/signout.php" method="post">
@@ -182,8 +192,7 @@ while($row= mysqli_fetch_array($result)){
             <input type="submit" value="Sign Out" name="signout-submit" class="signout">
         
         </form>
-    </div>
-
+</div>
 <?php include 'footer.php'; ?>
 <script>
 

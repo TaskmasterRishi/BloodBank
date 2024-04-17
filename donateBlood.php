@@ -194,7 +194,7 @@ $camp_id = $_POST["camp_id"];
   <?php include 'footer.php'; ?>
 
 </body>
-<!-- <script src="script/donateBlood.js"></script> -->
+<script src="script/donateBlood.js"></script>
 <script src="script/navbar.js"></script>
 <script src="script/stateAPI.js"></script>
 

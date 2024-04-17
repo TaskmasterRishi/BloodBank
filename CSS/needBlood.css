@@ -149,5 +149,7 @@ html {
     width:90%;
     margin:0px auto;
     overflow-x:scroll;
-    background-color: blue;
+    /* background-color: blue; */
+    scroll-behavior: smooth;
+  
   }

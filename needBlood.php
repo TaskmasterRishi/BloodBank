@@ -38,7 +38,7 @@ if(isset($_POST["search-submit"])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="CSS/needBlood.css?b=00">
+    <link rel="stylesheet" href="CSS/needBlood.css">
     <link rel="stylesheet" href="CSS/needBloodMedia.css">
     <style>
 
@@ -65,6 +65,7 @@ text-align:center;
         <div class="head">
             <h1>Blood Stock Availability</h1>
         </div>
+
         <form action="" method="post">
             <table class="serchBox">
                 <tr class="serchHead">
@@ -123,6 +124,7 @@ text-align:center;
                     </td>
                 </tr>
             </table><br><br>
+
             <center>
                     <button type="submit" name="search-submit" value="submit" class="submit">Search</button>
                 </form>
@@ -278,7 +280,6 @@ text-align:center;
             </div>
     </div>
         <?php include 'footer.php'; ?>
-
     </div>
 <script>
      document.querySelector(".search-all").addEventListener("click",() => {
@@ -286,6 +287,9 @@ text-align:center;
 location.href="needBlood.php?";
 
 });
+
+
+
 </script>
 </body>
 <script src="script/stateData.js"></script>
