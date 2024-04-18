@@ -82,7 +82,7 @@ border-radius: 50%;
                          <a href="donorProfile.php" class="p_link">
 
                          <div class="profile"><img src="Image/empty_profile.jpg"></div>
-                         <span>Donor Profile</span>
+                         <span style="color:white;">Donor Profile</span>
      
                         </a>
 

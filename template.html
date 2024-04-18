@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<link rel="stylesheet" href="CSS/template.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+
+
+<body>
+        <div class="admitcard">Red Bank</div>
+        <div class="donortext">Donor Details</div>
+
+        
+        <div class="donordetail">
+            <div class="ddetail">
+                <table>
+                    <tr>
+                        <td><span>Name:</span> {{ name }}</td>
+                        <td><span>Contact:</span> {{ contact }}</td>
+                    </tr>
+                    <tr>
+                        <td><span>ID:</span> {{ donorid }}</td>
+                        <td><span>E-mail:</span> {{ email }}</td>
+                    </tr>
+                    <tr>
+                        <td><span>DOB:</span> {{ dob }}</td>
+                        <td><span>Gender:</span> {{ gender }}</td>
+                    </tr>
+                    <tr>
+                        <td><span>Height:</span> {{ height }} cm</td>
+                        <td><span>Weight:</span> {{ weight }} Kg</td>
+                    </tr>
+                    <tr>
+                        <td><span>Blood Group:</span> {{ bloodgroup }}</td>
+                        <td><span>Address:</span> {{ address }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="photo">
+                <div class="photoholder">
+                    <img src= {{ path }} alt="No image">
+                </div>
+            </div>
+        </div>
+        
+        <div class="camptext">Camp Details</div>
+
+        <div class="campdetail">
+            <div class="campdetail-container">
+                <table>
+                    <tr>
+                        <td><span>Name:</span> {{ campname }}</td>
+                        <td><span>State:</span> {{ state }}</td>
+                        <td><span>District</span> {{ district }}</td>
+                    </tr>
+                    <tr>
+                        <td><span>Date:</span> {{ date }}</td>
+                        <td><span>Start:</span> {{ time1 }}</td>
+                        <td><span>Ends:</span> {{ time2 }}</td>
+                    </tr>
+                    <tr>
+                        <td><span>Address:</span> {{ campaddress }}</td>
+                        <td><span>Organized By:</span> {{ hospitalname }}</td>
+                        <td><span>Contact:</span> {{ campcontact }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="info">
+            
+        </div>
+</body>
+</html>
