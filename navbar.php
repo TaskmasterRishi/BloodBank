@@ -49,7 +49,21 @@
                     <a href="index.php#whyDonateBlood" class="nav-link">Why Donate Blood</a>
                 </li>
                 <li class="nav-item">
-                    <a href="become_donor.php" class="nav-link">Become a Donor</a>
+                    <?php
+                    
+                        if(isset($_SESSION["hospital_id"])){
+
+                            echo "
+                            <a href='hospital_profile.php' class='nav-link'>Camps</a>
+                            ";
+                        }
+                        else{
+                            echo "
+                            <a href='become_donor.php' class='nav-link'>Become a Donor</a>
+                            ";
+                        }
+
+                    ?>
                 </li>
                 <li class="nav-item">
                     <a href="needBlood.php" class="nav-link">Need Blood</a>
@@ -78,15 +92,23 @@
                 <?php
                 require 'php/connection.php';
                 if (isset($_SESSION["user_id"])) {
+                    $path="";
                     $id = $_SESSION['user_id'];
                     $fetch = "SELECT * FROM donorlogin where id = '$id'";
                     $result = mysqli_query($con, $fetch);
                     if ($result && mysqli_num_rows($result) > 0) {
                         $data2 = mysqli_fetch_assoc($result);
                     }
+                    if(isset($data2["imagename"])){
+
+                        $path='background-image: url(\'profilePhotos/' . $data2["imagename"] . '\');';
+                    }
+                    else{
+                        $path='background-image: url(\'Image/empty_profile.jpg\');';
+                    }
                     echo '
                     <a href="donorProfile.php" class="p_link">
-                        <div class="profile" style="background-image: url(\'profilePhotos/' . $data2["imagename"] . '\');"></div>
+                        <div class="profile" style="'.$path.'"></div>
                         <span>Donor Profile</span>
                      </a>';
 
@@ -96,7 +118,7 @@
 
                     echo ' 
                         
-                        <a href="hospital_profile.php" class="p_link">
+                        <a href="hospitalProfile.php" class="p_link">
 
                         <div class="profile" ><img style="height:5rem;" src="profilePhotos/bloodbank.png"></div>
                         <span>' . $_SESSION["hospital_name"] . '</span>

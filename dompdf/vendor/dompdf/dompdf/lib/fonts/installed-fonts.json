@@ -1,0 +1,26 @@
+{
+    "poppins": {
+        "100_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_100_italic_fd3879eb3805cf18affce1af234451a5",
+        "200_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_200_italic_157a901b5e1f48c705e9e1d44ffb8969",
+        "300_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_300_italic_3a0bbb61e7beb8a59197c3a1950aed2e",
+        "italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_italic_ae4b57e5d05718f255b8db9edf8ef938",
+        "500_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_500_italic_56e96fa83379355962a1c42156b635de",
+        "600_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_600_italic_804d7037cf7d484019577ca58d1828b2",
+        "bold_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_bold_italic_37defacc6033800260111fe1d00a0f47",
+        "800_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_800_italic_09d47fc1ed469c1f6573cd7a49bceed6",
+        "900_italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_900_italic_e9c764def7340e143eabc73a2914cb7d",
+        "100": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_100_fe515c3509ac19a01331c85f34f23cac",
+        "200": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_200_e8c3951c97c4286db63d056338166bbb",
+        "300": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_300_87f0a8a73c876e947643eb7d19bec0b7",
+        "normal": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_normal_a62832bf75823019dc29c5a9c470d64d",
+        "500": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_500_a885de0ea35a644243715bf64b6d1a65",
+        "600": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_600_ca6698540fb485d7b756c91a54a37d8e",
+        "bold": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_bold_87c49bf24d72f01a4af573680817521f",
+        "800": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/poppins_800_a3f35df90afcc12957674bb493255c2e",
+        "900": "poppins_900_71b6424e9ad5c868ceced6e2a4698840"
+    },
+    "sedan": {
+        "italic": "C:\\Xaamp\\htdocs\\bloodbank\\BloodBank\\dompdf\\vendor\\dompdf\\dompdf\/lib\/fonts\/sedan_italic_5f9e2723acf3fa0362f659de4b053a6f",
+        "normal": "sedan_normal_08208a632636cd788afd7baf85f88ff5"
+    }
+}

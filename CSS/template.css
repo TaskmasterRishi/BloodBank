@@ -1,0 +1,112 @@
+
+html,body{
+
+    padding: 0%;
+    margin:0%;
+    padding: 10px;
+}
+.admitcard{
+
+    font-size: 40px;
+    font-weight: 800;
+    margin:10px auto 30px auto;
+    width:400px;
+    text-align: center;
+    font-family: "Sedan";
+    color: red;
+}
+.parent{
+border: 2px solid black;
+height: 91.5%;
+
+}
+.donortext,.camptext{
+
+    width:160px;
+    background-color: rgba(128, 128, 128, 0.507);
+    border-radius: 5px;
+    margin: 10px auto 20px auto;
+    text-align: center;
+    font-size: 25px;
+    padding: 4px;
+}
+.camptext{
+
+    margin-top: 30px;
+}
+.donordetail{
+
+    /* background-color: darkblue; */
+    padding:10px;
+    position: relative;
+    height: fit-content;
+
+}
+.ddetail{
+
+    width: 70%;
+    /* background-color:rgb(22, 196, 16); */
+    height: 200px;
+    padding: 10px;
+    padding-top: 10px;
+    
+}
+.photo{
+
+    width: 25%;
+    /* background-color: rgb(2, 6, 250); */
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+}
+table{
+
+    border-collapse: collapse;
+   width: 100%;
+   height: 180px;
+}
+td,th{
+    /* border: 1px solid black; */
+    padding: 5px;
+    font-size: 16px;
+    overflow:hidden;
+}
+span{
+
+    font-weight: 500;
+}
+.photoholder{
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    background-color: brown;
+    width: 95%;
+ 
+}
+img{
+
+    width: 100%;
+    height:100%;
+}
+.campdetail{
+
+    /* background-color: blue; */
+    width: 100%;
+    padding: 10px;
+}
+.campdetail-container{
+
+    margin: auto;
+}
+.info{
+
+    width: 100%;
+    padding: 10px;
+}
+.infodetail{
+
+    /* background-color: black; */
+    width: 97%;
+}
