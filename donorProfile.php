@@ -144,7 +144,7 @@ if ($result && mysqli_num_rows($result) > 0) {
   
   <div class="editForm">
     <div class="container">
-      <form action="php/donor_register.php" method="post" id="bloodDonationForm" return validateForm(event)>
+      <form action="php/editProfile.php" method="post" id="bloodDonationForm" return validateForm(event)>
        
         <div class="form">
           <h1>Donor Information</h1>
@@ -204,54 +204,7 @@ if ($result && mysqli_num_rows($result) > 0) {
               <input type="number" name="weight" id="weight" required>
             </div>
           </div>
-
-          <div class="row">
-           
-            <div class="formField">
-              <label for="">Do you have any diseases?<span>*</span></label>
-              <div class="radio">
-                <div class="radio">
-                  <div class="radio">
-                    <input type="radio" name="disease" id="disease_yes" value="yes" required
-                      onclick="showDiseaseInfo()"> Yes
-                    <input type="radio" name="disease" id="disease_no" value="no" required onclick="hideDiseaseInfo()">
-                    No
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div id="disease_info" style="display: none;">
-            <div class="row">
-              <div class="formField">
-                <label for="dieases">Do you suffer form any of the following dieases?<span>*</span></label>
-                <ul>
-                  <li><input type="checkbox" name="dieases[]" value="HeartDisease"> Heart Disease</li>
-                  <li><input type="checkbox" name="disease[]" value="Diabetes">Diabetes</li>
-                  <li><input type="checkbox" name="disease[]" value="Sexually Transmitted Diseases">Sexually Transmitted
-                    Diseases</li>
-                  <li><input type="checkbox" name="disease[]" value="Lung Disease">Lung Disease</li>
-                  <li> <input type="checkbox" name="disease[]" value="Allergic Disease">Allergic Disease</li>
-                  <li><input type="checkbox" name="disease[]" value="Epilepsy (Charay rog)">Epilepsy (Charay rog)</li>
-                  <li><input type="checkbox" name="disease[]" value="Kidney Disease">Kidney Disease</li>
-                </ul>
-              </div>
-              <div class="formField">
-                <label for="dieases">Are you taking or have you taken any of these in the past 72
-                  hours?<span>*</span></label>
-                <ul>
-                  <li><input type="checkbox" name="medication[]" value="Antibiotics">Antibiotics</li>
-                  <li> <input type="checkbox" name="medication[]" value="Aspirin">Aspirin</li>
-                  <li><input type="checkbox" name="medication[]" value="Alcohol">Alcohol</li>
-                  <li><input type="checkbox" name="medication[]" value="Steroids">Steroids</li>
-                  <li> <input type="checkbox" name="medication[]" value="Vaccinations">Vaccinations</li>
-                  <li><input type="checkbox" name="medication[]" value="Dog bite Rabies vaccine (1 year)">Dog bite
-                    Rabies vaccine (1 year)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
           <br>
           <h1>Address Information</h1>
           <div class="row">
@@ -286,9 +239,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         </div>
         <br><br>
         <hr>
-        <br><?php
-        echo "<input type='hidden'  name='camp_id' value='$camp_id'>";
-        ?>
+        <br>
         <input type="submit" name="donor_register" value="Submit">
       </form>
       <div class="custom_validate"><?php if (isset($_GET["error"])) {
