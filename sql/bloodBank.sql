@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2024 at 01:26 PM
+-- Generation Time: Apr 18, 2024 at 11:02 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,6 +70,19 @@ INSERT INTO `blooddetail` (`id`, `email`, `type`, `amount`, `bloodcenterid`) VAL
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `camp`
+--
+
+CREATE TABLE `camp` (
+  `ID` int(10) NOT NULL,
+  `donorID` int(10) NOT NULL,
+  `campID` int(10) NOT NULL,
+  `present` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `campdetail`
 --
 
@@ -112,17 +125,16 @@ CREATE TABLE `donordetail` (
   `height` int(10) DEFAULT NULL,
   `weight` int(10) DEFAULT NULL,
   `address` varchar(225) DEFAULT NULL,
-  `pincode` int(6) DEFAULT NULL,
-  `campid` int(10) DEFAULT NULL,
-  `present` varchar(5) DEFAULT 'no'
+  `pincode` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donordetail`
 --
 
-INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`, `campid`, `present`) VALUES
-(1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no');
+INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
+(1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
+(2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -134,15 +146,16 @@ CREATE TABLE `donorlogin` (
   `ID` int(100) NOT NULL,
   `userEmail` varchar(200) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `imagename` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donorlogin`
 --
 
-INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `date`) VALUES
-(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '2024-04-17 16:38:56');
+INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
+(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpg'),
+(2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg');
 
 -- --------------------------------------------------------
 
@@ -179,6 +192,12 @@ ALTER TABLE `bloodcenterdetail`
 --
 ALTER TABLE `blooddetail`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `camp`
+--
+ALTER TABLE `camp`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `campdetail`
@@ -221,6 +240,12 @@ ALTER TABLE `blooddetail`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `camp`
+--
+ALTER TABLE `camp`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `campdetail`
 --
 ALTER TABLE `campdetail`
@@ -230,7 +255,7 @@ ALTER TABLE `campdetail`
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
