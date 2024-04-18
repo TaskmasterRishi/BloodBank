@@ -75,8 +75,9 @@ if ($result && mysqli_num_rows($result) > 0) {
       <a href="index.php"><li>Home</li></a>
       <a href="#" onclick="toggleEditForm()"><li>Edit</li></a>
       <a href="#"><li>My camps</li></a>
+      <div class="buttons">
       <a href="#"><li>Contact</li></a>
-      <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+      <a href="php/signout.php" class="Signout"><li>Signout</li></a></div>
     </ul>
   </div>
 </nav>
