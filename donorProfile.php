@@ -2,8 +2,8 @@
 // Include auth.php to check login status
 require_once ("auth.php");
 require_once ("php/connection.php");
-if(isset($_POST["camp_id"])){
-$camp_id = $_POST["camp_id"];
+if (isset($_POST["camp_id"])) {
+  $camp_id = $_POST["camp_id"];
 }
 require 'php/connection.php';
 if (isset($_SESSION["user_id"])) {
@@ -37,62 +37,69 @@ if ($result && mysqli_num_rows($result) > 0) {
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-    .custom_validate {
+  .custom_validate {
 
-      color: red;
-      font-size: 12px;
-      width: auto;
-      height: 12px;
-      text-align: center;
+    color: red;
+    font-size: 12px;
+    width: auto;
+    height: 12px;
+    text-align: center;
 
-    }
- 
-  </style>
+  }
+</style>
 
 <body>
-<nav role="navigation">
-  <div id="menuToggle">
-    <!--
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!--
     A fake / hidden checkbox is used as click reciever,
     so you can use the :checked selector on it.
     -->
-    <input type="checkbox" />
-    
-    <!--
+      <input type="checkbox" />
+
+      <!--
     Some spans to act as a hamburger.
     
     They are acting like a real hamburger,
     not that McDonalds stuff.
     -->
-    <span></span>
-    <span></span>
-    <span></span>
-    
-    <!--
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <!--
     Too bad the menu has to be inside of the button
     but hey, it's pure CSS magic.
     -->
-    <ul id="menu">
-      <a href="index.php"><li>Home</li></a>
-      <a  onclick="toggleEditForm()"><li>Edit</li></a>
-      <a ><li>My camps</li></a>
-      <div class="buttons">
-      <a ><li>Contact</li></a>
-      <a href="php/signout.php" class="Signout"><li>Signout</li></a></div>
-        
-    </ul>
-  </div>
-</nav>
+      <ul id="menu">
+        <a href="index.php">
+          <li>Home</li>
+        </a>
+        <a href="#" onclick="toggleEditForm()">
+          <li>Edit</li>
+        </a>
+        <a href="#">
+          <li>My camps</li>
+        </a>
+        <div class="buttons">
+          <a href="#" onclick="return showalert()">
+            <li>Delete Account</li>
+          </a>
+          <a href="php/signout.php" class="Signout">
+            <li>Signout</li>
+          </a>
+        </div>
+      </ul>
+    </div>
+  </nav>
   <div class="card">
     <div class="left">
-      <div class="photo"
-        style="background-image: url('<?php if (isset($data2["imagename"])) {
-          echo 'profilePhotos/' . $data2["imagename"];
-        }
-        else{
-          echo 'Image/empty_profile.jpg';
-        }
-        ?>')">
+      <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
+        echo 'profilePhotos/' . $data2["imagename"];
+      } else {
+        echo 'Image/empty_profile.jpg';
+      }
+      ?>')">
         <form id="uploadForm" action="php/profileUpload.php" method="post" enctype="multipart/form-data">
           <input type="file" id="fileInput" name="profile" style="display: none;" onchange="handleFileChange(event)">
         </form>
@@ -143,11 +150,11 @@ if ($result && mysqli_num_rows($result) > 0) {
       </table>
     </div>
   </div>
-  
+
   <div class="editForm">
     <div class="container">
       <form action="php/editProfile.php" method="post" id="bloodDonationForm" return validateForm(event)>
-       
+
         <div class="form">
           <h1>Donor Information</h1>
           <div class="row">
@@ -167,7 +174,7 @@ if ($result && mysqli_num_rows($result) > 0) {
               <input type="date" name="dob" id="dob" required>
             </div>
             <div class="formField">
-            <label for="weight">Select Blood Group<span>*</span></label>
+              <label for="weight">Select Blood Group<span>*</span></label>
               <select id="bloodgroup" name="bloodgroup">
                 <option value="" disabled selected>Select Blood Group</option>
                 <option value="A+">A+</option>
@@ -206,7 +213,7 @@ if ($result && mysqli_num_rows($result) > 0) {
               <input type="number" name="weight" id="weight" required>
             </div>
           </div>
-          
+
           <br>
           <h1>Address Information</h1>
           <div class="row">
