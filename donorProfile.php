@@ -46,6 +46,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       text-align: center;
 
     }
+ 
   </style>
 
 <body>
@@ -73,11 +74,12 @@ if ($result && mysqli_num_rows($result) > 0) {
     -->
     <ul id="menu">
       <a href="index.php"><li>Home</li></a>
-      <a href="#" onclick="toggleEditForm()"><li>Edit</li></a>
-      <a href="#"><li>My camps</li></a>
+      <a  onclick="toggleEditForm()"><li>Edit</li></a>
+      <a ><li>My camps</li></a>
       <div class="buttons">
-      <a href="#"><li>Contact</li></a>
+      <a ><li>Contact</li></a>
       <a href="php/signout.php" class="Signout"><li>Signout</li></a></div>
+        
     </ul>
   </div>
 </nav>
@@ -248,6 +250,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </div>
   </div>
+
+
+
 </body>
 <script src="script/donorPro.js"></script>
 
