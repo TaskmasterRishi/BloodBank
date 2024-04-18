@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -15,11 +15,11 @@ html {
   background-color: rgb(240, 240, 240);
 }
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
 }
 
-body{
+body {
   font-family: poppins;
   display: grid;
   grid-template-rows: auto 2fr auto;
@@ -28,87 +28,410 @@ body{
   justify-content: center;
 }
 
-.card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap:0rem;
-    min-height: 100vh;
-    position: relative;
-    top:2rem;
-    margin: 2rem 0;
+#menuToggle {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 50px;
+
+  z-index: 9;
+
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-.left , .info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+
+  transition: color 0.3s ease;
 }
 
-.left{
-    gap : 1rem;
-    background-color: white;
-    /* color: white; */
-    padding: 3rem 4rem;
-    border-radius: 25px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+#menuToggle a:hover {
+  color: tomato;
 }
 
-.info{
-    h1{
-        font-size: 3rem;
-        font-family: ubuntu;
-    }
-    span{
-        font-size: 2rem;
-        font-family: ubuntu;
-    }
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
 }
 
-.photo{
-    width: 200px;
-    height: 200px;
-    background-size: cover;
-    background-position: top;
-    border-radius: 500px;
-    position: relative;
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #cdcdcd;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
-.photo i{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  height: 110vh;
+  background: rgb(51, 51, 51, 0.5);
+  backdrop-filter: blur(2px);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+  font-family: roboto;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
+.button {
+  position: absolute;
+  bottom: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0rem;
+  min-height: 100vh;
+  position: relative;
+  top: 2rem;
+  margin: 2rem 0;
+}
+
+.left,
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  gap: 1rem;
+  background-color: white;
+  /* color: white; */
+  padding: 3rem 4rem;
+  border-radius: 25px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: 7;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  h1 {
+    font-size: 3rem;
+    font-family: ubuntu;
+  }
+  h2 {
     font-size: 2rem;
-    transition: 0.5s ease;
+    font-weight: 400;
+    font-family: ubuntu;
+  }
 }
 
-.photo i:hover{
-    transform: scale(110%);
-    cursor: pointer;
-    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
+.photo {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: top;
+  border-radius: 500px;
+  position: relative;
 }
 
-.right{
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    justify-content: center;
-    background-color: white;
-    /* color: white; */
-    position: relative;
-    top:-8rem;
-    padding: 10rem 5rem 2rem;
-    border-radius: 25px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
-    table tr td{
-        padding: 1rem 10rem;
-        font-size: 2rem;
-        text-align: left;
-        font-family: poppins;
-        font-weight: 500;
+.photo i {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 2rem;
+  transition: 0.5s ease;
+}
+
+.photo i:hover {
+  transform: scale(110%);
+  cursor: pointer;
+  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.1));
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: center;
+  background-color: white;
+  /* color: white; */
+  position: relative;
+  top: -8rem;
+  padding: 10rem 5rem 2rem;
+  border-radius: 25px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+  table tr td {
+    padding: 1rem 10rem;
+    font-size: 2rem;
+    text-align: left;
+    font-family: poppins;
+    font-weight: 500;
+  }
+}
+
+.editForm {
+  z-index: 7;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: max-content;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  transform: translateX(-200%);
+  transition: transform 0.3s ease; /* Add transition property */
+}
+
+.container {
+  position: relative;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  width: max-content;
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 5rem 5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rem;
+}
+
+span {
+  color: red;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form > h1 {
+  font-size: 2rem;
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.formField > label {
+  font-size: 1.5rem;
+  text-wrap: wrap;
+  width: 20vw;
+}
+
+.formField > input[type="text"],
+.formField > input[type="date"],
+.formField > input[type="email"],
+.formField > input[type="number"],
+.formField > input[type="tel"],
+select {
+  width: 20vw;
+  height: 2rem;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.277);
+  background-color: rgba(250, 250, 250, 0.338);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  padding: 15px 30px;
+}
+
+hr {
+  border: 0.5px solid black;
+}
+
+input[type="submit"] {
+  width: auto;
+  padding: 10px 20px;
+  margin: 0 auto;
+  display: block;
+  background-color: #a94442;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.5s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #ca4745;
+  transform: translateY(-3px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+}
+
+.formField > ul > li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 768px) {
+  #menuToggle {
+    left: 15px;
+    top: 15px;
+  }
+
+  .right {
+    padding: 10rem 2rem 2rem;
+    table tr td {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
     }
+  }
+
+  .editForm {
+    width: 100vw;
+    height: max-content;
+  }
+
+  .container {
+    padding: 2rem 2rem;
+    top: 5rem;
+    width: 90vw;
+    h1 {
+      width: fit-content;
+    }
+  }
+
+  .formField {
+    width: 80vw;
+    margin-bottom: 0rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formField > input[type="text"],
+  .formField > input[type="date"],
+  .formField > input[type="email"],
+  .formField > input[type="tel"],
+  .formField > input[type="number"],
+  select {
+    width: 80vw;
+  }
+
+  .formField > label {
+    width: 80vw;
+  }
 }

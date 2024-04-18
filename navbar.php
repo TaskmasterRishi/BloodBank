@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="CSS/navbar.css">
     <link rel="stylesheet" href="CSS/navbarMediaQuery.css">
     <style>
+        .profile {
 
-.profile{
+            height: 50px;
+            width: 50px;
+            background-position: center;
+            background-size: cover;
+            border-radius: 500px;
+            overflow: hidden;
+        }
 
-height: auto;
-width: auto;
-overflow: hidden;
-position: relative;
-z-index: 100;
-}
-.profile > img{
-    
-height: 6rem;
-aspect-ratio:1;
-border-radius: 50%;
-}
-.p_link{
+        .profile>img {
 
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+            height: 6rem;
+            aspect-ratio: 1;
+            border-radius: 50%;
+        }
 
-}
+        .p_link {
+
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
     </style>
 </head>
 
@@ -73,37 +75,45 @@ border-radius: 50%;
                     
                 </div> -->
 
-                <?php  
-                     
-                     if(isset($_SESSION["user_id"])){
+                <?php
+                require 'php/connection.php';
+                if (isset($_SESSION["user_id"])) {
+                    $id = $_SESSION['user_id'];
+                    $fetch = "SELECT * FROM donorlogin where id = '$id'";
+                    $result = mysqli_query($con, $fetch);
+                    if ($result && mysqli_num_rows($result) > 0) {
+                        $data2 = mysqli_fetch_assoc($result);
+                    }
+                    echo '
+                    <a href="donorProfile.php" class="p_link">
+                        <div class="profile" style="background-image: url(\'profilePhotos/' . $data2["imagename"] . '\');"></div>
+                        <span>Donor Profile</span>
+                     </a>';
 
-                         echo'
-                        
-                         <a href="donorProfile.php" class="p_link">
 
+<<<<<<< HEAD
                          <div class="profile"><img src="Image/empty_profile.jpg"></div>
                          <span style="color:white;">Donor Profile</span>
      
                         </a>
+=======
+>>>>>>> 54906a61e1178261dca1c3f8debf31063b7e462b
 
-                         ';
-                     }
-                     else if(isset($_SESSION["hospital_id"])){
+                } else if (isset($_SESSION["hospital_id"])) {
 
-                        echo ' 
+                    echo ' 
                         
                         <a href="hospital_profile.php" class="p_link">
 
                         <div class="profile" ><img style="height:5rem;" src="profilePhotos/bloodbank.png"></div>
-                        <span>'.$_SESSION["hospital_name"].'</span>
+                        <span>' . $_SESSION["hospital_name"] . '</span>
 
                         </a>
                         
                         ';
-                     }
-                     else{
+                } else {
 
-                         echo '
+                    echo '
                         
                          <div class="dropdown">
                             <button class="login-button">
@@ -122,9 +132,9 @@ border-radius: 50%;
                      </div>
 
                          ';
-                     }
-                
-                ?> 
+                }
+
+                ?>
 
 
                 <div class="hamburger">
@@ -138,4 +148,5 @@ border-radius: 50%;
     </header>
 </body>
 <script src="script/navbar.js"></script>
+
 </html>
