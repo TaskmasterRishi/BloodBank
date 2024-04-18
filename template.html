@@ -10,6 +10,7 @@
 
 <body>
         <div class="admitcard">Red Bank</div>
+        <div class="parent">
         <div class="donortext">Donor Details</div>
 
         
@@ -44,7 +45,7 @@
                 </div>
             </div>
         </div>
-        
+        <hr>
         <div class="camptext">Camp Details</div>
 
         <div class="campdetail">
@@ -53,24 +54,33 @@
                     <tr>
                         <td><span>Name:</span> {{ campname }}</td>
                         <td><span>State:</span> {{ state }}</td>
-                        <td><span>District</span> {{ district }}</td>
+                        <td><span>District:</span> {{ district }}</td>
                     </tr>
                     <tr>
                         <td><span>Date:</span> {{ date }}</td>
-                        <td><span>Start:</span> {{ time1 }}</td>
-                        <td><span>Ends:</span> {{ time2 }}</td>
+                        <td><span>Time:</span> {{ time1 }}am - {{ time2 }}pm</td>
+                        <td><span>Organized By:</span> {{ hospitalname }}</td>
                     </tr>
                     <tr>
-                        <td><span>Address:</span> {{ campaddress }}</td>
-                        <td><span>Organized By:</span> {{ hospitalname }}</td>
-                        <td><span>Contact:</span> {{ campcontact }}</td>
+                        <td colspan="3"><span>Address:</span> {{ campaddress }}</td>
+                       
                     </tr>
                 </table>
             </div>
         </div>
-
+        <hr>
         <div class="info">
+            <div class="donortext">Guidelines</div>
+            <div class="infodetail">
+                <p>1) Donor should not drink alcohol for the past 72 hours.</p>
+                <p>2) Donor should be in age group 18-65.</p>
+                <p>3) Pulse and Temperature and Haemoglobin should be normal.</p>
+                <p>4) There should be atleast 1 week gap between blood donations for an individual.</p>
+                <p>5) For any inquiries contact at {{ campcontact }} or email at {{ hospitalemail }}.</p>
+                <p>6) For more information visit us at <a href="index.php">BloodBank.com</a></p>
+            </div>
             
         </div>
+    </div>
 </body>
 </html>

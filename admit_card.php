@@ -26,13 +26,14 @@ $campcontact=1234567890;
 $hospitalname="hospital";
 $hospitalemail="hospital1@gmail.com";
 $path="profilePhotos/$id.jpg";
+$iconpath="icon/icon.png";
 
 $variables=array("{{ donorid }}", "{{ name }}","{{ weight }}","{{ height }}","{{ email }}","{{ contact }}","{{ gender }}",
 "{{ dob }}","{{ bloodgroup }}","{{ address }}","{{ campname }}","{{ campaddress }}","{{ state }}","{{ district }}","{{ date }}","{{ time1 }}","{{ time2 }}",
-"{{ campcontact }}", "{{ hospitalname }}", "{{ hospitalemail }}","{{ path }}");
+"{{ campcontact }}", "{{ hospitalname }}", "{{ hospitalemail }}","{{ path }}","{{ iconpath }}");
 
 $values=array($donorid,$name,$weight,$height,$email,$contact,$gender,$dob,$bloodgroup,$address,$campname,
-$campaddress,$state,$district,$date,$time1,$time2,$campcontact,$hospitalname,$hospitalemail,$path);
+$campaddress,$state,$district,$date,$time1,$time2,$campcontact,$hospitalname,$hospitalemail,$path,$iconpath);
 
 
 

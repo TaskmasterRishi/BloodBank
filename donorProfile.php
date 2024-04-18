@@ -86,7 +86,11 @@ if ($result && mysqli_num_rows($result) > 0) {
       <div class="photo"
         style="background-image: url('<?php if (isset($data2["imagename"])) {
           echo 'profilePhotos/' . $data2["imagename"];
-        } ?>')">
+        }
+        else{
+          echo 'Image/empty_profile.jpg';
+        }
+        ?>')">
         <form id="uploadForm" action="php/profileUpload.php" method="post" enctype="multipart/form-data">
           <input type="file" id="fileInput" name="profile" style="display: none;" onchange="handleFileChange(event)">
         </form>

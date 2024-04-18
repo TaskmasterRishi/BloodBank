@@ -3,6 +3,7 @@ html,body{
 
     padding: 0%;
     margin:0%;
+    padding: 10px;
 }
 .admitcard{
 
@@ -13,6 +14,11 @@ html,body{
     text-align: center;
     font-family: "Sedan";
     color: red;
+}
+.parent{
+border: 2px solid black;
+height: 91.5%;
+
 }
 .donortext,.camptext{
 
@@ -93,4 +99,14 @@ img{
 .campdetail-container{
 
     margin: auto;
+}
+.info{
+
+    width: 100%;
+    padding: 10px;
+}
+.infodetail{
+
+    /* background-color: black; */
+    width: 97%;
 }
