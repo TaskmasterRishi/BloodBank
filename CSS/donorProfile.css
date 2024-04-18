@@ -258,7 +258,7 @@ body {
   position: absolute;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: max-content;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
   transform: translateX(-200%);
