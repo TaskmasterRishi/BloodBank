@@ -26,7 +26,7 @@ if (isset($_POST["donor_register"])) {
     $landmark = $_POST["landmark"];
     $pincode = $_POST["pincode"];
     $camp_id = $_POST["camp_id"];
-    
+
 
     // Check if age is below 18
     $dob = date_create($_POST["dob"]);
@@ -55,22 +55,34 @@ if (isset($_POST["donor_register"])) {
     $address = $landmark . ", " . $city . ", " . $district . ", " . $state;
     $name = $fname . " " . $lname;
 
-    // Check for duplicate registration
-    $checkDuplicateQuery = "SELECT COUNT(*) as count FROM donordetail WHERE email = '$email'  AND campid='$camp_id'";
-    $result = mysqli_query($con, $checkDuplicateQuery);
-    $row = mysqli_fetch_assoc($result);
-    $count = $row['count'];
-
-    if ($count > 0) {
-        header("location: ../donateBlood.php?error=Duplicate registration. You are already registered as a donor.");
-        die();
+    // Fetch the donor's ID based on their email address
+    $idQuery = "SELECT id FROM donordetail WHERE email = '$email'";
+    $idResult = mysqli_query($con, $idQuery);
+    if ($idResult && mysqli_num_rows($idResult) > 0) {
+        $row = mysqli_fetch_assoc($idResult);
+        $id = $row['id'];
+    } else {
+        // Handle the case where the donor's ID is not found
+        // You may redirect the user to an error page or perform other actions
+        echo "Donor ID not found";
+        exit(); // Stop script execution
     }
 
-
     // Insert the new donor record
-    $donorDetailInsert = "INSERT INTO donordetail (name,email,contact,gender,dob,bloodGroup,height,weight,address,pincode,campid,present) VALUES ('$name','$email','$mobile','$gender','$dob','$bloodgroup','$height','$weight','$address','$pincode','$camp_id','no')";
-
-    if (mysqli_query($con, $donorDetailInsert)) {
+    $donorDetailUpdate = "UPDATE donordetail SET 
+    name = '$name',
+    email = '$email',
+    contact = '$mobile',
+    gender = '$gender',
+    dob = '$dob',
+    bloodGroup = '$bloodgroup',
+    height = '$height',
+    weight = '$weight',
+    address = '$address',
+    pincode = '$pincode',
+    campid = '$camp_id'
+  WHERE id = '$id'";
+    if (mysqli_query($con, $donorDetailUpdate)) {
         echo "<script>alert('Registered Successfully');</script>";
         header("location: ../index.php");
         die();
@@ -78,6 +90,7 @@ if (isset($_POST["donor_register"])) {
         echo "something is wrong. Please try again";
     }
 } else {
+    echo "<script>alert('Registered wan Unsuccessfully');</script>";
     header("location: ../index.php");
 }
 ?>
