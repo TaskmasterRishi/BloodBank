@@ -50,21 +50,27 @@ if (isset($_POST["donor-signin-submit"])) {
                     $sql = "INSERT INTO donordetail (id, name, email) VALUES ('$donorLoginID', '$userName', '$userMail')";
 
                     if (mysqli_query($con, $sql)) {
+                        // Set session variables
                         $_SESSION["login"] = true;
-                        $_SESSION["user_id"] = $row["ID"];
-                        $_SESSION["user_email"] = $row["userEmail"];
-                        header("location: ../index.php");
-                        exit();
+                        $_SESSION["user_id"] = $donorLoginID;
+                        $_SESSION["user_email"] = $userMail;
+
+                        // Redirect to index.php
+                        echo "<script>alert('Sign in Successfully!'); window.location.href = '../index.php';</script>";
+                        exit(); // Exit the script
                     } else {
-                        echo "ERROR: Something went wrong. Please try again.";
+                        header("location: ../donor_login.php?error=*Something went wrong. Please try again.");
+                        exit();
                     }
                 } else {
-                    echo "ERROR: Something went wrong. Please try again.";
+                    header("location: ../donor_login.php?error=*Something went wrong. Please try again.");
+                    exit();
                 }
             }
         }
     }
 } else {
-    die();
+    header("location: ../donor_login.php");
+    exit();
 }
 ?>
