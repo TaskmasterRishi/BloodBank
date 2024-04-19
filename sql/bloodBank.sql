@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 18, 2024 at 11:02 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 19, 2024 at 09:33 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodBank`
+-- Database: `bloodbank`
 --
 
 -- --------------------------------------------------------
@@ -74,11 +74,19 @@ INSERT INTO `blooddetail` (`id`, `email`, `type`, `amount`, `bloodcenterid`) VAL
 --
 
 CREATE TABLE `camp` (
-  `ID` int(10) NOT NULL,
-  `donorID` int(10) NOT NULL,
-  `campID` int(10) NOT NULL,
+  `id` int(10) NOT NULL,
+  `donorid` int(10) NOT NULL,
+  `campid` int(10) NOT NULL,
   `present` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `camp`
+--
+
+INSERT INTO `camp` (`id`, `donorid`, `campid`, `present`) VALUES
+(1, 1, 10, 'no'),
+(10, 3, 10, 'no');
 
 -- --------------------------------------------------------
 
@@ -134,7 +142,8 @@ CREATE TABLE `donordetail` (
 
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
 (1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
-(2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456);
 
 -- --------------------------------------------------------
 
@@ -155,7 +164,8 @@ CREATE TABLE `donorlogin` (
 
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
 (1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpg'),
-(2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg');
+(2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg'),
+(3, 'shlok.goswami2002@gmail.com', '$2y$10$YF3/rHwWzZMC5p1ZPJ/R/eiGgMSNEY/mK4LVlPfiZK3fYD0XA.1sa', '3.png');
 
 -- --------------------------------------------------------
 
@@ -197,7 +207,7 @@ ALTER TABLE `blooddetail`
 -- Indexes for table `camp`
 --
 ALTER TABLE `camp`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `campdetail`
@@ -243,7 +253,7 @@ ALTER TABLE `blooddetail`
 -- AUTO_INCREMENT for table `camp`
 --
 ALTER TABLE `camp`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
@@ -255,7 +265,7 @@ ALTER TABLE `campdetail`
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
