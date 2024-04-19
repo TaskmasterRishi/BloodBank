@@ -1,7 +1,7 @@
 <?php
 require_once("php/connection.php");
 session_start();
-if(!isset($_SESSION["camp_id"])){header("location: index.php");die();}
+if(!isset($_SESSION["camp_id"])){header("location: index.php?error=camp id not set");die();}
 
 require "dompdf/vendor/autoload.php";
 use Dompdf\Dompdf;
@@ -55,9 +55,16 @@ $gender=$row["g"];
 $dob=$row["d"];
 $bloodgroup=$row["bg"];
 $address=$row["a"];
+
 if(file_exists("profilePhotos/$id.jpg")){$path="profilePhotos/$id.jpg";}
 else if(file_exists("profilePhotos/$id.jpeg")){$path="profilePhotos/$id.jpeg";}
 else if(file_exists("profilePhotos/$id.png")){$path="profilePhotos/$id.png";}
+else{
+
+    echo "<script>alert('Set profile photo first');</script>";
+    header("location: index.php?error=profile pohoto not set");
+    die();
+}
 
 
 
@@ -114,7 +121,7 @@ $pdf->addInfo("Title", "Admit Card");
 if(!file_exists("admitCards/".$id.$campid.".pdf")){
 $output = $pdf->output();
 file_put_contents('admitCards/'.$id.$campid.'.pdf', $output);
-header("location: index.php");
+header("location: index.php?error=Admit card created");
 }
 else{
     $pdf->stream($id."",["Attachment" => 0]);
