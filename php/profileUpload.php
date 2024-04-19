@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
                 $fileNameNew = $id . "." . $fileExt;
 
                 // Define the file destination
-                $fileDestination = '/opt/lampp/htdocs/PHP_Project_BBMS/profilePhotos/' . $fileNameNew;
+                $fileDestination = dirname(__DIR__)."../profilePhotos/" . $fileNameNew;
 
                 // Move the uploaded file to the destination
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {
@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
                     if (mysqli_query($con, $sql)) {
                         // Redirect to the donor profile page after successful upload and update
                         header("Location: ../donorProfile.php");
+                        // echo $fileDestination;
                         exit(); // Ensure that script execution stops after redirection
                     } else {
                         echo "Error: " . $sql . "<br>" . mysqli_error($con);

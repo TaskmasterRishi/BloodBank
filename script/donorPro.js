@@ -1,3 +1,4 @@
+
 function uploadFile() {
   document.getElementById("fileInput").click();
 }
@@ -51,3 +52,4 @@ function toggleEditForm() {
     .getElementById("menuToggle")
     .querySelector("input[type='checkbox']").checked = false;
 }
+

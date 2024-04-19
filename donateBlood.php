@@ -2,9 +2,18 @@
 // Include auth.php to check login status
 require_once ("auth.php");
 require_once ("php/connection.php");
+if(isset($_SESSION["camp_id"])){
+
+  unset($_SESSION["camp_id"]);
+}
 if(isset($_POST["camp_id"])){
 $camp_id = $_POST["camp_id"];
+$_SESSION["camp_id"]=$_POST["camp_id"];
 }
+else{
+  header("location: index.php");die();
+}
+if(!isset($_SESSION["camp_id"])){ header("location: index.php");die();}
 
 ?>
 <!DOCTYPE html>

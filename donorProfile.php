@@ -109,7 +109,7 @@ if ($result && mysqli_num_rows($result) > 0) {
       </div>
       <div class="info">
         <h1><?php echo $data["name"] ?></h1>
-        <h2><?php echo $data["email"] ?></>
+        <h2><?php echo $data["email"] ?></h2>
       </div>
     </div>
 
@@ -257,6 +257,9 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </div>
   </div>
+
+
+
 </body>
 <script src="script/donorPro.js"></script>
 

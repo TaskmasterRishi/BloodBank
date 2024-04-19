@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <?php session_start(); include 'navbar.php';?>
+  <?php session_start(); unset($_SESSION["camp_id"]); include 'navbar.php';?>
   <div class="main">
     <!-- Image slider Starts-->
     <div class="slider">

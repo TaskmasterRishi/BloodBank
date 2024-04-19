@@ -8,7 +8,14 @@
     <link rel="stylesheet" href="CSS/become_donor.css" >
 </head>
 <body>
-     <?php require_once ("auth.php"); include 'navbar.php';?> 
+     <?php require_once ("auth.php"); include 'navbar.php';
+     
+     if(isset($_SESSION["camp_id"])){
+
+        unset($_SESSION["camp_id"]);
+      }
+     
+     ?> 
     <div class="dummy"></div>
    
     <div class="head">
