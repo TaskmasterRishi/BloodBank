@@ -54,6 +54,8 @@ if (isset($_POST["donor_register"])) {
     $address = $landmark . ", " . $city . ", " . $district . ", " . $state;
     $name = $fname . " " . $lname;
 
+    
+
     // Fetch the donor's ID based on their email address
     $idQuery = "SELECT id FROM donordetail WHERE email = '$email'";
     $idResult = mysqli_query($con, $idQuery);
@@ -65,6 +67,18 @@ if (isset($_POST["donor_register"])) {
         // You may redirect the user to an error page or perform other actions
         echo "Donor ID not found";
         exit(); // Stop script execution
+    }
+
+    $checkregistered="SELECT * FROM camp WHERE donorid=$id AND campid=".$_SESSION["camp_id"];
+    $checkregisteredresult=mysqli_query($con,$checkregistered);
+
+    if(mysqli_num_rows($checkregisteredresult)>0){
+
+        header("location: ../donateBlood.php?error=Already registered at this camp");die();
+    }
+    else{
+
+        // echo "didnt work";die();
     }
 
     // Insert the new donor record

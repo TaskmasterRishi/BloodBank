@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2024 at 09:33 AM
+-- Generation Time: Apr 19, 2024 at 12:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,7 +86,7 @@ CREATE TABLE `camp` (
 
 INSERT INTO `camp` (`id`, `donorid`, `campid`, `present`) VALUES
 (1, 1, 10, 'no'),
-(10, 3, 10, 'no');
+(14, 4, 10, 'no');
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `donordetail` (
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
 (1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
 (2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456);
+(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '1234567890', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456);
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE `donorlogin` (
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
 (1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpg'),
 (2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg'),
-(3, 'shlok.goswami2002@gmail.com', '$2y$10$YF3/rHwWzZMC5p1ZPJ/R/eiGgMSNEY/mK4LVlPfiZK3fYD0XA.1sa', '3.png');
+(4, 'shlok.goswami2002@gmail.com', '$2y$10$vVhvOjaVqLPxAUDREg3LOOqfJQdMLU4RVDWfIr5RFObd6bVrbQKwK', '4.png');
 
 -- --------------------------------------------------------
 
@@ -253,7 +253,7 @@ ALTER TABLE `blooddetail`
 -- AUTO_INCREMENT for table `camp`
 --
 ALTER TABLE `camp`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
@@ -265,7 +265,7 @@ ALTER TABLE `campdetail`
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
