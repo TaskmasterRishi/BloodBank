@@ -81,14 +81,20 @@ if (isset($_POST["donor_register"])) {
     pincode = '$pincode'
   WHERE id = '$id'";
     if (mysqli_query($con, $donorDetailUpdate)) {
+
+        $campid=$_SESSION["camp_id"];
+        $insert="INSERT INTO camp (`donorid`,`campid`,`present`) VALUES ($id,$campid,'no')";
+
+        if(mysqli_query($con,$insert)){
         echo "<script>alert('Registered Successfully');</script>";
-        if (isset($_SERVER['HTTP_REFERER'])) {
-            header("Location: {$_SERVER['HTTP_REFERER']}");
-        } else {
-            echo "<script>alert(' Something Went Wrong');</script>";
-            header("Location: ../index.php"); // Redirect to a default page if HTTP_REFERER is not set
-        }
+      header("../admit_card.php");
         die();
+    }
+    else{
+
+        echo "Updated donordetails but camp insertion failed";
+    }
+
     } else {
         echo "something is wrong. Please try again";
     }
