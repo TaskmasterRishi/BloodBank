@@ -86,9 +86,11 @@ if (isset($_POST["donor_register"])) {
         $insert="INSERT INTO camp (`donorid`,`campid`,`present`) VALUES ($id,$campid,'no')";
 
         if(mysqli_query($con,$insert)){
-        echo "<script>alert('Registered Successfully');</script>";
-      header("../admit_card.php");
+            // if(true){
+      
+      header("location: ../admit_card.php");
         die();
+    
     }
     else{
 

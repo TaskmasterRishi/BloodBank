@@ -7,6 +7,10 @@ require "dompdf/vendor/autoload.php";
 use Dompdf\Dompdf;
 use Dompdf\Options;
 
+$options = new Options;
+$options->setChroot(__DIR__);
+$options->setIsRemoteEnabled(true);
+
 
 $campid=$_SESSION["camp_id"];
 $id=$_SESSION["user_id"];
@@ -51,7 +55,9 @@ $gender=$row["g"];
 $dob=$row["d"];
 $bloodgroup=$row["bg"];
 $address=$row["a"];
-$path="profilePhotos/$id.jpg";
+if(file_exists("profilePhotos/$id.jpg")){$path="profilePhotos/$id.jpg";}
+else if(file_exists("profilePhotos/$id.jpeg")){$path="profilePhotos/$id.jpeg";}
+else if(file_exists("profilePhotos/$id.png")){$path="profilePhotos/$id.png";}
 
 
 
@@ -71,9 +77,9 @@ $result=mysqli_query($con,$query);
 $row=mysqli_fetch_array($result);
 
 $hospitalemail=$row["email"];
+$iconpath="Icon/Icon.png";
 
 
-$iconpath;
 
 $values=array($donorid,$name,$weight,$height,$email,$contact,$gender,$dob,$bloodgroup,$address,$campname,
 $campaddress,$state,$district,$date,$time1,$time2,$campcontact,$hospitalname,$hospitalemail,$path,$iconpath);
@@ -86,9 +92,6 @@ $variables=array("{{ donorid }}", "{{ name }}","{{ weight }}","{{ height }}","{{
 
 
 
-$options = new Options;
-$options->setChroot(__DIR__);
-$options->setIsRemoteEnabled(true);
 
 $pdf=new Dompdf($options);
 
@@ -111,5 +114,9 @@ $pdf->addInfo("Title", "Admit Card");
 if(!file_exists("admitCards/".$id.$campid.".pdf")){
 $output = $pdf->output();
 file_put_contents('admitCards/'.$id.$campid.'.pdf', $output);
+header("location: index.php");
 }
-else{echo dirname(__DIR__."/"."profilePhotos/profilePhotos");}
+else{
+    $pdf->stream($id."",["Attachment" => 0]);
+
+}
