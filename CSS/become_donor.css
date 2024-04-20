@@ -15,6 +15,10 @@ html {
   overflow-x: hidden;
 }
 
+body{
+  height: 100vh;
+}
+
 .dummy {
   height: 8rem;
 }

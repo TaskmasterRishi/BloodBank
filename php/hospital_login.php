@@ -43,7 +43,7 @@ if (isset($_POST["hospital-login-submit"])) {
             // Set login status and store user ID in session
             $_SESSION["hospitalLogin"] = true;
 
-            $query2 = "SELECT * FROM bloodcenterdetail WHERE email = ?";
+            $query2 = "SELECT * FROM bloodbank_details WHERE email = ?";
             $stmt2 = mysqli_prepare($con, $query2);
             mysqli_stmt_bind_param($stmt2, "s", $emailInput);
             mysqli_stmt_execute($stmt2);
@@ -51,8 +51,8 @@ if (isset($_POST["hospital-login-submit"])) {
 
             if (mysqli_num_rows($result2) == 1) {
                 $row2 = mysqli_fetch_assoc($result2);
-                $_SESSION["hospital_id"] = $row2["id"];
-                $_SESSION["hospital_name"] = $row2["name"];
+                $_SESSION["hospital_id"] = $row2["ID"];
+                $_SESSION["hospital_name"] = $row2["hospitalName"];
                 // Redirect to index.php
                 header("location: ../index.php");
                 exit(); // Stop further execution
