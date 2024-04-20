@@ -1,11 +1,10 @@
 <?php
-
 session_start();
 
 if (isset($_POST["donor-login-submit"])) {
     // Check if email and password are provided
     if (empty($_POST["email"]) || empty($_POST["password"])) {
-        header("location: ../donor_login.php?error=*Enter both email and password");
+        header("location: ../donorLogin.php?error=*Enter both email and password");
         exit(); // Stop further execution
     }
 
@@ -15,12 +14,7 @@ if (isset($_POST["donor-login-submit"])) {
 
     // Validate email format
     if (!filter_var($emailInput, FILTER_VALIDATE_EMAIL)) {
-        header("location: ../donor_login.php?error=*Enter a valid email");
-        exit(); // Stop further execution
-    }
-    // Validate password format
-    else if (!preg_match('/[@$#%&*!]/', $passwordInput) || strlen($passwordInput) < 7) {
-        header("location: ../donor_login.php?error=*Password should have minimum 7 characters and at least 1 special character");
+        header("location: ../donorLogin.php?error=*Enter a valid email");
         exit(); // Stop further execution
     }
 
@@ -41,20 +35,24 @@ if (isset($_POST["donor-login-submit"])) {
             // Set login status and store user ID in session
             $_SESSION["login"] = true;
             $_SESSION["user_id"] = $row["ID"];
-            $_SESSION["user_email"]=$row["userEmail"];
+            $_SESSION["user_email"] = $row["userEmail"];
             
             // Redirect to index.html
             header("location: ../index.php");
             exit(); // Stop further execution
         }
+    } else {
+        // Account not found, redirect to sign up page with alert
+        header("location: ../donorSignup.php?error=*Account not found. Please sign up.");
+        exit(); // Stop further execution
     }
 
     // Login failed, redirect to login page with error message
-    header("location: ../donor_login.php?error=*Email or password is incorrect");
+    header("location: ../donorLogin.php?error=*Email or password is incorrect");
     exit(); // Stop further execution
 } else {
     // If form submission is not set, redirect to login page
-    header("location: ../donor_login.php");
+    header("location: ../donorLogin.php");
     exit(); // Stop further execution
 }
 ?>

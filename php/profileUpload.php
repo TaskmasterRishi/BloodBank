@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
                 $fileNameNew = $id . "." . $fileExt;
 
                 // Define the file destination
-                $fileDestination = dirname(__DIR__)."../profilePhotos/" . $fileNameNew;
+                $fileDestination = dirname(__DIR__)."/profilePhotos/" . $fileNameNew;
 
                 // Move the uploaded file to the destination
                 if (move_uploaded_file($fileTmpName, $fileDestination)) {

@@ -141,7 +141,7 @@
                             </button>
                             <div class="dropdown-content">
                                 <a href="hospital_login.php">Hospital Login</a>
-                                <a href="donor_login.php">Donor Login</a>
+                                <a href="donorLogin.php">Donor Login</a>
                             </div>
                         
                      </div>

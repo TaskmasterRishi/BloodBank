@@ -3,7 +3,7 @@ session_start();
 if (isset($_POST["donor-signin-submit"])) {
     // Check if any required field is empty
     if (empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["cpass"]) || empty($_POST["userName"])) {
-        header("location: ../donor_login.php?error=*Enter correct email, password, and username");
+        header("location: ../donorSignup.php?error=*Enter correct email, password, and username");
         exit();
     } else {
         $userMail = $_POST["email"];
@@ -13,17 +13,17 @@ if (isset($_POST["donor-signin-submit"])) {
 
         // Validate email format
         if (!filter_var($userMail, FILTER_VALIDATE_EMAIL)) {
-            header("location: ../donor_login.php?error=*Enter correct email");
+            header("location: ../donorSignup.php?error=*Enter correct email");
             exit();
         }
         // Validate password format
         else if (!preg_match('/[@$#%&*!]/', $password) || strlen($password) < 7) {
-            header("location: ../donor_login.php?error=*Password should have minimum 7 characters and at least 1 special character");
+            header("location: ../donorSignup.php?error=*Password should have minimum 7 characters and at least 1 special character");
             exit();
         }
         // Check if passwords match
         else if ($password != $cPass) {
-            header("location: ../donor_login.php?error=*Enter the same password in both fields");
+            header("location: ../donorSignup.php?error=*Enter the same password in both fields");
             exit();
         } else {
             require_once ("connection.php");
@@ -33,7 +33,7 @@ if (isset($_POST["donor-signin-submit"])) {
             $result = mysqli_query($con, $checkUserQuery);
 
             if (mysqli_num_rows($result) > 0) {
-                header("location: ../donor_login.php?error=*User with this email already exists");
+                header("location: ../donorSignup.php?error=*User with this email already exists");
                 exit();
             } else {
                 // Hash the password
@@ -59,18 +59,18 @@ if (isset($_POST["donor-signin-submit"])) {
                         echo "<script>alert('Sign in Successfully!'); window.location.href = '../index.php';</script>";
                         exit(); // Exit the script
                     } else {
-                        header("location: ../donor_login.php?error=*Something went wrong. Please try again.");
+                        header("location: ../donorSignup.php?error=*Something went wrong. Please try again.");
                         exit();
                     }
                 } else {
-                    header("location: ../donor_login.php?error=*Something went wrong. Please try again.");
+                    header("location: ../donorSignup.php?error=*Something went wrong. Please try again.");
                     exit();
                 }
             }
         }
     }
 } else {
-    header("location: ../donor_login.php");
+    header("location: ../donorSignup.php");
     exit();
 }
 ?>

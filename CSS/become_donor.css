@@ -1,81 +1,81 @@
-html,body{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-    margin: 0px;
-    padding:0px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.dummy{
 
-    height:8rem;
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
-.showcamp{
 
-    margin:40px auto 10px auto;
-    width: fit-content;
-    box-shadow: 0px 0px 10px -5px #000000;
+.dummy {
+  height: 8rem;
 }
-.table{
-    border-collapse: collapse;
-    font-size: 17px;
-    padding-top:5px ;
+.showcamp {
+  margin: 40px auto 10px auto;
+  width: fit-content;
+  box-shadow: 0px 0px 10px -5px #000000;
 }
-th,td{
-
-    text-align: center;
-    vertical-align: middle;
-    padding: 1rem auto 1rem auto;
-    border: 2px solid rgba(127, 127, 127, 0.527);
+.table {
+  border-collapse: collapse;
+  font-size: 17px;
+  padding-top: 5px;
 }
-th{
-    
-    border: 1px solid #c03929;
-    background-color: #c03929;
-    min-width: 150px;
-    padding: 1rem auto 1rem auto;
-    height: 50px;
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 1rem auto 1rem auto;
+  border: 2px solid rgba(127, 127, 127, 0.527);
 }
-td{
-    overflow: hidden;
-    padding: 1rem auto 1rem auto;
+th {
+  border: 1px solid #c03929;
+  background-color: #c03929;
+  min-width: 150px;
+  padding: 1rem auto 1rem auto;
+  height: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
 }
-.button{
-
-    
-    all:unset;
-    cursor: pointer;
-    padding:0.1em 0.4em;
-    color: #c03929;
-    border-radius: 0.35em;
-    font-size: 20px;
-   ;
+td {
+  overflow: hidden;
+  padding: 1rem auto 1rem auto;
+}
+.button {
+  all: unset;
+  cursor: pointer;
+  padding: 0.1em 0.4em;
+  color: #c03929;
+  border-radius: 0.35em;
+  font-size: 20px;
 }
 .head {
-    color: #a94442;
-    font-size: 1.5rem;
-    padding: 2rem 5rem 0rem;
-    border-bottom: 1px solid #a94442;
-    font-style:normal;
-  }
-.searchcamp{
-
-    margin: 50px auto;
-    width: fit-content;
-    
+  color: #a94442;
+  font-size: 1.5rem;
+  padding: 2rem 5rem 0rem;
+  border-bottom: 1px solid #a94442;
+  font-style: normal;
 }
-.schedule{
- 
-    background-color: #c03929;
-    padding: 0.5em auto 0.5rem 0.5rem;
-    color: white;
-
+.searchcamp {
+  margin: 50px auto;
+  width: fit-content;
 }
-.table1{
-
-    width: 1000px;
+.schedule {
+  background-color: #c03929;
+  padding: 0.5em auto 0.5rem 0.5rem;
+  color: white;
 }
-.table1 tr td{
-
-    border: none;
+.table1 {
+  width: 1000px;
+}
+.table1 tr td {
+  border: none;
 }
