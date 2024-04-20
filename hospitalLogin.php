@@ -28,7 +28,7 @@
           <input type="submit" value="Hospital-Login" name="hospital-login-submit" />
         </div>
         <div class="signup-link">
-          Not a member? <a href="hospitalSignup.php">Signup now</a>
+          Not Resitered? <a href="hospitalSignup.php">Register with us now</a>
         </div>
       </form>
 

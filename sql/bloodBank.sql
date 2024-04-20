@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 19, 2024 at 12:05 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Host: localhost
+-- Generation Time: Apr 20, 2024 at 04:43 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,31 +18,43 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodbank`
+-- Database: `bloodBank`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bloodcenterdetail`
+-- Table structure for table `bloodbank_details`
 --
 
-CREATE TABLE `bloodcenterdetail` (
-  `id` int(10) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `address` varchar(200) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `state` varchar(20) NOT NULL,
-  `district` varchar(20) NOT NULL
+CREATE TABLE `bloodbank_details` (
+  `ID` int(11) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `bloodBankName` varchar(100) NOT NULL,
+  `hospitalName` varchar(100) DEFAULT NULL,
+  `category` varchar(15) NOT NULL,
+  `contact` varchar(10) NOT NULL,
+  `faxNo` varchar(20) DEFAULT NULL,
+  `licenceNo` varchar(30) NOT NULL,
+  `helplineNo` varchar(10) NOT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `beds` int(10) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `district` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `landmark` varchar(100) NOT NULL,
+  `pincode` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `bloodcenterdetail`
+-- Dumping data for table `bloodbank_details`
 --
 
-INSERT INTO `bloodcenterdetail` (`id`, `name`, `address`, `email`, `state`, `district`) VALUES
-(1, 'Blood Bank', 'dummy address', 'bloodbank@gmail.com', 'gujarat', 'vadodara'),
-(6, 'hospital', 'dummy address', 'hospital1@gmail.com', 'gujarat', 'vadodara');
+INSERT INTO `bloodbank_details` (`ID`, `email`, `bloodBankName`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
+(1, 'hospital1@gmail.com', 'Red', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(2, 'hospital2@gmail.com', 'Red 2', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(3, 'hospital2@gmail.com', 'Red 2', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(4, 'xutukuzu@mailinator.com', 'Lyle Wilson', 'Elaine Riley', 'Charitable/Vol', '9510469749', '+1 (981) 632-7434', 'Quia quis similique ', '9925393173', 'https://www.sohusekydunirap.biz', 42, 'Sequi magnam dolorem', 'Dolor iusto adipisci', 'Ea ipsum architecto ', 'Qui magni aliquip co', 360311);
 
 -- --------------------------------------------------------
 
@@ -143,7 +155,8 @@ CREATE TABLE `donordetail` (
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
 (1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
 (2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '1234567890', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456);
+(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '1234567890', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456),
+(5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -165,7 +178,8 @@ CREATE TABLE `donorlogin` (
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
 (1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpg'),
 (2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg'),
-(4, 'shlok.goswami2002@gmail.com', '$2y$10$vVhvOjaVqLPxAUDREg3LOOqfJQdMLU4RVDWfIr5RFObd6bVrbQKwK', '4.png');
+(4, 'shlok.goswami2002@gmail.com', '$2y$10$vVhvOjaVqLPxAUDREg3LOOqfJQdMLU4RVDWfIr5RFObd6bVrbQKwK', '4.png'),
+(5, 'patoliyarishi@gmail.com', '$2y$10$QXz/SR3toCqn1AD4PfMNve5JATNOLiUBudhTjW.Gms8R6xFru9iOm', NULL);
 
 -- --------------------------------------------------------
 
@@ -184,18 +198,19 @@ CREATE TABLE `hospitallogin` (
 --
 
 INSERT INTO `hospitallogin` (`id`, `pass`, `email`) VALUES
-(3, '$2y$10$MOZuwAtZG5Lyf12AKijHWerApIc5ExNNgVo7hPDpPrMOVbk7iwEwa', 'hospital1@gmail.com'),
-(6, '$2y$10$zuaYbs/Jg7cKfUIVk2zHtOtAG/jlGt517AqcPfO8/kwunWnLwsIUm', 'bloodbank@gmail.com');
+(1, '$2y$10$UKTyW/XjPiKW7dS0i3uezeu7w0QrQ67Yz5BUOtxGiMqgApnA7VQW2', 'hospital1@gmail.com'),
+(2, '$2y$10$0kKvUEJ4J9V6GGaRbq.eb.Xf8Ud.QwrqOZ5Ci934SrwDDRYILe7NW', 'hospital2@gmail.com'),
+(3, '$2y$10$DrKSE9T9auSQSvCQzZg0G.JwEp8bUWFsiDz6nGtjtFB7GHqNf44Em', 'xutukuzu@mailinator.com');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bloodcenterdetail`
+-- Indexes for table `bloodbank_details`
 --
-ALTER TABLE `bloodcenterdetail`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `bloodbank_details`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `blooddetail`
@@ -238,10 +253,10 @@ ALTER TABLE `hospitallogin`
 --
 
 --
--- AUTO_INCREMENT for table `bloodcenterdetail`
+-- AUTO_INCREMENT for table `bloodbank_details`
 --
-ALTER TABLE `bloodcenterdetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `bloodbank_details`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `blooddetail`
@@ -265,13 +280,13 @@ ALTER TABLE `campdetail`
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
 --
 ALTER TABLE `hospitallogin`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

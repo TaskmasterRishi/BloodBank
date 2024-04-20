@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  /* overflow-x: hidden; */
+  background-color: rgb(243, 243, 243);
+}
+
+.main {
+  display: grid;
+  height: max-content;
+}
+
+form {
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 5rem 5rem;
+  border-radius: 25px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  width: max-content;
+  background-color: white;
+  .header {
+    text-align: left;
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    font-family: Poppins;
+    font-weight: 600;
+    color: #a94442;
+    border-bottom: 1px solid #a94442;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+}
+
+.field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.field input,
+.field select {
+  height: 100%;
+  width: 20vw;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 15px;
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+  font-size: 17px;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #ff4f1a;
+  /* box-shadow: inset 0 0 3px #fb6aae; */
+}
+.field input::placeholder,
+.field select::-ms-value,
+.field select::selection {
+  color: #999;
+  transition: all 0.3s ease;
+}
+.field input:focus::placeholder,
+.field select:focus::-ms-value,
+.field select:focus::selection {
+  color: #ff4f1a;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.field > input {
+  padding: 1rem 2rem;
+}
+
+.custom_validate {
+  color: red;
+  font-size: 12px;
+  width: auto;
+  height: 12px;
+  text-align: center;
+}
+
+.sub-btn {
+  display: inline;
+  padding: 10px 20px;
+  background-color: #c4584c;
+  font-size: 2rem;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.sub-btn:hover {
+  background-color: #a94442;
+  transform: translate(0, -3px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    padding: 2rem 0;
+    position: relative;
+  }
+
+  .card {
+    padding: 5rem 2rem;
+  }
+
+  .field input,
+  .field select {
+    width: 80vw;
+    font-size: 1.2rem;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+}

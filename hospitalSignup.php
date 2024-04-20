@@ -13,10 +13,7 @@
         <hr>
         <br>
         <div class="text">"Register with Red Bank Blood Bank to make a difference. Sign up now!"</div>
-        <form action="php/donor_signin.php" class="signup" method="post">
-            <div class="field">
-              <input type="text" placeholder="Blood Bank Name" name="userName" required />
-            </div>
+        <form action="php/hospital_signup.php" class="signup" method="post">
             <div class="field">
               <input type="text" placeholder="Email Address" name="email" required />
             </div>
@@ -28,7 +25,7 @@
             </div>
             <div class="field btn">
               <div class="btn-layer"></div>
-              <input type="submit" value="Signup" name="donor-signin-submit" />
+              <input type="submit" value="Signup" name="hospital-signin-submit" />
             </div>
           </form>
           <div class="custom_validate"><?php if (isset($_GET["error"])) {
