@@ -182,24 +182,24 @@ closebutton.addEventListener("click",() => {
 
 //  });
 
-//  function customValidate(){
+ function customValidate(){
 
-//     const name=document.querySelector(".nameerror");
-//      const email=document.querySelector(".emailerror");
-//      const state=document.querySelector(".stateerror");
-//      const district=document.querySelector(".districterror");
-//      const address=document.querySelector(".addresserror");
-//      const pincode=document.querySelector(".pincodeerror");
-//      const type=document.querySelector(".typeerror");
-//      const beds=document.querySelector(".bedserror");
+    const name=document.querySelector(".nameerror");
+     const email=document.querySelector(".emailerror");
+     const state=document.querySelector(".stateerror");
+     const district=document.querySelector(".districterror");
+     const address=document.querySelector(".addresserror");
+     const pincode=document.querySelector(".pincodeerror");
+     const type=document.querySelector(".typeerror");
+     const beds=document.querySelector(".bedserror");
     
     
-//     if(name.value="" || name.value.match(/[!@#$%^&*()+-[]{}/)){
-//          e.preventDefault();
-//          name.innerHTML=name.value."";
-//      }
+    if(name.value="" || name.value.match(/[!@#$%^&*()+-[]{}/)){
+         e.preventDefault();
+         name.innerHTML=name.value."";
+     }
 
-//  }
+ }
 
 
     
