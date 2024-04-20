@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST["hospital-login-submit"])){
 
     if (empty($_POST["email"]) || empty($_POST["password"])) {
-        header("location: ../hospital_login.php?error=*Enter both email and password");
+        header("location: ../hospitalLogin.php?error=*Enter both email and password");
         exit(); // Stop further execution
     }
 
@@ -13,12 +13,7 @@ if(isset($_POST["hospital-login-submit"])){
 
     // Validate email format
     if (!filter_var($emailInput, FILTER_VALIDATE_EMAIL)) {
-        header("location: ../hospital_login.php?error=*Enter a valid email");
-        exit(); // Stop further execution
-    }
-    // Validate password format
-    else if (!preg_match('/[@$#%&*!]/', $passwordInput) || strlen($passwordInput) < 7) {
-        header("location: ../hospital_login.php?error=*Password should have minimum 7 characters and at least 1 special character");
+        header("location: ../hospitalLogin.php?error=*Enter a valid email");
         exit(); // Stop further execution
     }
 
@@ -37,7 +32,7 @@ if(isset($_POST["hospital-login-submit"])){
         if (password_verify($passwordInput, $row['pass'])) {
             global $emailInput;
             // Set login status and store user ID in session
-            $_SESSION["hospital_login"] = true;
+            $_SESSION["hospitalLogin"] = true;
             
             $query2="SELECT * FROM bloodcenterdetail where email= '$emailInput'";
             
@@ -55,10 +50,10 @@ if(isset($_POST["hospital-login-submit"])){
     }
 
     // Login failed, redirect to login page with error message
-    header("location: ../hospital_login.php?error=*Email or password is incorrect");
+    header("location: ../hospitalLogin.php?error=*Email or password is incorrect");
     exit(); // Stop further execution
 }
 else{
 
-    header("location: ../hospital_login.php");die();
+    header("location: ../hospitalLogin.php");die();
 }

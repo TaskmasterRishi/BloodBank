@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up Form</title>
-    <link rel="stylesheet" href="CSS/donorSignup.css">
+    <link rel="stylesheet" href="CSS/hospitalSignup.css">
 </head>
 <body>
     <div class="main">
@@ -15,7 +15,7 @@
         <div class="text">"Register with Red Bank Blood Bank to make a difference. Sign up now!"</div>
         <form action="php/donor_signin.php" class="signup" method="post">
             <div class="field">
-              <input type="text" placeholder="User Name" name="userName" required />
+              <input type="text" placeholder="Blood Bank Name" name="userName" required />
             </div>
             <div class="field">
               <input type="text" placeholder="Email Address" name="email" required />

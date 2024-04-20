@@ -141,4 +141,21 @@ form .btn .btn-layer {
     font-weight: 500;
     cursor: pointer;
   }
+     
+@media only screen and (max-width: 768px){
+
+    .card{
+      padding: 5rem 3rem;
+      .text{
+        width: 75vw;
+        font-size: 1.4rem;
+      }
+      hr{
+        width: 100%;
+      }
+    }
   
+  .field input {
+    width: 100%;
+  }
+  }

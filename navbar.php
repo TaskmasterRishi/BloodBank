@@ -140,7 +140,7 @@
                              <p class="login">Login &#9660;</p>
                             </button>
                             <div class="dropdown-content">
-                                <a href="hospital_login.php">Hospital Login</a>
+                                <a href="hospitalLogin.php">Hospital Login</a>
                                 <a href="donorLogin.php">Donor Login</a>
                             </div>
                         
