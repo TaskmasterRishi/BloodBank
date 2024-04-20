@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 20, 2024 at 04:43 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Apr 20, 2024 at 09:13 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,19 +18,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodBank`
+-- Database: `bloodbank`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bloodbank_details`
+-- Table structure for table `bloodcenterdetail`
 --
 
-CREATE TABLE `bloodbank_details` (
-  `ID` int(11) NOT NULL,
+CREATE TABLE `bloodcenterdetail` (
+  `id` int(11) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `bloodBankName` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `hospitalName` varchar(100) DEFAULT NULL,
   `category` varchar(15) NOT NULL,
   `contact` varchar(10) NOT NULL,
@@ -47,13 +47,12 @@ CREATE TABLE `bloodbank_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `bloodbank_details`
+-- Dumping data for table `bloodcenterdetail`
 --
 
-INSERT INTO `bloodbank_details` (`ID`, `email`, `bloodBankName`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
-(1, 'hospital1@gmail.com', 'Red', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
-(2, 'hospital2@gmail.com', 'Red 2', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
-(3, 'hospital2@gmail.com', 'Red 2', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+INSERT INTO `bloodcenterdetail` (`id`, `email`, `name`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
+(1, 'hospital1@gmail.com', 'hospital', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(2, 'hospital2@gmail.com', 'blood bank', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (4, 'xutukuzu@mailinator.com', 'Lyle Wilson', 'Elaine Riley', 'Charitable/Vol', '9510469749', '+1 (981) 632-7434', 'Quia quis similique ', '9925393173', 'https://www.sohusekydunirap.biz', 42, 'Sequi magnam dolorem', 'Dolor iusto adipisci', 'Ea ipsum architecto ', 'Qui magni aliquip co', 360311);
 
 -- --------------------------------------------------------
@@ -64,7 +63,7 @@ INSERT INTO `bloodbank_details` (`ID`, `email`, `bloodBankName`, `hospitalName`,
 
 CREATE TABLE `blooddetail` (
   `id` int(10) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `donorid` int(10) NOT NULL,
   `type` varchar(5) NOT NULL,
   `amount` float NOT NULL,
   `bloodcenterid` int(10) NOT NULL
@@ -74,10 +73,12 @@ CREATE TABLE `blooddetail` (
 -- Dumping data for table `blooddetail`
 --
 
-INSERT INTO `blooddetail` (`id`, `email`, `type`, `amount`, `bloodcenterid`) VALUES
-(12, 'shlok.goswami2002@gmail.com', 'O+', 300, 6),
-(13, 'abc@gmail.com', 'A-', 100, 6),
-(14, 'dummy@gmail.com', 'B+', 150, 6);
+INSERT INTO `blooddetail` (`id`, `donorid`, `type`, `amount`, `bloodcenterid`) VALUES
+(12, 0, 'O+', 300, 1),
+(13, 0, 'A-', 100, 1),
+(14, 0, 'B+', 150, 1),
+(15, 1, 'B+', 20, 1),
+(16, 4, 'O+', 150, 1);
 
 -- --------------------------------------------------------
 
@@ -97,8 +98,8 @@ CREATE TABLE `camp` (
 --
 
 INSERT INTO `camp` (`id`, `donorid`, `campid`, `present`) VALUES
-(1, 1, 10, 'no'),
-(14, 4, 10, 'no');
+(1, 1, 10, 'done'),
+(14, 4, 10, 'done');
 
 -- --------------------------------------------------------
 
@@ -207,10 +208,10 @@ INSERT INTO `hospitallogin` (`id`, `pass`, `email`) VALUES
 --
 
 --
--- Indexes for table `bloodbank_details`
+-- Indexes for table `bloodcenterdetail`
 --
-ALTER TABLE `bloodbank_details`
-  ADD PRIMARY KEY (`ID`);
+ALTER TABLE `bloodcenterdetail`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `blooddetail`
@@ -253,16 +254,16 @@ ALTER TABLE `hospitallogin`
 --
 
 --
--- AUTO_INCREMENT for table `bloodbank_details`
+-- AUTO_INCREMENT for table `bloodcenterdetail`
 --
-ALTER TABLE `bloodbank_details`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `bloodcenterdetail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `blooddetail`
 --
 ALTER TABLE `blooddetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `camp`
@@ -274,7 +275,7 @@ ALTER TABLE `camp`
 -- AUTO_INCREMENT for table `campdetail`
 --
 ALTER TABLE `campdetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `donorlogin`
