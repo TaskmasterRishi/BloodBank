@@ -164,7 +164,7 @@ while($row= mysqli_fetch_array($result)){
 
                     if($row["organizedBy"]==$_SESSION["hospital_name"]){
                         echo "
-                        <form action='php/delete_camp.php' method='post'>
+                        <form class='delete_form' action='php/delete_camp.php' method='post'>
                             <input type='hidden'  name='id' value='".$row["id"]."'>
                             <input type='submit' class='button' name='delete' value='Delete'>
                         </form>";
@@ -207,6 +207,26 @@ while($row= mysqli_fetch_array($result)){
 
 });
 
+
+    let forms = document.querySelectorAll(".delete_form");
+
+    forms.forEach(element => {
+
+        element.addEventListener("click",confirm(element));
+       
+        
+    });
+
+function confirm(e){
+
+    if(confirm("Are you sure you want to delete camp?")){
+    e.submit();
+    }
+    else{
+alert("hi");
+    }
+
+}
 </script>
 </body>
 </html>

@@ -11,6 +11,15 @@ if(isset($_POST["search-submit"])){
         header("location: needBlood.php?error=*Select State first.");
         die();
     }
+    else if(isset($_POST["bloodgroup"]) && isset($_POST["state"]) && !isset($_POST["district"])){
+        $_POST["district"]=NULL;
+        $_POST["state"]=NULL;
+        $_POST["bloodgroup"]=NULL;
+        header("location: needBlood.php?error=*Select District first.");
+        die();
+       
+
+    }
     else if((!isset($_POST["district"]) && !isset($_POST["state"])) && isset($_POST["bloodgroup"])){
         $_POST["district"]=NULL;
         $_POST["state"]=NULL;
@@ -116,12 +125,12 @@ text-align:center;
 
             <center>
                     <button type="submit" name="search-submit" value="submit" class="submit">Search</button>
+                    
+                    
+                    <button type="submit"  name="search-all" value="search-all" class="submit search-all">Search All</button>
                 </form>
-
-
-                <div  name="search-all" value="search-all" class="submit search-all">Search All</div>
                 <br>
-                <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];} ?></div>
+                <div class="custom_validate"><?php if(isset($_GET["error"]) && !isset($_POST["search-all"])){echo $_GET["error"];} ?></div>
             </center>
             <div class="container">
                 <div class="icon-container">
@@ -138,6 +147,10 @@ text-align:center;
         </div>
         <div class='detail_container'>
             <div class="centerdetail ">
+
+                <?php
+            if(isset($_POST["search-all"])|| isset($_POST["search-submit"])){
+            echo '
                 <table class="serchBox">
                     <tr class="serchHead">
                         <td>Name</td>
@@ -146,8 +159,9 @@ text-align:center;
                         <td>State</td>
                         <td>Available</td>
                     </tr>
+                ';
+            }
 
-     <?php
                           
                           
     if(isset($_POST["search-submit"])){
@@ -221,7 +235,7 @@ text-align:center;
                             
 
     }
-    else{
+    else if(isset($_POST["search-all"])){
                                 $query="SELECT * FROM bloodcenterdetail";
                                 $result=mysqli_query($con,$query);
 

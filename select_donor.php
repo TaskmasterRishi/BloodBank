@@ -7,7 +7,7 @@ if(isset($_POST["id"]) && !isset($_SESSION["camp_id"])){
 }
 if(!isset($_SESSION["camp_id"])){
 
-    header("location: index.php");
+    header("location: index.php?error=camp id not set in session");
 }
 
 
@@ -81,14 +81,31 @@ width:max-content;
             </tr>
             <?php
             
+                        if(isset($_POST["select_submit"])){
+            
+                            require_once("php/connection.php");
+                            $did=$_POST["id"];
+            
+                            $query="UPDATE  camp SET present='yes' where donorid=$did";
+            
+                            if(mysqli_query($con,$query)){
+            
+                                header("location: select_donor.php");
+            
+                            }
+                            else{echo "Database not connected";}
+                        }
+            
+            ?>
+            <?php
+            
                 
                 require_once("php/connection.php");
 
-                $query="SELECT * FROM donordetail where campid='".$_SESSION["camp_id"]."'";
+                $query="SELECT * FROM donordetail INNER JOIN camp ON donordetail.id=camp.donorid  AND camp.campid='".$_SESSION["camp_id"]."'";
                 $result=mysqli_query($con,$query);
 
                
-
             while($row=mysqli_fetch_array($result)){
                 if($row["present"]=="no"){
                     echo "
@@ -100,7 +117,7 @@ width:max-content;
                         <td>".$row["bloodGroup"]."</td>
                         <td>
                             <form action='select_donor.php' method='post'>
-                                <input type='hidden' name='id' value='".$row["id"]."'>
+                                <input type='hidden' name='id' value=".$row["donorid"].">
                                 <input type='submit' class='add' name='select_submit' value='add+'>
                             </form>
                         </td>
@@ -114,7 +131,7 @@ width:max-content;
         </table>
         
         <?php
-         $query="SELECT * FROM donordetail where present='no' AND campid='".$_SESSION["camp_id"]."'";
+         $query="SELECT * FROM donordetail INNER JOIN camp  ON donordetail.id=camp.donorid AND present='no' AND campid='".$_SESSION["camp_id"]."'";
          $result=mysqli_query($con,$query);
         
         if(mysqli_num_rows($result)==0){echo "<div class='norecords'>No Records Found<div>";}
@@ -128,27 +145,10 @@ width:max-content;
             </form>
             <div class="custom_validate"><?php if(isset($_GET["error"])){echo $_GET["error"];}?></div>
             <form action="php/delete_camp.php" method="post">
+                <input type="hidden" name="id" value='<?php echo $_SESSION["camp_id"]?>'>
                 <input type='submit' class='button delete' name='delete' value='Delete Camp'>
             </form>
     </div>
 
 </body>
 </html>
-<?php
-
-            if(isset($_POST["select_submit"])){
-
-                require_once("php/connection.php");
-                $id=$_POST["id"];
-
-                $query="UPDATE  donordetail SET present='yes' where id=$id";
-
-                if(mysqli_query($con,$query)){
-
-                    header("location: select_donor.php");
-
-                }
-                else{echo "Database not connected";}
-            }
-
-?>
