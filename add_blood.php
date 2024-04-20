@@ -70,7 +70,7 @@ text-align:center;
                 
                 require_once("php/connection.php");
 
-                $query="SELECT * FROM donordetail where campid='".$_SESSION["camp_id"]."'";
+                $query="SELECT * FROM donordetail INNER JOIN camp ON camp.donorid=donordetail.id AND camp.campid='".$_SESSION["camp_id"]."'";
                 $result=mysqli_query($con,$query);
 
                
@@ -87,7 +87,7 @@ text-align:center;
                         <form action='php/add_blood.php' method='post'>
                         <td><input type='number' step='0.02' name='amount'></td>
                         <td style='border:none;'>
-                                <input type='hidden' name='email' value='".$row["email"]."'>
+                                <input type='hidden' name='donorid' value='".$row["donorid"]."'>
                                 <input type='hidden' name='type' value='".$row["bloodGroup"]."'>
                                 
                                 <input type='submit' class='add' name='add_blood_submit' value='add+'>
@@ -102,7 +102,7 @@ text-align:center;
             ?>
         </table>
         <?php 
-        $query="SELECT * FROM donordetail where present='yes' AND campid='".$_SESSION["camp_id"]."'";
+        $query="SELECT * FROM donordetail INNER JOIN camp ON donordetail.id=camp.donorid AND present='yes' AND camp.campid='".$_SESSION["camp_id"]."'";
         $result=mysqli_query($con,$query);
 
         if(mysqli_num_rows($result)==0){echo "<div class='norecords'>No Records Found<div>";}

@@ -24,6 +24,13 @@ if(isset($_POST["delete"])){
     $campDeleteQuery="DELETE FROM campdetail WHERE id = ".$id;
 
     if (mysqli_query($con, $campDeleteQuery)) {
+
+    } else {
+        echo "ERROR: Something went wrong. Please try again.";
+    }
+    $campDeleteQuery="DELETE FROM camp WHERE campid = ".$id;
+
+    if (mysqli_query($con, $campDeleteQuery)) {
         header("location: ../hospital_profile.php");
         exit();
     } else {

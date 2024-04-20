@@ -9,32 +9,32 @@ session_start();
     }
     require_once("connection.php");
     
-    $email=$_POST["email"];
+    $donorid=$_POST["donorid"];
     $type=$_POST["type"];
     $amount=$_POST["amount"];
 
 
 
-    $query="SELECT * FROM donordetail where  email='$email' AND present='yes' AND campid=".$_SESSION["camp_id"];
+    $query="SELECT * FROM donordetail INNER JOIN camp ON donordetail.id=camp.donorid AND donorid='$donorid' AND present='yes' AND campid=".$_SESSION["camp_id"];
     $result=mysqli_query($con,$query);
 
 $userexist=false;
 
     while($row=mysqli_fetch_array($result)){
 
-        if($row["email"]==$email){
+        if($row["donorid"]==$donorid){
 
             $userexist=true;
         }
         else{continue;}
     }
-     if($userexist ){
+     if($userexist){
 
-            $query="INSERT INTO blooddetail (email,type,amount,bloodcenterid) VALUES ('$email','$type',$amount,
+            $query="INSERT INTO blooddetail (donorid,type,amount,bloodcenterid) VALUES ('$donorid','$type',$amount,
                                                                                     '".$_SESSION["hospital_id"]."')";
             
             mysqli_query($con,$query);
-            $updatequery="UPDATE donordetail SET present='done' WHERE email='$email' AND present='yes' AND campid=".$_SESSION["camp_id"];
+            $updatequery="UPDATE camp  SET present='done' WHERE donorid='$donorid' AND present='yes' AND campid=".$_SESSION["camp_id"];
             mysqli_query($con,$updatequery);
             header("location: ../add_blood.php");
      }
