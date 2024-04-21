@@ -38,7 +38,12 @@ function showalert() {
     return false;
 }
 
-function toggleEditForm() {
+var click1=0;var click2=0;
+
+function toggleEditForm(e) {
+ 
+  if(click2%2==1){toggleCamps();}
+
   var editForm = document.querySelector(".editForm");
   if (
     editForm.style.transform === "translateX(-200%)" ||
@@ -47,9 +52,32 @@ function toggleEditForm() {
     editForm.style.transform = "translateX(0%)";
   } else {
     editForm.style.transform = "translateX(-200%)";
+  
   }
   document
     .getElementById("menuToggle")
     .querySelector("input[type='checkbox']").checked = false;
+    click1++;
+}
+   
+
+function toggleCamps(e){
+
+if(click1%2==1){
+ toggleEditForm();
 }
 
+  document.querySelector(".campbackground").classList.toggle("afterclickcamp");
+ 
+  document
+  .getElementById("menuToggle")
+  .querySelector("input[type='checkbox']").checked = false;
+  click2++;
+}
+
+
+
+document.querySelector(".close").addEventListener("click",() => {
+
+  document.querySelector(".admitcardpopup").classList.remove("admitcardpopupdisplay");
+});

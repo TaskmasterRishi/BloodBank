@@ -15,7 +15,7 @@ html {
   background-color: rgb(240, 240, 240);
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 
@@ -26,6 +26,7 @@ body {
   width: 100vw;
   align-items: center;
   justify-content: center;
+
 }
 
 #menuToggle {
@@ -430,7 +431,235 @@ input[type="submit"]:hover {
   gap: 1rem;
   font-size: 1.4rem;
 }
+.campbackground{
 
+  position: absolute;
+  top: 0px;
+  bottom: -100px;
+  left: 0px;
+  right: 0px;
+  transform: translateX(-200%);
+  transition: transform 0.3s ease;
+  z-index: 8;
+}
+.afterclickcamp{
+  
+ 
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  transition: transform 0.3s ease;
+  transform: translateX(0%);
+ 
+}
+.campholdercontainer{
+
+  width: 85vw;
+  height: 90vh;
+margin:50px auto auto auto;
+background-color: rgba(255, 255, 255, 0.5);
+padding: 2rem;
+border-radius: 3rem;
+}
+.campcontainer{
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap:3.3%;
+  overflow-y:auto;
+}
+.campcontainer::-webkit-scrollbar:vertical{
+  display:block;
+
+  width: 5px;
+ 
+}
+.campcontainer::-webkit-scrollbar:vertical:hover{
+  
+  width: 10px;
+}
+.campcontainer::-webkit-scrollbar{
+
+  background: rgba(255, 255, 255, 0.5);
+}
+.campcontainer::-webkit-scrollbar-thumb{
+  background:#232323;
+  border-radius: 10px;
+}
+.campholder{
+
+background-color:white;
+width: 500px;
+height:fit-content;
+border-radius: 2rem;
+margin-top:3rem;
+padding: 2rem;
+overflow: hidden;
+position: relative;
+box-shadow: 13px 15px 10px 0px rgba(0, 0, 0, 0.623);
+
+}
+.infoholder{
+
+  width: fit-content;
+  color:grey ;
+  font-size: 15px;
+  height: fit-content;
+}
+.infoholder > span{
+  font-size: 20px;
+font-weight: 700;
+color: #383838da;
+}
+.design{
+  all:unset;
+  cursor:pointer;
+  width: max(30%,200px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  transform: translate(50%,-50%);
+  background-color: gray;
+  
+  
+}
+.design > span{
+  
+  font-size: 1.5em;
+  color: white;
+  position: absolute;
+  top: 55%;
+  right: 55%;
+  /* cursor:pointer; */
+
+}
+.admitcardpopup{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: max(40%,300px);
+  height: 84vh;
+  background-color: white;
+  z-index: 100;
+  overflow-x: scroll;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.486);
+  border-radius: 10px;
+  display: none;
+}
+.admitcardpopupdisplay{
+display: block;
+}
+.admitcardpopup::-webkit-scrollbar{
+
+  display: none;
+}
+.admitcardpopup > iframe{
+
+  height: 88%;
+  width:98%;
+  margin:40px 1% 2% 1%;
+}
+.admitcardtext{
+
+  position: absolute;
+  font-size: 20px;
+  margin-left: 2.5rem;
+  font-weight: 700;
+  border-bottom: 2px solid black;
+ }
+.close{
+
+  height: 4%;
+  aspect-ratio: 1;
+  position: absolute;
+  right: 0px;
+}
+.close:hover{
+  background-color: rgba(128, 128, 128, 0.281);
+}
+.cross1,.cross2{
+  height: 60%;
+  width: 3px;
+  background-color: gray;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateZ(45deg);
+
+}
+.cross2{
+  transform: translate(-50%,-50%) rotateZ(-45deg);
+
+}
+.downloadbuttonholder{
+
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+  width: fit-content;
+  height: fit-content;
+}
+.downloadbutton{
+
+  all: unset;
+  cursor: pointer;
+  background-color: #a94442;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+.campadd:hover{
+
+  
+  box-shadow: 0px 0px 10px 5px gray inset;
+  position: relative;
+  top:5px;
+  left: 5px;
+  /* border: 1px solid rgb(85, 85, 85); */
+}
+.plus{
+  height: 100px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.753);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.stick1,.stick2{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  height:60%;
+  width:10%;
+  border-radius: 2.5px;
+}
+.stick2{
+  transform: translate(-50%,-50%) rotateZ(90deg);
+}
+.register{
+  font-size: 20px;
+  font-weight: 600;
+  width: max-content;
+  position: absolute;
+  top: 100%;
+  left:-50%;
+  color: black;
+}
 @media only screen and (max-width: 768px) {
   #menuToggle {
     left: 15px;

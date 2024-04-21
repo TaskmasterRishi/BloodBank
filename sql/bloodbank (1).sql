@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2024 at 09:13 PM
+-- Generation Time: Apr 21, 2024 at 09:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -98,8 +98,9 @@ CREATE TABLE `camp` (
 --
 
 INSERT INTO `camp` (`id`, `donorid`, `campid`, `present`) VALUES
-(1, 1, 10, 'done'),
-(14, 4, 10, 'done');
+(1, 1, 10, 'no'),
+(14, 4, 10, 'no'),
+(15, 4, 18, 'no');
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE `donordetail` (
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
 (1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
 (2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '1234567890', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456),
+(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456),
 (5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -269,7 +270,7 @@ ALTER TABLE `blooddetail`
 -- AUTO_INCREMENT for table `camp`
 --
 ALTER TABLE `camp`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
