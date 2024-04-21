@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
         $allowed = array('jpeg', 'jpg', 'png');
 
         if (in_array($fileExt, $allowed)) {
-            if ($fileSize < 10000000) { // Adjust the maximum file size as needed
+            if ($fileSize < 1000000) { // Adjust the maximum file size as needed
                 // Generate a unique filename based on an ID number
                 $fileNameNew = $id . "." . $fileExt;
 
@@ -26,31 +26,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
                     // Insert the filename into the database
                     $sql = "UPDATE donorlogin SET imagename = '$fileNameNew' WHERE ID = $id";
                     if (mysqli_query($con, $sql)) {
-                        // Redirect to the donor profile page after successful upload and update
-                        header("Location: ../donorProfile.php");
-                        // echo $fileDestination;
-                        exit(); // Ensure that script execution stops after redirection
+                        // Set success message
+                        $_SESSION['message'] = "Upload successful";
                     } else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($con);
+                        // Set error message
+                        $_SESSION['error'] = "Error: " . mysqli_error($con);
                     }
                 } else {
-                    // Error occurred while uploading the file
-                    echo "Error occurred while uploading the file.";
+                    // Set error message
+                    $_SESSION['error'] = "Error occurred while uploading the file.";
                 }
             } else {
-                // File is too large
-                echo "File is too large.";
+                // Set error message
+                $_SESSION['error'] = "File is too large. Size should be less than 1 mb";
             }
         } else {
-            // Wrong file extension
-            echo "Wrong file extension.";
+            // Set error message
+            $_SESSION['error'] = "Wrong file extension.";
         }
     } else {
-        // Error occurred during file upload
-        echo "Error occurred during file upload.";
+        // Set error message
+        $_SESSION['error'] = "Error occurred during file upload.";
     }
+
+    // Redirect to the donor profile page
+    header("Location: ../donorProfile.php");
+    exit();
 } else {
-    // No file selected
-    echo "No file selected.";
+    // Set error message
+    $_SESSION['error'] = "No file selected.";
+    // Redirect to the donor profile page
+    header("Location: ../donorProfile.php");
+    exit();
 }
 ?>
