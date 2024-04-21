@@ -26,29 +26,88 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Donor Profile</title>
-  <link rel="stylesheet" href="CSS/donorProfile.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donor Profile</title>
+    <link rel="stylesheet" href="CSS/donorProfile.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<style>
-  .custom_validate {
-
-    color: red;
-    font-size: 12px;
-    width: auto;
-    height: 12px;
-    text-align: center;
-
-  }
-</style>
+  </head>
+  <style>
+    .custom_validate {
+      
+      color: red;
+      font-size: 12px;
+      width: auto;
+      height: 12px;
+      text-align: center;
+      
+    }
+    </style>
 
 <body>
+  <div class="campbackground">
+    <div class="campholdercontainer">
+        <div class="campcontainer">
+
+            <?php
+            
+              require_once("php/connection.php");
+              $query="SELECT * FROM camp INNER JOIN campdetail ON campdetail.id=camp.campid AND camp.present='no' AND camp.donorid=".$_SESSION["user_id"];
+              $result=mysqli_query($con,$query);
+
+              while($row=mysqli_fetch_assoc($result)){
+
+                echo '
+                
+                <div class="campholder">
+
+                <div class="infoholder"><span>Name: </span><br>'.$row["name"].'</div>
+                <div class="infoholder"><span>Date: </span><br>'.$row["date"].'</div>
+                <div class="infoholder"><span>Time: </span><br>'.substr($row["time1"],0,8)."am-".substr($row["time2"],0,8).'pm</div>
+                <div class="infoholder"><span>Organized By: </span><br>'.$row["organizedBy"].'</div>
+                <div class="infoholder"><span>Contact: </span><br>'.$row["contact"].'</div>
+                <div class="infoholder"><span>Address: </span><br>'.$row["address"].'</div>
+  
+                <button class="design"><span>Download<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAdmit<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCard<span>
+                  <input type="hidden" class="campid" name="campid" value="'.$row["campid"].'">
+                </button>
+                </div>
+                
+                ';
+
+              }
+
+            ?>
+            
+           <a href="become_donor.php"> <div class="campholder campadd" style="height:300px;width:350px;">
+              <div class="plus"> 
+                <div class="stick1"></div>
+                <div class="stick2"></div>
+
+                <div class="register">Register For  Camps</div>
+              </div>
+            </div></a>
+
+           
+        </div>
+    </div>
+  </div>
+
+<div class="admitcardpopup">
+  <div class="admitcardtext">Admit Card</div>
+  <din class="close">
+    <div class="cross1"></div>
+    <div class="cross2"></div>
+  </din>
+  <iframe src=""  frameborder="0"></iframe>
+  <div class="downloadbuttonholder"><button class="downloadbutton" name="download" value="download">Download</button></div>
+</div>
+
+
   <nav role="navigation">
     <div id="menuToggle">
       <!--
@@ -56,10 +115,10 @@ if ($result && mysqli_num_rows($result) > 0) {
     so you can use the :checked selector on it.
     -->
       <input type="checkbox" />
-
+      
       <!--
-    Some spans to act as a hamburger.
-    
+        Some spans to act as a hamburger.
+        
     They are acting like a real hamburger,
     not that McDonalds stuff.
     -->
@@ -75,10 +134,10 @@ if ($result && mysqli_num_rows($result) > 0) {
         <a href="index.php">
           <li>Home</li>
         </a>
-        <a href="#" onclick="toggleEditForm()">
+        <a href="#" class="edit_button" onclick="toggleEditForm(event)">
           <li>Edit</li>
         </a>
-        <a href="#">
+        <a href="#" class="camp_button" onclick="toggleCamps(event)" >
           <li>My camps</li>
         </a>
         <div class="buttons">
@@ -259,7 +318,19 @@ if ($result && mysqli_num_rows($result) > 0) {
   </div>
 
 
+<script>
+  let userid="<?php echo $_SESSION["user_id"];?>";
+  const button=document.querySelectorAll(".design");
 
+button.forEach(element => {
+  element.addEventListener("click",() => {
+
+    document.querySelector(".admitcardpopup").classList.add("admitcardpopupdisplay");
+    let campid=element.querySelector(".campid").value;
+    document.querySelector("iframe").src="admitCards/"+userid+campid+".pdf";
+  });
+});
+</script>
 </body>
 <script src="script/donorPro.js"></script>
 
