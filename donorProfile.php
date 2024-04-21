@@ -104,7 +104,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div class="cross2"></div>
   </din>
   <iframe src=""  frameborder="0"></iframe>
-  <div class="downloadbuttonholder"><button class="downloadbutton" name="download" value="download">Download</button></div>
+  <!-- <div class="downloadbuttonholder"><form action=""><button class="downloadbutton" name="download" value="download">Download</button></div> -->
 </div>
 
 
@@ -328,8 +328,11 @@ button.forEach(element => {
     document.querySelector(".admitcardpopup").classList.add("admitcardpopupdisplay");
     let campid=element.querySelector(".campid").value;
     document.querySelector("iframe").src="admitCards/"+userid+campid+".pdf";
+
   });
 });
+
+
 </script>
 </body>
 <script src="script/donorPro.js"></script>
