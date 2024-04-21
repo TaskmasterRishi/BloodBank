@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
         $allowed = array('jpeg', 'jpg', 'png');
 
         if (in_array($fileExt, $allowed)) {
-            if ($fileSize < 10000000) { // Adjust the maximum file size as needed
+            if ($fileSize < 1000000) { // Adjust the maximum file size as needed
                 // Generate a unique filename based on an ID number
                 $fileNameNew = $id . "." . $fileExt;
 
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
                 }
             } else {
                 // Set error message
-                $_SESSION['error'] = "File is too large.";
+                $_SESSION['error'] = "File is too large. Size should be less than 1 mb";
             }
         } else {
             // Set error message
