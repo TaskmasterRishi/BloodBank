@@ -163,6 +163,55 @@ body {
   bottom: 0;
 }
 
+.error-card {
+  position: fixed;
+  top: -100%; /* Start off-screen */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5rem 15rem;
+  z-index: 999;
+  background-color: rgba(35, 35, 35, 0.5);
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: top 0.5s ease;
+  border-radius: 25px;
+  button{
+    background-color: #a94442;
+    padding: 2rem 5rem;
+    font-size: 2rem;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+  }
+  button:hover{
+    transform: translateY(-3px);
+    background-color: #ca4745;
+    transition: 0.3s ease-in;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+
+  }
+}
+
+.error-card.show {
+  top: 10%; /* Bring to the center */
+}
+
+.error-content {
+  color: white;
+  font-size: 3rem;
+  font-family: roboto;
+}
+
+.fa-solid {
+  font-size: 5rem;
+  color: #a94442;
+}
+
+
 .card {
   display: flex;
   flex-direction: column;

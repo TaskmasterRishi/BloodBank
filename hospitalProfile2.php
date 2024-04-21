@@ -1,26 +1,13 @@
 <?php
 // Include auth.php to check login status
-require_once ("auth.php");
-require_once ("php/connection.php");
-if (isset($_POST["camp_id"])) {
-    $camp_id = $_POST["camp_id"];
-}
+session_start();
 require 'php/connection.php';
-if (isset($_SESSION["user_id"])) {
-    $id = $_SESSION["user_id"];
-} else {
-    echo "session destroyed";
-}
-$fetch = "SELECT * FROM donordetail where id = '$id'";
-$result = mysqli_query($con, $fetch);
-if ($result && mysqli_num_rows($result) > 0) {
-    $data = mysqli_fetch_assoc($result);
-}
+$id = $_SESSION["hospital_id"];
 
-$fetch = "SELECT * FROM donorlogin where id = '$id'";
+$fetch = "SELECT * FROM bloodcenterdetail where id = '$id'";
 $result = mysqli_query($con, $fetch);
 if ($result && mysqli_num_rows($result) > 0) {
-    $data2 = mysqli_fetch_assoc($result);
+  $data = mysqli_fetch_assoc($result);
 }
 ?>
 
@@ -37,15 +24,15 @@ if ($result && mysqli_num_rows($result) > 0) {
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-    .custom_validate {
+.custom_validate {
 
-        color: red;
-        font-size: 12px;
-        width: auto;
-        height: 12px;
-        text-align: center;
+    color: red;
+    font-size: 12px;
+    width: auto;
+    height: 12px;
+    text-align: center;
 
-    }
+}
 </style>
 
 <body>
@@ -92,31 +79,14 @@ if ($result && mysqli_num_rows($result) > 0) {
             </ul>
         </div>
     </nav>
-
-    <!-- Error Card -->
-    <div class="error-card" id="errorCard">
-        <i class="fa-solid fa-xmark"></i>
-        <div class="error-content" id="error-content">
-            <?php
-            if (isset($_SESSION['error'])) {
-                echo $_SESSION['error'];
-            } else {
-                echo "ERROR";
-            }
-            ?>
-        </div>
-        <button onclick="triggerOK()">OK</button>
-    </div>
-
-
     <div class="card">
         <div class="left">
             <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
-                echo 'profilePhotos/' . $data2["imagename"];
-            } else {
-                echo 'Image/empty_profile.jpg';
-            }
-            ?>')">
+        echo 'profilePhotos/' . $data2["imagename"];
+      } else {
+        echo 'Image/empty_profile.jpg';
+      }
+      ?>')">
                 <form id="uploadForm" action="php/profileUpload.php" method="post" enctype="multipart/form-data">
                     <input type="file" id="fileInput" name="profile" style="display: none;"
                         onchange="handleFileChange(event)">
@@ -134,36 +104,69 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="right">
             <table>
                 <tr>
-                    <td>Mobile Number</td>
-                    <td><?php echo $data["contact"] ?></td>
+                    <td>Parent Hospital Name</td>
+                    <td><?php if(isset($data["hospitalName"])){
+            echo $data["hospitalName"];
+          } else{
+            echo "Not Defined";
+          }
+            ?></td>
                 </tr>
                 <tr>
-                    <td>Gender</td>
-                    <td><?php echo $data["gender"] ?></td>
+                    <td>Category</td>
+                    <td><?php if(isset($data["category"])){
+            echo $data["category"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Date of birth</td>
-                    <td><?php echo $data["dob"] ?></td>
+                    <td>Contact Number</td>
+                    <td><?php if(isset($data["contact"])){
+            echo $data["contact"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Blood Group</td>
-                    <td><?php echo $data["bloodGroup"] ?></td>
+                    <td>Helpline Numner</td>
+                    <td><?php if(isset($data["helplineNo"])){
+            echo $data["helplineNo"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Height</td>
-                    <td><?php echo $data["height"] ?></td>
+                    <td>Fax No</td>
+                    <td><?php if(isset($data["faxNo"])){
+            echo $data["faxNo"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Weight</td>
-                    <td><?php echo $data["weight"] ?></td>
+                    <td>Licence No</td>
+                    <td><?php if(isset($data["licenceNo"])){
+            echo $data["licenceNo"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Address</td>
-                    <td><?php echo $data["address"] ?></td>
+                    <td>Hospital Website</td>
+                    <td><?php if(isset($data["website"])){
+            echo $data["website"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
                 <tr>
-                    <td>Pincode</td>
-                    <td><?php echo $data["pincode"] ?></td>
+                    <td>Number of Beds</td>
+                    <td><?php if(isset($data["beds"])){
+            echo $data["beds"];
+          } else{
+            echo "Not Defined";
+          }?></td>
                 </tr>
             </table>
         </div>
@@ -270,8 +273,8 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <input type="submit" name="donor_register" value="Submit">
             </form>
             <div class="custom_validate"><?php if (isset($_GET["error"])) {
-                echo $_GET["error"];
-            } ?></div>
+        echo $_GET["error"];
+      } ?></div>
         </div>
     </div>
     </div>
@@ -280,24 +283,5 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 </body>
 <script src="script/donorPro.js"></script>
-<script>
-    // Show error card
-    window.onload = function () {
-        var errorCard = document.getElementById("errorCard");
-        var errorMessage = "<?php echo isset($_SESSION['error']) ? $_SESSION['error'] : ''; ?>";
-
-        if (errorCard && errorMessage && errorMessage !== "ERROR") {
-            errorCard.classList.add("show"); // Add the class to show the error card
-        }
-    }
-
-    function triggerOK() {
-        var errorCard = document.getElementById("errorCard");
-        errorCard.classList.remove("show"); // Remove the class to hide the error card
-        <?php unset($_SESSION['error']); ?> // Clear session value
-    }
-
-
-</script>
 
 </html>
