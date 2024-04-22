@@ -118,7 +118,7 @@
 
                     echo ' 
                         
-                        <a href="hospitalProfile.php" class="p_link">
+                        <a href="hospitalProfile2.php" class="p_link">
 
                         <div class="profile" ><img style="height:5rem;" src="profilePhotos/bloodbank.png"></div>
                         <span>' . $_SESSION["hospital_name"] . '</span>

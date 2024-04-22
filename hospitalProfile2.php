@@ -9,6 +9,12 @@ $result = mysqli_query($con, $fetch);
 if ($result && mysqli_num_rows($result) > 0) {
     $data = mysqli_fetch_assoc($result);
 }
+
+$fetch = "SELECT * FROM hospitallogin where id = '$id'";
+$result2 = mysqli_query($con, $fetch);
+if ($result2 && mysqli_num_rows($result2) > 0) {
+    $data2 = mysqli_fetch_assoc($result2);
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +88,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div class="card">
         <div class="left">
             <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
-                echo 'profilePhotos/' . $data2["imagename"];
+                echo 'profilePhotosHospital/' . $data2["imagename"];
             } else {
                 echo 'Image/empty_profile.jpg';
             }
