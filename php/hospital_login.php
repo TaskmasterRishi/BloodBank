@@ -53,6 +53,7 @@ if (isset($_POST["hospital-login-submit"])) {
                 $row2 = mysqli_fetch_assoc($result2);
                 $_SESSION["hospital_id"] = $row2["id"];
                 $_SESSION["hospital_name"] = $row2["name"];
+                $_SESSION["hospital_email"] = $emailInput;
                 // Redirect to index.php
                 header("location: ../index.php");
                 exit(); // Stop further execution

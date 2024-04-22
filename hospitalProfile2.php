@@ -7,7 +7,7 @@ $id = $_SESSION["hospital_id"];
 $fetch = "SELECT * FROM bloodcenterdetail where id = '$id'";
 $result = mysqli_query($con, $fetch);
 if ($result && mysqli_num_rows($result) > 0) {
-  $data = mysqli_fetch_assoc($result);
+    $data = mysqli_fetch_assoc($result);
 }
 ?>
 
@@ -18,21 +18,21 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Donor Profile</title>
-    <link rel="stylesheet" href="CSS/donorProfile.css" />
+    <link rel="stylesheet" href="CSS/hospitalProfile2.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
-.custom_validate {
+    .custom_validate {
 
-    color: red;
-    font-size: 12px;
-    width: auto;
-    height: 12px;
-    text-align: center;
+        color: red;
+        font-size: 12px;
+        width: auto;
+        height: 12px;
+        text-align: center;
 
-}
+    }
 </style>
 
 <body>
@@ -82,12 +82,12 @@ if ($result && mysqli_num_rows($result) > 0) {
     <div class="card">
         <div class="left">
             <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
-        echo 'profilePhotos/' . $data2["imagename"];
-      } else {
-        echo 'Image/empty_profile.jpg';
-      }
-      ?>')">
-                <form id="uploadForm" action="php/profileUpload.php" method="post" enctype="multipart/form-data">
+                echo 'profilePhotos/' . $data2["imagename"];
+            } else {
+                echo 'Image/empty_profile.jpg';
+            }
+            ?>')">
+                <form id="uploadForm" action="php/profileUploadHospital.php" method="post" enctype="multipart/form-data">
                     <input type="file" id="fileInput" name="profile" style="display: none;"
                         onchange="handleFileChange(event)">
                 </form>
@@ -105,183 +105,163 @@ if ($result && mysqli_num_rows($result) > 0) {
             <table>
                 <tr>
                     <td>Parent Hospital Name</td>
-                    <td><?php if(isset($data["hospitalName"])){
-            echo $data["hospitalName"];
-          } else{
-            echo "Not Defined";
-          }
-            ?></td>
+                    <td><?php if (isset($data["hospitalName"])) {
+                        echo $data["hospitalName"];
+                    } else {
+                        echo "Not Defined";
+                    }
+                    ?></td>
                 </tr>
                 <tr>
                     <td>Category</td>
-                    <td><?php if(isset($data["category"])){
-            echo $data["category"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["category"])) {
+                        echo $data["category"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Contact Number</td>
-                    <td><?php if(isset($data["contact"])){
-            echo $data["contact"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["contact"])) {
+                        echo $data["contact"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Helpline Numner</td>
-                    <td><?php if(isset($data["helplineNo"])){
-            echo $data["helplineNo"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["helplineNo"])) {
+                        echo $data["helplineNo"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Fax No</td>
-                    <td><?php if(isset($data["faxNo"])){
-            echo $data["faxNo"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["faxNo"])) {
+                        echo $data["faxNo"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Licence No</td>
-                    <td><?php if(isset($data["licenceNo"])){
-            echo $data["licenceNo"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["licenceNo"])) {
+                        echo $data["licenceNo"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Hospital Website</td>
-                    <td><?php if(isset($data["website"])){
-            echo $data["website"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["website"])) {
+                        echo $data["website"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
                 <tr>
                     <td>Number of Beds</td>
-                    <td><?php if(isset($data["beds"])){
-            echo $data["beds"];
-          } else{
-            echo "Not Defined";
-          }?></td>
+                    <td><?php if (isset($data["beds"])) {
+                        echo $data["beds"];
+                    } else {
+                        echo "Not Defined";
+                    } ?></td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="editForm">
-        <div class="container">
-            <form action="php/editProfile.php" method="post" id="bloodDonationForm" return validateForm(event)>
-
-                <div class="form">
-                    <h1>Donor Information</h1>
-                    <div class="row">
-                        <div class="formField">
-                            <label for="fname">First Name<span>*</span></label>
-                            <input type="text" name="fname" id="fname" required>
-                        </div>
-                        <div class="formField">
-                            <label for="lname">Last Name<span>*</span></label>
-                            <input type="text" name="lname" id="lname" required>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="formField">
-                            <label for="dob">Date of Birth<span>*</span></label>
-                            <input type="date" name="dob" id="dob" required>
-                        </div>
-                        <div class="formField">
-                            <label for="weight">Select Blood Group<span>*</span></label>
-                            <select id="bloodgroup" name="bloodgroup">
-                                <option value="" disabled selected>Select Blood Group</option>
-                                <option value="A+">A+</option>
-                                <option value="A-">A-</option>
-                                <option value="B+">B+</option>
-                                <option value="B-">B-</option>
-                                <option value="AB+">AB+</option>
-                                <option value="AB-">AB-</option>
-                                <option value="O+">O+</option>
-                                <option value="O-">O-</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="formField">
-                            <label for="phone">Phone Number<span>*</span></label>
-                            <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" required>
-                        </div>
-                        <div class="formField">
-                            <label for="gender">Gender<span>*</span></label>
-                            <div class="radio">
-                                <input type="radio" name="gender" id="gender" value="male" required> Male
-                                <input type="radio" name="gender" id="gender" value="female" required>Female
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="formField">
-                            <label for="height">Height(in cms.)<span>*</span></label>
-                            <input type="number" name="height" id="height" require_once>
-                        </div>
-                        <div class="formField">
-                            <label for="weight">Weight(in kgs.)<span>*</span></label>
-                            <input type="number" name="weight" id="weight" required>
-                        </div>
-                    </div>
-
-                    <br>
-                    <h1>Address Information</h1>
-                    <div class="row">
-                        <div class="formField">
-                            <label for="state">State<span>*</span></label>
-                            <input type="text" name="state" class="state" id="state" required>
-                        </div>
-                        <div class="formField">
-                            <label for="district">District<span>*</span></label>
-                            <input type="text" name="district" class="district" id="district" required>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="formField">
-                            <label for="city">City<span>*</span></label>
-                            <input type="text" name="city" id="city" required>
-                        </div>
-                        <div class="formField">
-                            <label for="landmark">Landmark<span>*</span></label>
-                            <input type="text" name="landmark" id="landmark" required>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="formField">
-                            <label for="pincode">Pin/Postal Code<span>*</span></label>
-                            <input type="number" name="pincode" id="pincode" pattern="[0-9]{6}" required>
-                        </div>
-                    </div>
-
+    <form id="hospitalForm" action="php/hospitalEdit.php" class="details" method="post">
+        <div class="editcard">
+            <div class="header">Blood Bank Details
+            <i class="fa-solid fa-xmark" onclick="toggleEditForm()"></i>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <div class="label">Blood Bank Name</div>
+                    <input type="text" placeholder="Blood Bank Name *" name="bloodBankName" required value="<?php echo isset($data["name"]) ? $data["name"] : '' ?>" />
                 </div>
-                <br><br>
-                <hr>
-                <br>
-                <input type="submit" name="donor_register" value="Submit">
-            </form>
-            <div class="custom_validate"><?php if (isset($_GET["error"])) {
-        echo $_GET["error"];
-      } ?></div>
+                <div class="field">
+                    <div class="label">Parent Hospital Name</div>
+                    <input type="text" placeholder="Parent Hospital Name" name="hospitalName" value="<?php echo isset($data["hospitalName"]) ? $data["hospitalName"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Select Category</div>
+                    <select name="category" id="category" required>
+                        <option value="" disabled selected>Select type *</option>
+                        <option value="Govt." <?php echo (isset($data["category"]) && $data["category"] == "Govt.") ? 'selected' : '' ?>>Govt.</option>
+                        <option value="Private" <?php echo (isset($data["category"]) && $data["category"] == "Private") ? 'selected' : '' ?>>Private</option>
+                        <option value="Charitable/Vol" <?php echo (isset($data["category"]) && $data["category"] == "Charitable/Vol") ? 'selected' : '' ?>>Charitable/Vol</option>
+                        <option value="Red Cross" <?php echo (isset($data["category"]) && $data["category"] == "Red Cross") ? 'selected' : '' ?>>Red Cross</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <div class="label">Contact Number</div>
+                    <input type="tel" placeholder="Contact Number *" name="contact" required value="<?php echo isset($data["contact"]) ? $data["contact"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Fax No.</div>
+                    <input type="text" placeholder="Fax no." name="faxNo" value="<?php echo isset($data["faxNo"]) ? $data["faxNo"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Licence No.</div>
+                    <input type="text" placeholder="Licence No. *" name="licenceNo" required value="<?php echo isset($data["licenceNo"]) ? $data["licenceNo"] : '' ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <div class="label">Helpline Number</div>
+                    <input type="tel" placeholder="Helpline Number *" name="helplineNo" required value="<?php echo isset($data["helplineNo"]) ? $data["helplineNo"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Hospital Website</div>
+                    <input type="url" placeholder="Hospital Website" name="website" value="<?php echo isset($data["website"]) ? $data["website"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Number of Beds</div>
+                    <input type="number" placeholder="Number of Beds *" name="beds" required value="<?php echo isset($data["beds"]) ? $data["beds"] : '' ?>" />
+                </div>
+            </div>
+            <br><br>
+            <div class="header">Address Details</div>
+            <div class="row">
+                <div class="field">
+                    <div class="label">State</div>
+                    <input type="text" placeholder="State *" name="state" required value="<?php echo isset($data["state"]) ? $data["state"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">District</div>
+                    <input type="text" placeholder="District *" name="district" value="<?php echo isset($data["district"]) ? $data["district"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">City</div>
+                    <input type="text" placeholder="City / Village *" name="city" value="<?php echo isset($data["city"]) ? $data["city"] : '' ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <div class="label">Landmark</div>
+                    <input type="text" placeholder="Landmark *" name="landmark" required value="<?php echo isset($data["landmark"]) ? $data["landmark"] : '' ?>" />
+                </div>
+                <div class="field">
+                    <div class="label">Pincode</div>
+                    <input type="number" placeholder="Pincode *" id="pincode" name="pincode" required value="<?php echo isset($data["pincode"]) ? $data["pincode"] : '' ?>" />
+                </div>
+            </div>
         </div>
-    </div>
+        <button type="submit" class="sub-btn" value="hospital-details-submit" onclick="validateForm(event)">Submit</button>
+    </form>
+</div>
+
     </div>
 
 
 
 </body>
-<script src="script/donorPro.js"></script>
+<script src="script/hospitalPro.js"></script>
 
 </html>
