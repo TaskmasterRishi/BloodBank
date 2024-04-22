@@ -52,11 +52,11 @@
     <!-- Image slider Ends-->
     <section class="whyDonateBlood" id="whyDonateBlood">
       <!-- Content for Become a Donor section goes here -->
-      <h1 class="scroll">Why Should I Donate Blood ?</h1>
+      <h1 class="reveal">Why Should I Donate Blood ?</h1>
       <div class="float-con">
-        <img class="scroll" src="Image/whyDonateBlood.png" alt="BloodInfo" width="400vw" />
+        <img class="reveal" src="Image/whyDonateBlood.png" alt="BloodInfo" width="350vw" />
         <br>
-        <p class="scroll">Blood is the most precious gift that anyone can give to another person — the gift of life. A
+        <p class="reveal">Blood is the most precious gift that anyone can give to another person — the gift of life. A
           decision to
           donate
           your blood can save a life, or even several if your blood is separated into its components — red cells,
@@ -65,7 +65,7 @@
           lives and improves health. Blood transfusion is needed for:</p>
         <p>
           <br>
-        <ul class="Text scroll">
+        <ul class="Text reveal">
           <li class="custom-bullet">women with complications of pregnancy, such as ectopic pregnancies and haemorrhage
             before, during or after childbirth.</li>
           <li class="custom-bullet">children with severe anaemia often resulting from malaria or malnutrition.</li>
@@ -75,7 +75,7 @@
         </ul>
         </p>
         <br>
-        <p class="scroll">
+        <p class="reveal">
           It is also needed for regular transfusions for people with conditions such as thalassaemia and sickle cell
           disease and is used to make products such as clotting factors for people with haemophilia. There is a
           constant
@@ -83,7 +83,7 @@
           donations by a sufficient number of healthy people are needed to ensure that safe blood will be available
           whenever and wherever it is needed.
         </p><br>
-        <p class="scroll">
+        <p class="reveal">
           In addition to the critical medical situations mentioned, donating blood also fosters a sense of community
           and altruism. By giving blood, individuals directly contribute to the well-being of others, often in their
           own local or regional communities. It's a tangible way to make a positive impact, knowing that your donation
@@ -94,8 +94,8 @@
       </div>
     </section>
     <section class="donateBlood " id="why_donate_blood">
-      <img src="Image/Donate_blood.jpg" alt="" class="scroll" />
-      <div class="bloodGroupTable scroll">
+      <img src="Image/Donate_blood.jpg" alt="" class="reveal" />
+      <div class="bloodGroupTable reveal">
         <table>
           <th colspan="3">Compatible Blood Type Donors</th>
           <tr>

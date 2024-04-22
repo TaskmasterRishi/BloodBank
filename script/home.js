@@ -11,16 +11,36 @@ setInterval(function () {
 
 var elScroll = document.querySelectorAll(".scroll");
 
-document.onscroll = function () {
-  elScroll.forEach((elScroll) => {
-    var positionEl = elScroll.getBoundingClientRect();
+var elScroll = document.querySelectorAll('.reveal');
+
+// Function to reveal elements in viewport
+function revealOnScroll() {
+  elScroll.forEach(function(el) {
+    var positionEl = el.getBoundingClientRect();
     var alturaEl = positionEl.top;
 
     if (alturaEl < 750 && alturaEl > -450) {
-      //set value to start animation of scroll
-      elScroll.classList.add("scroll--show");
+      // Set value to start animation of scroll
+      el.classList.add("revealed");
     } else {
-      elScroll.classList.remove("scroll--show");
+      el.classList.remove("revealed");
     }
   });
-};
+}
+
+// Function to check if an element is in viewport
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+// Reveal elements on page load
+window.addEventListener('DOMContentLoaded', function() {
+  revealOnScroll();
+});
+
+// Event listener for scroll
+window.addEventListener('scroll', revealOnScroll);

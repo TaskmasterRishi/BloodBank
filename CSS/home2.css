@@ -196,12 +196,12 @@ table th {
   background-color: black;
   border-radius: 50%;
 }
-.scroll {
-  transform: translateY(-30px);
-  opacity: 0;
-  transition: 0.5s;
-}
-.scroll--show {
-  transform: translateY(0px);
-  opacity: 1;
-}
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
