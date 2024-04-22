@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2024 at 09:21 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Apr 22, 2024 at 02:46 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,7 +51,7 @@ CREATE TABLE `bloodcenterdetail` (
 --
 
 INSERT INTO `bloodcenterdetail` (`id`, `email`, `name`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
-(1, 'hospital1@gmail.com', 'hospital', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(1, 'hospital1@gmail.com', 'Hot guy', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (2, 'hospital2@gmail.com', 'blood bank', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (4, 'xutukuzu@mailinator.com', 'Lyle Wilson', 'Elaine Riley', 'Charitable/Vol', '9510469749', '+1 (981) 632-7434', 'Quia quis similique ', '9925393173', 'https://www.sohusekydunirap.biz', 42, 'Sequi magnam dolorem', 'Dolor iusto adipisci', 'Ea ipsum architecto ', 'Qui magni aliquip co', 360311);
 
@@ -178,7 +178,7 @@ CREATE TABLE `donorlogin` (
 --
 
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
-(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpg'),
+(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpeg'),
 (2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg'),
 (4, 'shlok.goswami2002@gmail.com', '$2y$10$vVhvOjaVqLPxAUDREg3LOOqfJQdMLU4RVDWfIr5RFObd6bVrbQKwK', '4.png'),
 (5, 'patoliyarishi@gmail.com', '$2y$10$QXz/SR3toCqn1AD4PfMNve5JATNOLiUBudhTjW.Gms8R6xFru9iOm', NULL);
@@ -192,17 +192,18 @@ INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
 CREATE TABLE `hospitallogin` (
   `id` int(5) NOT NULL,
   `pass` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL
+  `email` varchar(50) NOT NULL,
+  `imagename` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hospitallogin`
 --
 
-INSERT INTO `hospitallogin` (`id`, `pass`, `email`) VALUES
-(1, '$2y$10$UKTyW/XjPiKW7dS0i3uezeu7w0QrQ67Yz5BUOtxGiMqgApnA7VQW2', 'hospital1@gmail.com'),
-(2, '$2y$10$0kKvUEJ4J9V6GGaRbq.eb.Xf8Ud.QwrqOZ5Ci934SrwDDRYILe7NW', 'hospital2@gmail.com'),
-(3, '$2y$10$DrKSE9T9auSQSvCQzZg0G.JwEp8bUWFsiDz6nGtjtFB7GHqNf44Em', 'xutukuzu@mailinator.com');
+INSERT INTO `hospitallogin` (`id`, `pass`, `email`, `imagename`) VALUES
+(1, '$2y$10$UKTyW/XjPiKW7dS0i3uezeu7w0QrQ67Yz5BUOtxGiMqgApnA7VQW2', 'hospital1@gmail.com', '1.jpeg'),
+(2, '$2y$10$0kKvUEJ4J9V6GGaRbq.eb.Xf8Ud.QwrqOZ5Ci934SrwDDRYILe7NW', 'hospital2@gmail.com', NULL),
+(3, '$2y$10$DrKSE9T9auSQSvCQzZg0G.JwEp8bUWFsiDz6nGtjtFB7GHqNf44Em', 'xutukuzu@mailinator.com', NULL);
 
 --
 -- Indexes for dumped tables
