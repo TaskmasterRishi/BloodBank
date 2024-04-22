@@ -151,6 +151,21 @@ if ($result && mysqli_num_rows($result) > 0) {
       </ul>
     </div>
   </nav>
+
+  <div class="error-card" id="errorCard">
+        <i class="fa-solid fa-xmark"></i>
+        <div class="error-content" id="error-content">
+            <?php
+            if (isset($_SESSION['error'])) {
+                echo $_SESSION['error'];
+            } else {
+                echo "ERROR";
+            }
+            ?>
+        </div>
+        <button onclick="triggerOK()">OK</button>
+    </div>
+
   <div class="card">
     <div class="left">
       <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
