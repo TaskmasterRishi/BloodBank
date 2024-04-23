@@ -169,6 +169,20 @@ if ($result && mysqli_num_rows($result) > 0) {
     <button onclick="triggerOK()">OK</button>
   </div>
 
+  <div class="message-card" id="messageCard">
+  <i class="fa-regular fa-circle-check"></i>
+  <div class="message-content" id="message-content">
+    <?php
+    if (isset($_SESSION['message'])) {
+      echo $_SESSION['message'];
+    } else {
+      echo "MESSAGE";
+    }
+    ?>
+  </div>
+  <button onclick="triggerOKMessage()">OK</button>
+</div>
+
   <div class="card">
     <div class="left">
       <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
@@ -362,6 +376,21 @@ if ($result && mysqli_num_rows($result) > 0) {
     var errorCard = document.getElementById("errorCard");
     errorCard.classList.remove("show"); // Remove the class to hide the error card
     <?php unset($_SESSION['error']); ?> // Clear session value
+  }
+
+  window.onload = function () {
+    var messageCard = document.getElementById("messageCard");
+    var message = "<?php echo isset($_SESSION['message']) ? $_SESSION['message'] : ''; ?>";
+
+    if (messageCard && message && message !== "MESSAGE") {
+      messageCard.classList.add("show"); // Add the class to show the message card
+    }
+  }
+
+  function triggerOKMessage() {
+    var messageCard = document.getElementById("messageCard");
+    messageCard.classList.remove("show"); // Remove the class to hide the message card
+    <?php unset($_SESSION['message']); ?> // Clear session value
   }
 
 

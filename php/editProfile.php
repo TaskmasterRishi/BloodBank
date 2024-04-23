@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['message'] = "Update successful";
             header("Location: {$_SERVER['HTTP_REFERER']}");
         } else {
-            $_SESSION['message'] = "Update unsuccessful";
+            $_SESSION['error'] = "Update unsuccessful";
             header("Location: {$_SERVER['HTTP_REFERER']}"); // Redirect to a default page if HTTP_REFERER is not set
         }
         exit();
