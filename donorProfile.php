@@ -51,8 +51,9 @@ if ($result && mysqli_num_rows($result) > 0) {
 <body>
   <div class="campbackground">
     <div class="campholdercontainer">
+    <i class="fa-solid fa-xmark" onclick="toggleCamps(event)"></i>
       <div class="campcontainer">
-
+      
         <?php
 
         require_once ("php/connection.php");
@@ -64,7 +65,7 @@ if ($result && mysqli_num_rows($result) > 0) {
           echo '
                 
                 <div class="campholder">
-
+                
                 <div class="infoholder"><span>Name: </span><br>' . $row["name"] . '</div>
                 <div class="infoholder"><span>Date: </span><br>' . $row["date"] . '</div>
                 <div class="infoholder"><span>Time: </span><br>' . substr($row["time1"], 0, 8) . "am-" . substr($row["time2"], 0, 8) . 'pm</div>
@@ -88,7 +89,7 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div class="plus">
               <div class="stick1"></div>
               <div class="stick2"></div>
-
+            <br>
               <div class="register">Register For Camps</div>
             </div>
           </div>
