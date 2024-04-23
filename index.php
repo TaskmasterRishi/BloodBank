@@ -5,9 +5,116 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="Icon/Icon.png" />
-  <link rel="stylesheet" href="CSS/home2.css" />
+  <link rel="stylesheet" href="CSS/home2.css"/>
   <link rel="stylesheet" href="CSS/home_mediaQuery.css" />
   <title>Red Bank</title>
+  <style>
+
+.graphcontainer{
+
+height: 350px;
+width:350px;
+box-shadow:-1px 1px 0px 0px black;
+position: relative;
+z-index:100;
+color:antiquewhite;
+overflow:visible;
+
+
+}
+
+.graphtext{
+  position: absolute;
+  top:0px;
+  left:50%;
+  transform:translate(-50%,-100%);
+  color:red;
+  font-size:20px;
+  font-weight:700;
+  width:max-content;
+}
+.graphbar{
+
+  width:40px;
+  height:50px;
+  /* box-shadow:0px -1px 0px 1px black; */
+  position: absolute;
+  bottom:0px;
+  z-index:10;
+  color:black;
+  
+}
+.graphbar > span{
+
+  position: absolute;
+  bottom:0px;
+  left:50%;
+  transform:translate(-50%,100%);
+}
+.showamount{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  overflow:visible;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background-color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0px 0px 10px 10px white;
+}
+.gb1{
+  background-color:red;
+  right:0px;
+}
+.gb2{
+  background-color:blue;
+  right:43px;
+}
+.gb3{
+  background-color:green;
+right:86px;
+}
+.gb4{
+  background-color:gray;
+  right:129px;
+}
+.gb5{
+  background-color:yellow;
+  right:172px;
+}
+.gb6{
+  background-color:black;
+  right:215px;
+}
+.gb7{
+  background-color:indigo;
+  right:258px;
+}
+.gb8{
+  background-color:orange;
+  right:301px;
+}
+.graphscale{
+  height:35px;
+  width:100%;
+  border-bottom:0.5px dashed black;
+  color:black;
+  position: relative;
+}
+.graphscale > span{
+
+  position: absolute;
+  left:0px;
+  bottom:0px;
+  width:fit-content;
+  transform:translate(-150%,50%);
+}
+  </style>
+
 </head>
 
 <body>
@@ -95,6 +202,32 @@
     </section>
     <section class="donateBlood " id="why_donate_blood">
       <img src="Image/Donate_blood.jpg" alt="" class="reveal" />
+
+
+      <div class="graphcontainer">
+        <div class="graphtext">Graph for Available Blood(in ml)</div>
+        <div class="graphbar gb1"><span>AB-</span><div></div></div>
+        <div class="graphbar gb2"><span>AB+</span><div></div></div>
+        <div class="graphbar gb3"><span>0-</span><div></div></div>
+        <div class="graphbar gb4"><span>0+</span><div></div></div>
+        <div class="graphbar gb5"><span>B-</span><div></div></div>
+        <div class="graphbar gb6"><span>B+</span><div></div></div>
+        <div class="graphbar gb7"><span>A-</span><div></div></div>
+        <div class="graphbar gb8"><span>A+</span><div></div></div>
+
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+        <div class="graphscale"><span></span></div>
+      </div>
+
+
       <div class="bloodGroupTable reveal">
         <table>
           <th colspan="3">Compatible Blood Type Donors</th>
@@ -148,6 +281,115 @@
     </section>
   <?php include 'footer.php'; ?>
   </div>
+
+<?php
+
+require_once("php/connection.php");
+
+$query="SELECT SUM(amount) FROM blooddetail";
+
+$result=mysqli_query($con,$query);
+
+$row=mysqli_fetch_array($result);
+echo "<script>";
+
+echo "let total=".$row["SUM(amount)"].";";
+
+echo "console.log(total);";
+
+echo "</script>";
+?>
+<script>
+
+  const graphscale= document.querySelectorAll(".graphscale");
+
+  let digits=total.toString().length;
+  let maxAmount=1;
+  for( let i=0;i<digits;i++){
+
+    maxAmount=10*maxAmount;
+  }
+
+let scale=maxAmount/10;
+
+for(let i=0;i<graphscale.length;i++){
+
+  graphscale[9-i].querySelector("span").innerHTML=((i)*scale)+"";
+
+}
+let scalefactor=maxAmount/document.querySelector(".graphcontainer").offsetHeight;//Unit of  scalefactor is ml/px i.e. mililitre per pixel
+
+let ml=[];// Order in array is  A+ A- B+ B- O+ O- AB+ AB-
+<?php
+$query="SELECT amount,type FROM blooddetail";
+$result=mysqli_query($con,$query);
+
+$ans=array();
+$ans["A+"]=0;
+$ans["A-"]=0;
+$ans["B+"]=0;
+$ans["B-"]=0;
+$ans["O+"]=0;
+$ans["O-"]=0;
+$ans["AB+"]=0;
+$ans["AB-"]=0;
+
+  while($row=mysqli_fetch_array($result)){
+
+    if($row["type"]=="A+"){
+
+      $ans["A+"]=$ans["A+"]+$row["amount"];
+    }
+    else if($row["type"]=="A-"){
+
+      $ans["A-"]=$ans["A-"]+$row["amount"];
+    }
+    else if($row["type"]=="B+"){
+
+      $ans["B+"]=$ans["B+"]+$row["amount"];
+    }
+    else if($row["type"]=="B-"){
+
+      $ans["B-"]=$ans["B-"]+$row["amount"];
+    }
+    else if($row["type"]=="O+"){
+
+      $ans["O+"]=$ans["O+"]+$row["amount"];
+    }
+    else if($row["type"]=="O-"){
+
+      $ans["O-"]=$ans["O-"]+$row["amount"];
+    }
+    else if($row["type"]=="AB+"){
+
+      $ans["AB+"]=$ans["AB+"]+$row["amount"];
+    }
+    else if($row["type"]=="AB-"){
+
+      $ans["AB-"]=$ans["AB-"]+$row["amount"];
+    }
+  }
+$i=0;
+  foreach($ans as $k => $v){
+    
+    echo "ml[$i]=".$v.";";
+    $i++;
+  }
+?>
+
+const graphbar=document.querySelectorAll(".graphbar");
+
+
+for(let i=0;i<8;i++){
+if(ml[i]!=0){
+  graphbar[7-i].querySelector("div").innerHTML=ml[i]+"";
+  graphbar[7-i].querySelector("div").classList.add("showamount");
+}
+  graphbar[7-i].style.height=(ml[i]/scalefactor)+"px";
+}
+
+</script>
+
 
 </body>
 <script src="script/home.js"></script>
