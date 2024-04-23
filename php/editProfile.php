@@ -2,98 +2,66 @@
 
 session_start();
 require 'connection.php';
-if (isset($_POST["donor_register"])) {
-    require_once ("connection.php");
 
-    foreach ($_POST as $key => $value) {
-        if (!isset($_POST[$key])) {
-            header("location: ../donateBlood.php?");
-            die();
-        }
-    }
-
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $email = $_SESSION["user_email"];
-    $mobile = $_POST["phone"];
-    $gender = $_POST["gender"];
-    $height = $_POST["height"];
-    $weight = $_POST["weight"];
-    $bloodgroup = $_POST["bloodgroup"];
-    $state = $_POST["state"];
-    $city = $_POST["city"];
-    $district = $_POST["district"];
-    $landmark = $_POST["landmark"];
-    $pincode = $_POST["pincode"];
-
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $fullName = $_POST['fullName'];
+    $contactNumber = $_POST['contactNumber'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $bloodGroup = $_POST['bloodGroup'];
+    $height = $_POST['height'];
+    $weight = $_POST['weight'];
+    $state = $_POST['state'];
+    $district = $_POST['district'];
+    $city = $_POST['city'];
+    $landmark = $_POST['landmark'];
+    $pincode = $_POST['pincode'];
+    $id = $_SESSION["user_id"];
 
     // Check if age is below 18
-    $dob = date_create($_POST["dob"]);
-    $currentDate = date_create(); // current date
+    $dobObj = new DateTime($dob);
+    $currentDate = new DateTime(); // current date
 
-    $diff = date_diff($dob, $currentDate);
-    $ageInDays = $diff->format("%R%a");
-    $age = floor($ageInDays / 365);
+    $age = $dobObj->diff($currentDate)->y;
 
     if ($age < 18) {
-        header("location: ../donateBlood.php?error=Only above 18 are allowed to donate");
-        die();
-    }
-    $dob = $dob->format('Y-m-d');
-
-    if (strlen($mobile) != 10) {
-        header("location: ../donateBlood.php?error=Mobile number should a 10 digit number");
-        die();
+        header("Location: ../donateBlood.php?error=Only individuals above 18 are allowed to donate");
+        
+        exit();
     }
 
-    if (strlen($pincode) != 6) {
-        header("location: ../donateBlood.php?error=Pincode should be a 6 digit number");
-        die();
+    // Validation for mobile number and pincode
+    if (strlen($contactNumber) != 10 || !ctype_digit($contactNumber)) {
+        header("Location: ../donateBlood.php?error=Mobile number should be a 10-digit number");
+        exit();
     }
 
-    $address = $landmark . ", " . $city . ", " . $district . ", " . $state;
-    $name = $fname . " " . $lname;
-
-    // Fetch the donor's ID based on their email address
-    $idQuery = "SELECT id FROM donordetail WHERE email = '$email'";
-    $idResult = mysqli_query($con, $idQuery);
-    if ($idResult && mysqli_num_rows($idResult) > 0) {
-        $row = mysqli_fetch_assoc($idResult);
-        $id = $row['id'];
-    } else {
-        // Handle the case where the donor's ID is not found
-        // You may redirect the user to an error page or perform other actions
-        echo "Donor ID not found";
-        exit(); // Stop script execution
+    if (strlen($pincode) != 6 || !ctype_digit($pincode)) {
+        header("Location: ../donateBlood.php?error=Pincode should be a 6-digit number");
+        exit();
     }
 
-    // Insert the new donor record
-    $donorDetailUpdate = "UPDATE donordetail SET 
-    name = '$name',
-    email = '$email',
-    contact = '$mobile',
-    gender = '$gender',
-    dob = '$dob',
-    bloodGroup = '$bloodgroup',
-    height = '$height',
-    weight = '$weight',
-    address = '$address',
-    pincode = '$pincode'
-  WHERE id = '$id'";
-    if (mysqli_query($con, $donorDetailUpdate)) {
+    // Update donor details in the hospital table
+    $sql = "UPDATE donordetail SET name='$fullName', contact='$contactNumber', gender='$gender', dob='$dob', bloodGroup='$bloodGroup', height='$height', weight='$weight', state='$state', district='$district', city='$city', landmark='$landmark', pincode='$pincode' WHERE id='$id'";
+
+    if (mysqli_query($con, $sql)) {
         echo "<script>alert('Registered Successfully');</script>";
         if (isset($_SERVER['HTTP_REFERER'])) {
+            $_SESSION['message'] = "Update successful";
             header("Location: {$_SERVER['HTTP_REFERER']}");
         } else {
-            echo "<script>alert(' Something Went Wrong');</script>";
-            header("Location: ../index.php"); // Redirect to a default page if HTTP_REFERER is not set
+            $_SESSION['message'] = "Update unsuccessful";
+            header("Location: {$_SERVER['HTTP_REFERER']}"); // Redirect to a default page if HTTP_REFERER is not set
         }
-        die();
+        exit();
     } else {
-        echo "something is wrong. Please try again";
+        echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
+        header("Location: ../index.php");
+        exit();
     }
 } else {
-    echo "<script>alert('Registered wan Unsuccessfully');</script>";
-    header("location: ../index.php");
+    echo "<script>alert('Registration Unsuccessful');</script>";
+    header("Location: ../index.php");
+    exit();
 }
 ?>

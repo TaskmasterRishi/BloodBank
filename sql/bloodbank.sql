@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2024 at 02:46 PM
+-- Generation Time: Apr 23, 2024 at 09:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,7 @@ CREATE TABLE `bloodcenterdetail` (
 --
 
 INSERT INTO `bloodcenterdetail` (`id`, `email`, `name`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
-(1, 'hospital1@gmail.com', 'Hot guy', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(1, 'hospital1@gmail.com', 'Hot guy', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393171', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (2, 'hospital2@gmail.com', 'blood bank', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (4, 'xutukuzu@mailinator.com', 'Lyle Wilson', 'Elaine Riley', 'Charitable/Vol', '9510469749', '+1 (981) 632-7434', 'Quia quis similique ', '9925393173', 'https://www.sohusekydunirap.biz', 42, 'Sequi magnam dolorem', 'Dolor iusto adipisci', 'Ea ipsum architecto ', 'Qui magni aliquip co', 360311);
 
@@ -146,7 +146,10 @@ CREATE TABLE `donordetail` (
   `bloodGroup` varchar(5) DEFAULT NULL,
   `height` int(10) DEFAULT NULL,
   `weight` int(10) DEFAULT NULL,
-  `address` varchar(225) DEFAULT NULL,
+  `state` varchar(100) DEFAULT NULL,
+  `district` varchar(100) DEFAULT NULL,
+  `city` varchar(100) DEFAULT NULL,
+  `landmark` varchar(200) DEFAULT NULL,
   `pincode` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -154,11 +157,11 @@ CREATE TABLE `donordetail` (
 -- Dumping data for table `donordetail`
 --
 
-INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `address`, `pincode`) VALUES
-(1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'A-10 Decora city Gondal, Gondal , Rajkot, Gujrat', 360311),
-(2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, 'OPP. Tejas school, vadodara, vadodara, gujarat', 123456),
-(5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
+(1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'Gujarat', 'Rajkot', 'Gondal', 'A-10 Decora City', 360311),
+(2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, NULL, NULL, NULL, NULL, 123456),
+(5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
