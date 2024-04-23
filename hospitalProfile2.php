@@ -85,6 +85,35 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
             </ul>
         </div>
     </nav>
+
+    <div class="error-card" id="errorCard">
+        <i class="fa-solid fa-xmark"></i>
+        <div class="error-content" id="error-content">
+            <?php
+            if (isset($_SESSION['error'])) {
+                echo $_SESSION['error'];
+            } else {
+                echo "ERROR";
+            }
+            ?>
+        </div>
+        <button onclick="triggerOK()">OK</button>
+    </div>
+
+    <div class="message-card" id="messageCard">
+        <i class="fa-regular fa-circle-check"></i>
+        <div class="message-content" id="message-content">
+            <?php
+            if (isset($_SESSION['message'])) {
+                echo $_SESSION['message'];
+            } else {
+                echo "MESSAGE";
+            }
+            ?>
+        </div>
+        <button onclick="triggerOKMessage()">OK</button>
+    </div>
+
     <div class="card">
         <div class="left">
             <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
@@ -93,7 +122,8 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
                 echo 'Image/empty_profile.jpg';
             }
             ?>')">
-                <form id="uploadForm" action="php/profileUploadHospital.php" method="post" enctype="multipart/form-data">
+                <form id="uploadForm" action="php/profileUploadHospital.php" method="post"
+                    enctype="multipart/form-data">
                     <input type="file" id="fileInput" name="profile" style="display: none;"
                         onchange="handleFileChange(event)">
                 </form>
@@ -179,89 +209,103 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
     </div>
 
     <div class="editForm">
-    <form id="hospitalForm" action="php/hospitalEdit.php" class="details" method="post">
-        <div class="editcard">
-            <div class="header">Blood Bank Details
-            <i class="fa-solid fa-xmark" onclick="toggleEditForm()"></i>
+        <form id="hospitalForm" action="php/hospitalEdit.php" class="details" method="post">
+            <div class="editcard">
+                <div class="header">Blood Bank Details
+                    <i class="fa-solid fa-xmark" onclick="toggleEditForm()"></i>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="label">Blood Bank Name</div>
+                        <input type="text" placeholder="Blood Bank Name *" name="bloodBankName" required
+                            value="<?php echo isset($data["name"]) ? $data["name"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Parent Hospital Name</div>
+                        <input type="text" placeholder="Parent Hospital Name" name="hospitalName"
+                            value="<?php echo isset($data["hospitalName"]) ? $data["hospitalName"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Select Category</div>
+                        <select name="category" id="category" required>
+                            <option value="" disabled selected>Select type *</option>
+                            <option value="Govt." <?php echo (isset($data["category"]) && $data["category"] == "Govt.") ? 'selected' : '' ?>>Govt.</option>
+                            <option value="Private" <?php echo (isset($data["category"]) && $data["category"] == "Private") ? 'selected' : '' ?>>Private</option>
+                            <option value="Charitable/Vol" <?php echo (isset($data["category"]) && $data["category"] == "Charitable/Vol") ? 'selected' : '' ?>>Charitable/Vol</option>
+                            <option value="Red Cross" <?php echo (isset($data["category"]) && $data["category"] == "Red Cross") ? 'selected' : '' ?>>Red Cross</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="label">Contact Number</div>
+                        <input type="tel" placeholder="Contact Number *" name="contact" required
+                            value="<?php echo isset($data["contact"]) ? $data["contact"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Fax No.</div>
+                        <input type="text" placeholder="Fax no." name="faxNo"
+                            value="<?php echo isset($data["faxNo"]) ? $data["faxNo"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Licence No.</div>
+                        <input type="text" placeholder="Licence No. *" name="licenceNo" required
+                            value="<?php echo isset($data["licenceNo"]) ? $data["licenceNo"] : '' ?>" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="label">Helpline Number</div>
+                        <input type="tel" placeholder="Helpline Number *" name="helplineNo" required
+                            value="<?php echo isset($data["helplineNo"]) ? $data["helplineNo"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Hospital Website</div>
+                        <input type="url" placeholder="Hospital Website" name="website"
+                            value="<?php echo isset($data["website"]) ? $data["website"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Number of Beds</div>
+                        <input type="number" placeholder="Number of Beds *" name="beds" required
+                            value="<?php echo isset($data["beds"]) ? $data["beds"] : '' ?>" />
+                    </div>
+                </div>
+                <br><br>
+                <div class="header">Address Details</div>
+                <div class="row">
+                    <div class="field">
+                        <div class="label">State</div>
+                        <input type="text" placeholder="State *" name="state" required
+                            value="<?php echo isset($data["state"]) ? $data["state"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">District</div>
+                        <input type="text" placeholder="District *" name="district"
+                            value="<?php echo isset($data["district"]) ? $data["district"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">City</div>
+                        <input type="text" placeholder="City / Village *" name="city"
+                            value="<?php echo isset($data["city"]) ? $data["city"] : '' ?>" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="field">
+                        <div class="label">Landmark</div>
+                        <input type="text" placeholder="Landmark *" name="landmark" required
+                            value="<?php echo isset($data["landmark"]) ? $data["landmark"] : '' ?>" />
+                    </div>
+                    <div class="field">
+                        <div class="label">Pincode</div>
+                        <input type="number" placeholder="Pincode *" id="pincode" name="pincode" required
+                            value="<?php echo isset($data["pincode"]) ? $data["pincode"] : '' ?>" />
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="field">
-                    <div class="label">Blood Bank Name</div>
-                    <input type="text" placeholder="Blood Bank Name *" name="bloodBankName" required value="<?php echo isset($data["name"]) ? $data["name"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Parent Hospital Name</div>
-                    <input type="text" placeholder="Parent Hospital Name" name="hospitalName" value="<?php echo isset($data["hospitalName"]) ? $data["hospitalName"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Select Category</div>
-                    <select name="category" id="category" required>
-                        <option value="" disabled selected>Select type *</option>
-                        <option value="Govt." <?php echo (isset($data["category"]) && $data["category"] == "Govt.") ? 'selected' : '' ?>>Govt.</option>
-                        <option value="Private" <?php echo (isset($data["category"]) && $data["category"] == "Private") ? 'selected' : '' ?>>Private</option>
-                        <option value="Charitable/Vol" <?php echo (isset($data["category"]) && $data["category"] == "Charitable/Vol") ? 'selected' : '' ?>>Charitable/Vol</option>
-                        <option value="Red Cross" <?php echo (isset($data["category"]) && $data["category"] == "Red Cross") ? 'selected' : '' ?>>Red Cross</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="field">
-                    <div class="label">Contact Number</div>
-                    <input type="tel" placeholder="Contact Number *" name="contact" required value="<?php echo isset($data["contact"]) ? $data["contact"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Fax No.</div>
-                    <input type="text" placeholder="Fax no." name="faxNo" value="<?php echo isset($data["faxNo"]) ? $data["faxNo"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Licence No.</div>
-                    <input type="text" placeholder="Licence No. *" name="licenceNo" required value="<?php echo isset($data["licenceNo"]) ? $data["licenceNo"] : '' ?>" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="field">
-                    <div class="label">Helpline Number</div>
-                    <input type="tel" placeholder="Helpline Number *" name="helplineNo" required value="<?php echo isset($data["helplineNo"]) ? $data["helplineNo"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Hospital Website</div>
-                    <input type="url" placeholder="Hospital Website" name="website" value="<?php echo isset($data["website"]) ? $data["website"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Number of Beds</div>
-                    <input type="number" placeholder="Number of Beds *" name="beds" required value="<?php echo isset($data["beds"]) ? $data["beds"] : '' ?>" />
-                </div>
-            </div>
-            <br><br>
-            <div class="header">Address Details</div>
-            <div class="row">
-                <div class="field">
-                    <div class="label">State</div>
-                    <input type="text" placeholder="State *" name="state" required value="<?php echo isset($data["state"]) ? $data["state"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">District</div>
-                    <input type="text" placeholder="District *" name="district" value="<?php echo isset($data["district"]) ? $data["district"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">City</div>
-                    <input type="text" placeholder="City / Village *" name="city" value="<?php echo isset($data["city"]) ? $data["city"] : '' ?>" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="field">
-                    <div class="label">Landmark</div>
-                    <input type="text" placeholder="Landmark *" name="landmark" required value="<?php echo isset($data["landmark"]) ? $data["landmark"] : '' ?>" />
-                </div>
-                <div class="field">
-                    <div class="label">Pincode</div>
-                    <input type="number" placeholder="Pincode *" id="pincode" name="pincode" required value="<?php echo isset($data["pincode"]) ? $data["pincode"] : '' ?>" />
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="sub-btn" value="hospital-details-submit" onclick="validateForm(event)">Submit</button>
-    </form>
-</div>
+            <button type="submit" class="sub-btn" value="hospital-details-submit"
+                onclick="validateForm(event)">Submit</button>
+        </form>
+    </div>
 
     </div>
 

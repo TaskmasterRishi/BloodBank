@@ -39,14 +39,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             pincode = '$pincode'
             WHERE email = '$email'"; // assuming id 1 for the hospital, adjust it accordingly
 
-    if ($con->query($sql) === TRUE) {
-        // Display alert message and redirect
-        echo "<script>alert('Record updated successfully'); window.location.href = '../hospitalProfile2.php';</script>";
+    if (mysqli_query($con, $sql)) {
+        echo "<script>alert('Registered Successfully');</script>";
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $_SESSION['message'] = "Update successful";
+            header("Location: {$_SERVER['HTTP_REFERER']}");
+        } else {
+            $_SESSION['error'] = "Update unsuccessful";
+            header("Location: {$_SERVER['HTTP_REFERER']}"); // Redirect to a default page if HTTP_REFERER is not set
+        }
+        exit();
     } else {
-        echo "<script>alert('Error'); window.location.href = '../hospitalProfile2.php';</script>";
+        echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
+        header("Location: ../index.php");
+        exit();
     }
-
-    // Close the database connection
-    $conn->close();
+} else {
+    echo "<script>alert('Registration Unsuccessful');</script>";
+    header("Location: ../index.php");
+    exit();
 }
 ?>
