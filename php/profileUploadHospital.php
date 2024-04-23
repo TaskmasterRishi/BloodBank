@@ -9,6 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
     $fileType = $_FILES['profile']['type'];
     $id = $_SESSION["hospital_id"];
 
+    // First, delete the existing photo if it exists
+    $sql_select = "SELECT imagename FROM hospitallogin WHERE ID = $id";
+    $result_select = mysqli_query($con, $sql_select);
+    if ($result_select) {
+        $row = mysqli_fetch_assoc($result_select);
+        $oldFileName = $row['imagename'];
+        if ($oldFileName) {
+            $oldFilePath = dirname(__DIR__) . "/profilePhotosHospital/" . $oldFileName;
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath);
+            }
+        }
+    }
+
     if ($fileError === UPLOAD_ERR_OK) {
         $fileExt = strtolower(pathinfo($_FILES['profile']['name'], PATHINFO_EXTENSION));
         $allowed = array('jpeg', 'jpg', 'png');
@@ -49,13 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
         $_SESSION['error'] = "Error occurred during file upload.";
     }
 
-    // Redirect to the donor profile page
+    // Redirect to the hospital profile page
     header("Location: ../hospitalProfile2.php");
     exit();
 } else {
     // Set error message
     $_SESSION['error'] = "No file selected.";
-    // Redirect to the donor profile page
+    // Redirect to the hospital profile page
     header("Location: ../hospitalProfile2.php");
     exit();
 }

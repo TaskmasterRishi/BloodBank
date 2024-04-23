@@ -140,7 +140,7 @@ if ($result && mysqli_num_rows($result) > 0) {
           <li>Edit</li>
         </a>
         <a href="#" class="camp_button" onclick="toggleCamps(event)">
-          <li>My camps</li>
+          <li>My Registered camps</li>
         </a>
         <div class="buttons">
           <a href="#" onclick="return showalert()">

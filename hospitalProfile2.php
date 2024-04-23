@@ -72,7 +72,7 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
                     <li>Edit</li>
                 </a>
                 <a href="#">
-                    <li>My camps</li>
+                    <li>Add camps</li>
                 </a>
                 <div class="buttons">
                     <a href="#" onclick="return showalert()">

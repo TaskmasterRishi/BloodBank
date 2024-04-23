@@ -9,6 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['profile'])) {
     $fileType = $_FILES['profile']['type'];
     $id = $_SESSION["user_id"];
 
+    // First, delete the existing photo if it exists
+    $sql_select = "SELECT imagename FROM donorlogin WHERE ID = $id";
+    $result_select = mysqli_query($con, $sql_select);
+    if ($result_select) {
+        $row = mysqli_fetch_assoc($result_select);
+        $oldFileName = $row['imagename'];
+        if ($oldFileName) {
+            $oldFilePath = dirname(__DIR__) . "/profilePhotos/" . $oldFileName;
+            if (file_exists($oldFilePath)) {
+                unlink($oldFilePath);
+            }
+        }
+    }
+
     if ($fileError === UPLOAD_ERR_OK) {
         $fileExt = strtolower(pathinfo($_FILES['profile']['name'], PATHINFO_EXTENSION));
         $allowed = array('jpeg', 'jpg', 'png');
