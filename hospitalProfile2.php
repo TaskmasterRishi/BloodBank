@@ -92,6 +92,7 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
             <?php
             if (isset($_SESSION['error'])) {
                 echo $_SESSION['error'];
+                unset($_SESSION['error']);
             } else {
                 echo "ERROR";
             }
@@ -106,6 +107,7 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
             <?php
             if (isset($_SESSION['message'])) {
                 echo $_SESSION['message'];
+                unset($_SESSION['message']);
             } else {
                 echo "MESSAGE";
             }
