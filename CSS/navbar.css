@@ -240,6 +240,10 @@ a {
     overflow: hidden;
   }
 
+  .donor{
+    display: none;
+  }
+
   .slider {
     top: 5.9rem;
     width: 100%;

@@ -29,11 +29,36 @@ if($result=mysqli_query($con,$select)){
     }
 }
  
+$select1 = "SELECT 
+                donordetail.name as n,
+                donordetail.weight as w,
+                donordetail.height as h,
+                donordetail.contact as c,
+                donordetail.gender as g,
+                donordetail.dob as d,
+                donordetail.bloodGroup as bg,
+                donordetail.state as ds,
+                donordetail.district as dd,
+                donordetail.city as dc,
+                donordetail.landmark as dl,
+                campdetail.name as cn,
+                campdetail.address as ca,
+                campdetail.state as cs,
+                campdetail.district as cd,
+                campdetail.date as date,
+                campdetail.time1 as t1,
+                campdetail.time2 as t2,
+                campdetail.contact as cc,
+                campdetail.organizedBy as cob
+            FROM campdetail 
+            INNER JOIN (donordetail 
+                INNER JOIN camp ON donordetail.id = camp.donorid 
+                    AND camp.donorid = $id 
+                    AND camp.campid = $campid 
+                    AND donordetail.id = $id) 
+                ON camp.campid = campdetail.id 
+            WHERE campdetail.id = $campid";
 
-$select1="SELECT donordetail.name as n,donordetail.weight as w,donordetail.height as h,donordetail.contact as c,donordetail.gender as g,donordetail.dob as d,donordetail.bloodGroup as bg,donordetail.address as a,
-campdetail.name as cn,campdetail.address as ca,campdetail.state as cs,campdetail.district as cd,campdetail.date as date,campdetail.time1 as t1,campdetail.time2 as t2,campdetail.contact as cc,campdetail.organizedBy as cob
- FROM campdetail INNER JOIN (donordetail INNER JOIN camp ON donordetail.id=camp.donorid AND camp.donorid=$id AND camp.campid=$campid AND donordetail.id=$id )
- ON camp.campid=campdetail.id AND campdetail.id=$campid";
 
 $result1=mysqli_query($con,$select1);
 if(mysqli_num_rows($result1)==1){}
@@ -54,7 +79,7 @@ $contact=$row["c"];
 $gender=$row["g"];
 $dob=$row["d"];
 $bloodgroup=$row["bg"];
-$address=$row["a"];
+$address=$row["dl"].", ".$row["dc"].", ".$row["dd"].", ".$row["ds"];
 
 if(file_exists("profilePhotos/$id.jpg")){$path="profilePhotos/$id.jpg";}
 else if(file_exists("profilePhotos/$id.jpeg")){$path="profilePhotos/$id.jpeg";}

@@ -109,7 +109,7 @@
                     echo '
                     <a href="donorProfile.php" class="p_link">
                         <div class="profile" style="'.$path.'"></div>
-                        <span style="color:white;">Donor Profile</span>
+                         <span class="donor" style="color:white;">Donor Profile</span>
                      </a>';
 
 

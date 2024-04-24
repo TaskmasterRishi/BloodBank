@@ -1,10 +1,11 @@
 <?php
 
 session_start();
-require 'connection.php';
-if (isset($_POST["donor_register"])) {
-    require_once ("connection.php");
+require_once 'connection.php';
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Check if all POST variables are set
     foreach ($_POST as $key => $value) {
         if (!isset($_POST[$key])) {
             header("location: ../donateBlood.php?");
@@ -12,24 +13,24 @@ if (isset($_POST["donor_register"])) {
         }
     }
 
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $email = $_SESSION["user_email"];
-    $mobile = $_POST["phone"];
-    $gender = $_POST["gender"];
-    $height = $_POST["height"];
-    $weight = $_POST["weight"];
-    $bloodgroup = $_POST["bloodgroup"];
-    $state = $_POST["state"];
-    $city = $_POST["city"];
-    $district = $_POST["district"];
-    $landmark = $_POST["landmark"];
-    $pincode = $_POST["pincode"];
-
+    // Retrieve form data
+    $fullName = $_POST['fullName'];
+    $contactNumber = $_POST['contactNumber'];
+    $gender = $_POST['gender'];
+    $dob = $_POST['dob'];
+    $bloodGroup = $_POST['bloodGroup'];
+    $height = $_POST['height'];
+    $weight = $_POST['weight'];
+    $state = $_POST['state'];
+    $district = $_POST['district'];
+    $city = $_POST['city'];
+    $landmark = $_POST['landmark'];
+    $pincode = $_POST['pincode'];
+    $email = $_SESSION["user_email"]; // Assuming this is where you store the user's email
 
     // Check if age is below 18
     $dob = date_create($_POST["dob"]);
-    $currentDate = date_create(); // current date
+    $currentDate = new DateTime(); // current date
 
     $diff = date_diff($dob, $currentDate);
     $ageInDays = $diff->format("%R%a");
@@ -39,80 +40,65 @@ if (isset($_POST["donor_register"])) {
         header("location: ../donateBlood.php?error=Only above 18 are allowed to donate");
         die();
     }
+
     $dob = $dob->format('Y-m-d');
 
-    if (strlen($mobile) != 10) {
-        header("location: ../donateBlood.php?error=Mobile number should a 10 digit number");
-        die();
-    }
-
-    if (strlen($pincode) != 6) {
-        header("location: ../donateBlood.php?error=Pincode should be a 6 digit number");
-        die();
-    }
-
-    $address = $landmark . ", " . $city . ", " . $district . ", " . $state;
-    $name = $fname . " " . $lname;
-
-    
-
     // Fetch the donor's ID based on their email address
-    $idQuery = "SELECT id FROM donordetail WHERE email = '$email'";
-    $idResult = mysqli_query($con, $idQuery);
-    if ($idResult && mysqli_num_rows($idResult) > 0) {
-        $row = mysqli_fetch_assoc($idResult);
+    $idQuery = "SELECT id FROM donordetail WHERE email = ?";
+    $stmt = $con->prepare($idQuery);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $idResult = $stmt->get_result();
+
+    if ($idResult && $idResult->num_rows > 0) {
+        $row = $idResult->fetch_assoc();
         $id = $row['id'];
     } else {
-        // Handle the case where the donor's ID is not found
-        // You may redirect the user to an error page or perform other actions
         echo "Donor ID not found";
         exit(); // Stop script execution
     }
 
-    $checkregistered="SELECT * FROM camp WHERE donorid=$id AND campid=".$_SESSION["camp_id"];
-    $checkregisteredresult=mysqli_query($con,$checkregistered);
+    $checkRegisteredQuery = "SELECT * FROM camp WHERE donorid=? AND campid=?";
+    $stmt = $con->prepare($checkRegisteredQuery);
+    $stmt->bind_param("ii", $id, $_SESSION["camp_id"]);
+    $stmt->execute();
+    $checkRegisteredResult = $stmt->get_result();
 
-    if(mysqli_num_rows($checkregisteredresult)>0){
-
-        header("location: ../donateBlood.php?error=Already registered at this camp");die();
-    }
-    else{
-
-        // echo "didnt work";die();
-    }
-
-    // Insert the new donor record
-    $donorDetailUpdate = "UPDATE donordetail SET 
-    name = '$name',
-    email = '$email',
-    contact = '$mobile',
-    gender = '$gender',
-    dob = '$dob',
-    bloodGroup = '$bloodgroup',
-    height = '$height',
-    weight = '$weight',
-    address = '$address',
-    pincode = '$pincode'
-  WHERE id = '$id'";
-    if (mysqli_query($con, $donorDetailUpdate)) {
-
-        $campid=$_SESSION["camp_id"];
-        $insert="INSERT INTO camp (`donorid`,`campid`,`present`) VALUES ($id,$campid,'no')";
-
-        if(mysqli_query($con,$insert)){
-            // if(true){
-      
-      header("location: ../admit_card.php");
+    if ($checkRegisteredResult->num_rows > 0) {
+        header("location: ../donateBlood.php?error=Already registered at this camp");
         die();
-    
-    }
-    else{
-
-        echo "Updated donordetails but camp insertion failed";
     }
 
+    // Update donor details
+    $donorDetailUpdate = "UPDATE donordetail SET 
+        name = ?,
+        contact = ?,
+        gender = ?,
+        dob = ?,
+        bloodGroup = ?,
+        height = ?,
+        weight = ?,
+        state = ?,
+        district = ?,
+        city = ?,
+        landmark = ?,
+        pincode = ?
+        WHERE id = ?";
+    $stmt = $con->prepare($donorDetailUpdate);
+    $stmt->bind_param("ssssssssssssi", $fullName, $contactNumber, $gender, $dob, $bloodGroup, $height, $weight, $state, $district, $city, $landmark, $pincode, $id);
+    if ($stmt->execute()) {
+        $campid = $_SESSION["camp_id"];
+        $insert = "INSERT INTO camp (`donorid`,`campid`,`present`) VALUES (?, ?, 'no')";
+        $stmt = $con->prepare($insert);
+        $stmt->bind_param("ii", $id, $campid);
+        if ($stmt->execute()) {
+            header("location: ../admit_card.php");
+            die();
+        } else {
+            echo "Updated donor details but camp insertion failed";
+        }
     } else {
-        echo "something is wrong. Please try again";
+        echo "Something is wrong. Please try again";
     }
 } else {
     echo "<script>alert('Registered wan Unsuccessfully');</script>";
