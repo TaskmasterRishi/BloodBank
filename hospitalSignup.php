@@ -1,68 +1,60 @@
-
+<?php
+session_start();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Your Blood Bank</title>
-    <link rel="stylesheet" href="CSS/hospitalSignUp.css"><style>.custom_validate{
-
-color: red;
-font-size: 12px;
-width: auto;
-height: 12px;
-text-align:center;
-
-}</style>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign up Form</title>
+  <link rel="stylesheet" href="CSS/donorLogin.css">
 </head>
 
 <body>
-    <div class="main">
-        <form action="php/admin.php" method="post">
-            <div class="card">
-                <h1>Blood Bank Details</h1>
+  <div class="main">
+    <div class="card">
+      <div class="header">Log in Form</div>
+      <hr>
+      <br>
+      <div class="text">"Log in to Red Bank Blood Bank to access your account and donate blood."</div>
+      <form action="php/hospital_signup.php" class="login" method="post" onsubmit="return validateForm()"   >
+        <div class="field">
+          <input type="text" placeholder="Email Address" name="email" required />
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Password" name="password" required />
+        </div>
+        <div class="field">
+          <input type="password" placeholder="Confirm Password" name="cpass" required />
+        </div>
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="Hospital-Login" name="hospital-login-submit" />
+        </div>
+      
+      </form>
 
-                <div class=inputs>
-                <div class="inputField">
-                        <p><label for="address2">Name</label></p>
-                        <input type="text" name="name" id="address2" cols="30" rows="2"></input>
-                    </div>
-                    <div class="inputField">
-                        <p><label for="address2">Email</label></p>
-                        <input type="text" name="email" id="address2" cols="30" rows="2"></input>
-                    </div>
-                    <div class="inputField">
-                        <p><label for="state">State</label></p>
-                       <input type="text" name="state">
-                    </div>
-                    <div class="inputField">
-                        <p><label for="district">District</label></p>
-                        <input type="text" name="district">
-                    </div>
-                    
-                </div>
-                <div class="address">
-                <div class="inputField">
-                    <p><label for="address2">Password</label></p>
-                    <input type="text" name="pass" id="address2" cols="30" rows="2"></input>
-                </div>
-                <div class="inputField">
-                    <p><label for="address2">confirm Password</label></p>
-                    <input type="text" name="cpass" id="address2" cols="30" rows="2"></input>
-                </div>
-                    <div class="inputField">
-                        <p><label for="address1">Address</label></p>
-                        <textarea type="text" name="address" id="address1" cols="30" rows="2"></textarea>
-                    </div>
-                </div>
-                    
-                <input type="submit" id="button" name="admin-submit" value="register">
-                <div class="custom_validate"><?php if(isset($_GET["error"])){ echo $_GET["error"];}?></div>
-            </div>
-        </form>
+      <div class="custom_validate"><?php if (isset($_GET["error"])) {
+        echo $_GET["error"];
+      } ?></div>
     </div>
+  </div>
+  </div>
 </body>
+<script>
+     function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
 
+        if (password != confirm_password) {
+            document.getElementById("password_error").innerHTML = "Passwords do not match";
+            return false;
+        } else {
+            document.getElementById("password_error").innerHTML = "";
+            return true;
+        }
+    }
+</script>
 </html>

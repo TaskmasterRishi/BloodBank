@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_POST["hospital-signin-submit"])) {
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check if any required field is empty
     if (empty($_POST["email"]) || empty($_POST["password"]) || empty($_POST["cpass"])) {
         header("location: ../hospitalSignup.php?error=*Enter correct email, password, and username");

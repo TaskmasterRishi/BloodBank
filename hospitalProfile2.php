@@ -121,7 +121,7 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
             <div class="photo" style="background-image: url('<?php if (isset($data2["imagename"])) {
                 echo 'profilePhotosHospital/' . $data2["imagename"];
             } else {
-                echo 'Image/empty_profile.jpg';
+                echo 'profilePhotosHospital/bloodbank.png';
             }
             ?>')">
                 <form id="uploadForm" action="php/profileUploadHospital.php" method="post"

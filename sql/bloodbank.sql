@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 09:46 PM
+-- Generation Time: Apr 24, 2024 at 10:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,9 +51,9 @@ CREATE TABLE `bloodcenterdetail` (
 --
 
 INSERT INTO `bloodcenterdetail` (`id`, `email`, `name`, `hospitalName`, `category`, `contact`, `faxNo`, `licenceNo`, `helplineNo`, `website`, `beds`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
-(1, 'hospital1@gmail.com', 'Hot guy', 'Mega Red', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393171', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
+(1, 'hospital1@gmail.com', 'Red Bank', 'Mega Red', 'Private', '8980402011', 'Af0-85642', 'Haf-0984516', '9925393170', 'http://my-home-page.com', 95, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
 (2, 'hospital2@gmail.com', 'blood bank', 'Mega Red 2', 'Private', '8980402010', 'Af0-85642', 'Haf-0984516', '9925393173', 'http://my-home-page.com', 105, 'Gujrat', 'Rajkot', 'Gondal ', 'Voluptas exercitatio', 360311),
-(4, 'xutukuzu@mailinator.com', 'Lyle Wilson', 'Elaine Riley', 'Charitable/Vol', '9510469749', '+1 (981) 632-7434', 'Quia quis similique ', '9925393173', 'https://www.sohusekydunirap.biz', 42, 'Sequi magnam dolorem', 'Dolor iusto adipisci', 'Ea ipsum architecto ', 'Qui magni aliquip co', 360311);
+(4, 'hospital4@gmail.com', 'hospital4', 'Red Bank', 'Govt.', '9856321470', 'asd-asdfgsgd', 'FDS-145221', '8965230147', 'www.hospital4.com', 104, 'Delhi', 'Agra', 'Hawda', 'Se. 4 near A M modi School', 121345);
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,9 @@ CREATE TABLE `camp` (
 INSERT INTO `camp` (`id`, `donorid`, `campid`, `present`) VALUES
 (1, 1, 10, 'no'),
 (14, 4, 10, 'no'),
-(15, 4, 18, 'no');
+(15, 4, 18, 'no'),
+(16, 1, 18, 'no'),
+(17, 1, 20, 'no');
 
 -- --------------------------------------------------------
 
@@ -128,7 +130,8 @@ CREATE TABLE `campdetail` (
 INSERT INTO `campdetail` (`id`, `date`, `name`, `address`, `state`, `district`, `contact`, `organizedBy`, `time1`, `time2`) VALUES
 (10, '2024-04-08', 'blood center', 'RC Dutt Rd, Near to Indian Oil Petrol pump, Aradhana Society, Vishwas Colony, Alkapuri, Vadodara, Gujarat 390007', 'gujarat', 'vadodara', '9999999999', 'hospital', '07:00:00.000000', '22:30:00.000000'),
 (18, '2024-04-26', 'camp blood', 'envnee\r\nevvewrvwrvwv\r\neverv,32323', 'state', 'district', '1234567890', 'hospital', '08:00:00.000000', '21:00:00.000000'),
-(20, '2024-04-24', 'dummy', 'dummy address', 'dummy', 'dummy', '0987654321', 'Blood Bank', '22:26:00.000000', '23:26:00.000000');
+(20, '2024-04-24', 'dummy', 'dummy address', 'dummy', 'dummy', '0987654321', 'Blood Bank', '22:26:00.000000', '23:26:00.000000'),
+(31, '2024-04-27', 'Mega Red', 'asd asd asd ad a', 'Gujarat', 'Rajkot', '8980402010', 'Hot guy', '13:59:00.000000', '12:59:00.000000');
 
 -- --------------------------------------------------------
 
@@ -160,8 +163,10 @@ CREATE TABLE `donordetail` (
 INSERT INTO `donordetail` (`id`, `name`, `email`, `contact`, `gender`, `dob`, `bloodGroup`, `height`, `weight`, `state`, `district`, `city`, `landmark`, `pincode`) VALUES
 (1, 'Rishi Patodiya', 'rishipatodiya12@gmail.com', '8980402010', 'male', '2004-09-18', 'B+', 185, 85, 'Gujarat', 'Rajkot', 'Gondal', 'A-10 Decora City', 360311),
 (2, 'Devansh Kansagra', 'dkansagra04@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, NULL, NULL, NULL, NULL, 123456),
-(5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(4, 'Shlok Goswami', 'shlok.goswami2002@gmail.com', '7016562277', 'male', '2004-07-06', 'O+', 170, 73, 'Gujarat', 'Vadodara', 'vadodara', 'opp. Tejas School', 123456),
+(5, 'RishiPatodiya', 'patoliyarishi@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'Rishi Patodiya', 'rishipatodiya123@gmail.com', '8980402010', 'male', '2004-09-18', 'A+', 185, 85, 'Maharastra', 'Mumbai', 'Lokhandwala', 'st. 2 west cost', 120521),
+(7, 'Shlok', 'shloak@gmail.com', '9856321470', 'male', '2003-06-03', 'AB+', 120, 70, 'Delhi', 'Noida', 'Noida', 'Sector 1 nr Hawda Bridge', 111111);
 
 -- --------------------------------------------------------
 
@@ -181,10 +186,12 @@ CREATE TABLE `donorlogin` (
 --
 
 INSERT INTO `donorlogin` (`ID`, `userEmail`, `password`, `imagename`) VALUES
-(1, 'rishipatodiya12@gmail.com', '$2y$10$6cK.D2izDj9zDSuIZgTXSOkQDdTFfT73pCTqqojSPJGFB/TVcFH6.', '1.jpeg'),
+(1, 'rishipatodiya12@gmail.com', '$2y$10$V8HsuXsZvnCULj5ML6v0F.3kboEDFRdj8j4KA5eA7NrnipTN5uBAS', '1.jpg'),
 (2, 'dkansagra04@gmail.com', '$2y$10$HpkDg2KnGMYIpvBvBnD6/OPYBNc7ZDfjgc81LzlO4QROu.8z60oO2', '2.jpg'),
 (4, 'shlok.goswami2002@gmail.com', '$2y$10$vVhvOjaVqLPxAUDREg3LOOqfJQdMLU4RVDWfIr5RFObd6bVrbQKwK', '4.png'),
-(5, 'patoliyarishi@gmail.com', '$2y$10$QXz/SR3toCqn1AD4PfMNve5JATNOLiUBudhTjW.Gms8R6xFru9iOm', NULL);
+(5, 'patoliyarishi@gmail.com', '$2y$10$QXz/SR3toCqn1AD4PfMNve5JATNOLiUBudhTjW.Gms8R6xFru9iOm', NULL),
+(6, 'rishipatodiya123@gmail.com', '$2y$10$5beVPat5LLOWg.IzSsegLOD8EuPH7j1SuJOdGhoMB.RsaOVMbOEZG', NULL),
+(7, 'shloak@gmail.com', '$2y$10$RoaqmYB041VCC5X.nsCxpO7v1Ebz9Psvw6zS6HirmUG37IGXXMLWC', '7.jpeg');
 
 -- --------------------------------------------------------
 
@@ -206,7 +213,8 @@ CREATE TABLE `hospitallogin` (
 INSERT INTO `hospitallogin` (`id`, `pass`, `email`, `imagename`) VALUES
 (1, '$2y$10$UKTyW/XjPiKW7dS0i3uezeu7w0QrQ67Yz5BUOtxGiMqgApnA7VQW2', 'hospital1@gmail.com', '1.jpeg'),
 (2, '$2y$10$0kKvUEJ4J9V6GGaRbq.eb.Xf8Ud.QwrqOZ5Ci934SrwDDRYILe7NW', 'hospital2@gmail.com', NULL),
-(3, '$2y$10$DrKSE9T9auSQSvCQzZg0G.JwEp8bUWFsiDz6nGtjtFB7GHqNf44Em', 'xutukuzu@mailinator.com', NULL);
+(3, '$2y$10$DrKSE9T9auSQSvCQzZg0G.JwEp8bUWFsiDz6nGtjtFB7GHqNf44Em', 'xutukuzu@mailinator.com', NULL),
+(4, '$2y$10$imicmsyXifpA8VSGVRpxHuZ8vAABKyvmfDanCDcd7077uEI/w4q4m', 'hospital4@gmail.com', NULL);
 
 --
 -- Indexes for dumped tables
@@ -274,25 +282,25 @@ ALTER TABLE `blooddetail`
 -- AUTO_INCREMENT for table `camp`
 --
 ALTER TABLE `camp`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `campdetail`
 --
 ALTER TABLE `campdetail`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `donorlogin`
 --
 ALTER TABLE `donorlogin`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `hospitallogin`
 --
 ALTER TABLE `hospitallogin`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
