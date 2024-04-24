@@ -13,10 +13,12 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: rgb(240, 240, 240);
+
 }
 
 body{
-  height: 100vh;
+  height: max-content;
 }
 
 .dummy {
@@ -27,6 +29,12 @@ body{
   width: fit-content;
   box-shadow: 0px 0px 10px -5px #000000;
 }
+
+.foot{
+  position: relative;
+  bottom: 0;
+}
+
 .table {
   border-collapse: collapse;
   font-size: 17px;
@@ -53,14 +61,7 @@ td {
   overflow: hidden;
   padding: 1rem auto 1rem auto;
 }
-.button {
-  all: unset;
-  cursor: pointer;
-  padding: 0.1em 0.4em;
-  color: #c03929;
-  border-radius: 0.35em;
-  font-size: 20px;
-}
+
 .head {
   color: #a94442;
   font-size: 1.5rem;
@@ -82,4 +83,78 @@ td {
 }
 .table1 tr td {
   border: none;
+}
+.con {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 550px;
+  height: 300px;
+  position: relative;
+}
+
+.info {
+  margin-bottom: 1rem;
+}
+
+.info{
+  border-collapse: collapse;
+  border-bottom: 1px solid black;
+}
+
+.info td {
+  font-size: 1.6rem;
+  color: #383838da;
+  padding: 5px 15px;
+  border: 0;
+  text-align: left;
+}
+
+.d {
+  font-size: 1.4rem;
+  color: gray;
+}
+
+.sbt-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #a94442;
+  padding: 5px 10px;
+  border-bottom-left-radius: 150px;
+  height: 12rem;
+  width: 12rem;
+}
+
+.sbt-btn:hover {
+  transition: 0.3s ease;
+  transform: scale(1.05);
+}
+
+.button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  color: white;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  background-color: #a94442;
+  border: none;
+  position: relative;
+  top:10px;
+  right: -10px;
 }
