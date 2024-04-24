@@ -714,6 +714,7 @@ form {
   left: -50%;
   color: black;
 }
+
 @media only screen and (max-width: 768px) {
   #menuToggle {
     left: 15px;

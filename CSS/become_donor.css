@@ -18,7 +18,7 @@ html {
 }
 
 body{
-  height: max-content;
+  min-height: 100vh;
 }
 
 .dummy {
@@ -91,6 +91,7 @@ td {
   justify-content: center;
   gap: 3rem;
   padding: 20px;
+  min-height: 70vh;
 }
 
 .card {
@@ -100,11 +101,12 @@ td {
   justify-content: center;
   background-color: white;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  /* padding: 2rem; */
   border-radius: 15px;
   overflow: hidden;
-  width: 550px;
+  width: 450px;
   height: 300px;
+  padding: 2rem;
   position: relative;
 }
 
@@ -157,4 +159,15 @@ td {
   position: relative;
   top:10px;
   right: -10px;
+}
+
+@media only screen and (max-width: 768px) {
+.head {
+  font-size: 1.2rem;
+}
+
+.info td {
+  font-size: 1.3rem;
+}
+
 }
