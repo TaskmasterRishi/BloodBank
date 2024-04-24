@@ -69,9 +69,9 @@ if ($result2 && mysqli_num_rows($result2) > 0) {
                     <li>Home</li>
                 </a>
                 <a href="#" onclick="toggleEditForm()">
-                    <li>Edit</li>
+                    <li>Edit Profile</li>
                 </a>
-                <a href="#">
+                <a href="hospital_profile.php">
                     <li>Add camps</li>
                 </a>
                 <div class="buttons">

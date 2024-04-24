@@ -19,7 +19,7 @@ position: relative;
 z-index:100;
 color:antiquewhite;
 overflow:visible;
-
+background-color: transparent;
 
 }
 
@@ -60,34 +60,34 @@ overflow:visible;
   width:5px;
   height:5px;
   border-radius:50%;
-  background-color:white;
   display:flex;
   justify-content:center;
   align-items:center;
-  box-shadow:0px 0px 10px 10px white;
+  color: white;
+  font-weight: 900;
 }
 .gb1{
   background-color:red;
   right:0px;
 }
 .gb2{
-  background-color:blue;
+  background-color:#E41E3F;
   right:43px;
 }
 .gb3{
-  background-color:green;
+  background-color:#0B5394;
 right:86px;
 }
 .gb4{
-  background-color:gray;
+  background-color:blue;
   right:129px;
 }
 .gb5{
-  background-color:yellow;
+  background-color:blueviolet;
   right:172px;
 }
 .gb6{
-  background-color:black;
+  background-color:darkblue;
   right:215px;
 }
 .gb7{

@@ -58,7 +58,14 @@ button {
   font-size: 1.2rem;
   border-radius: 15px;
   border: 0px;
-  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+  background: -webkit-linear-gradient(
+    right,
+    #fc0015,
+    #f2001c,
+    #e90021,
+    #e00029,
+    #d2002e
+  );
   box-shadow: 0px 1px 0px rgb(190, 190, 190);
   color: white;
   font-weight: 700;

@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
     if ($stmt->execute()) {
         // Password updated successfully
         // Display alert box
-        echo "<script>alert('Password updated successfully.'); window.location.href='../donor_login.php';</script>";
+        echo "<script>alert('Password updated successfully.'); window.location.href='../donorLogin.php';</script>";
         exit;
     } else {
         // Error updating password

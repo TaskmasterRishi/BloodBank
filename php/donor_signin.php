@@ -56,7 +56,7 @@ if (isset($_POST["donor-signin-submit"])) {
                         $_SESSION["user_email"] = $userMail;
 
                         // Redirect to index.php
-                        echo "<script>alert('Sign in Successfully!'); window.location.href = '../index.php';</script>";
+                        echo "<script>alert('Sign in Successfully!'); window.location.href = '../donorDetails.php';</script>";
                         exit(); // Exit the script
                     } else {
                         header("location: ../donorSignup.php?error=*Something went wrong. Please try again.");

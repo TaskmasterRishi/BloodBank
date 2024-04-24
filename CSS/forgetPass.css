@@ -35,6 +35,7 @@ input {
   border: 1px solid rgb(187, 187, 187);
   border-radius: 15px;
   padding: 1rem 1rem;
+  width: 25rem;
   box-shadow: 0px 1px 2px rgb(190, 190, 190);
   font-size: 1.2rem;
   font-family: poppins;
@@ -58,43 +59,49 @@ button {
   font-size: 1.2rem;
   border-radius: 15px;
   border: 0px;
-  background: -webkit-linear-gradient(left, #003366, #004080, #0059b3, #0073e6);
+  background: -webkit-linear-gradient(
+    right,
+    #fc0015,
+    #f2001c,
+    #e90021,
+    #e00029,
+    #d2002e
+  );
   box-shadow: 0px 1px 0px rgb(190, 190, 190);
   color: white;
   font-weight: 700;
   cursor: pointer;
 }
 
-.custom_validate{
+.custom_validate {
   color: red;
   font-weight: 300;
 }
 
 @media only screen and (max-width: 768px) {
-.card{
+  .card {
     height: 60vh;
     width: 90vw;
-}
+  }
 
-h1{
+  h1 {
     font-size: 1.5rem;
     text-wrap: nowrap;
-}
+  }
 
-p{
+  p {
     font-size: 0.9rem;
     text-wrap: nowrap;
-}
+  }
 
-input{
+  input {
     font-size: 0.9rem;
-}
-.fa-lock {
+  }
+  .fa-lock {
     font-size: 70px;
-}
+  }
 
-button{
+  button {
     font-size: 1rem;
-}
-
+  }
 }

@@ -138,7 +138,7 @@ if ($result && mysqli_num_rows($result) > 0) {
           <li>Home</li>
         </a>
         <a href="#" class="edit_button" onclick="toggleEditForm(event)">
-          <li>Edit</li>
+          <li>Edit Profile</li>
         </a>
         <a href="#" class="camp_button" onclick="toggleCamps(event)">
           <li>My Registered camps</li>
