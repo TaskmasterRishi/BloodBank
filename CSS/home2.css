@@ -205,3 +205,19 @@ table th {
     opacity: 1;
     transform: translateY(0);
   }
+  .graphcontainer{
+
+    height: 300px;
+    width:300px;
+    background-color: rgb(255, 0, 0);
+    position: relative;
+    z-index:100;
+    color:antiquewhite
+    
+  }
+  .graph{
+
+    height: 100%;
+    width: 100%;
+    color: black;
+  }
