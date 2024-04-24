@@ -77,6 +77,10 @@
     font-size: 1.2rem;
   }
 
+  .graphcontainer{
+    margin: 2rem 0rem;
+  }
+
   .scroll {
     transform: translateY(0px);
     opacity: 1;

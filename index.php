@@ -204,7 +204,7 @@ right:86px;
       <img src="Image/Donate_blood.jpg" alt="" class="reveal" />
 
 
-      <div class="graphcontainer">
+      <div class="graphcontainer reveal">
         <div class="graphtext">Graph for Available Blood(in ml)</div>
         <div class="graphbar gb1"><span>AB-</span><div></div></div>
         <div class="graphbar gb2"><span>AB+</span><div></div></div>
